@@ -58,9 +58,7 @@ export default function HomePage() {
 
   return (
     <main>
-      <SeoJsonLd
-        data={buildBreadcrumbJsonLd([{ name: "Ana Sayfa", path: "/" }])}
-      />
+      <SeoJsonLd data={buildBreadcrumbJsonLd([{ name: "Ana Sayfa", path: "/" }])} />
       <HeroSection />
 
       <section className="mx-auto max-w-7xl px-6 py-10 md:px-10">
@@ -88,8 +86,8 @@ export default function HomePage() {
             Dağınık medya kayıtları kurumlar için görünmeyen bir iş yüküdür.
           </h2>
           <p className="mt-4 text-lg leading-8 text-slate-200/86">
-            Kurumlar her gün ürettikleri medya içeriğinin değerini kullanmak
-            ister, ancak dosya temelli işleyiş çoğu zaman operasyon yüküne dönüşür.
+            Kurumlar her gün ürettikleri medya içeriğinin değerini kullanmak ister,
+            ancak dosya temelli işleyiş çoğu zaman operasyon yüküne dönüşür.
           </p>
         </Reveal>
         <div className="grid gap-4 md:grid-cols-2">
@@ -137,10 +135,9 @@ export default function HomePage() {
               Saha mobilde başlar, operasyon web panelinde tamamlanır.
             </h2>
             <p className="mt-4 text-lg leading-8 text-slate-700">
-              Saha personeli Android ve iOS uygulamalarından yükleme yapar.
-              Merkez ekip web panelinden işleri takip eder. Yapay zekâ
-              transkript, özet ve altyazı üretir. Editörler düzenler, kurum
-              arşivi yetkili erişimle büyür.
+              Saha personeli Android ve iOS uygulamalarından yükleme yapar. Merkez ekip
+              web panelinden işleri takip eder. Yapay zekâ transkript, özet ve altyazı
+              üretir. Editörler düzenler, kurum arşivi yetkili erişimle büyür.
             </p>
           </Reveal>
           <div className="mt-8 grid gap-4">
@@ -241,8 +238,8 @@ export default function HomePage() {
             Android ve iOS uygulamalarıyla sahadan anında içerik aktarımı.
           </h2>
           <p className="mt-4 text-lg leading-8 text-slate-700">
-            Saha mobilde başlar, operasyon web panelinde tamamlanır. Mobil
-            istemci kurumsal medya işlerinin hızlı başlangıç noktasıdır.
+            Saha mobilde başlar, operasyon web panelinde tamamlanır. Mobil istemci,
+            kurumsal medya işlerinin hızlı başlangıç noktasıdır.
           </p>
         </Reveal>
         <div className="grid gap-4 sm:grid-cols-2">

@@ -1,4 +1,4 @@
-import { Mic, PlaySquare, Smartphone, UploadCloud, View, BellRing } from "lucide-react";
+import { BellRing, Mic, PlaySquare, Smartphone, UploadCloud, View } from "lucide-react";
 
 import { CTASection } from "@/components/site/cta-section";
 import { MobileMockup } from "@/components/site/mobile-mockup";
@@ -8,9 +8,9 @@ import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Mobil Uygulama",
+  title: "Mobil Uygulama | Android ve iOS Medya Yönetimi | Medya Zekâsı",
   description:
-    "Medya Zekâsı Android ve iOS uygulamaları ile sahadan ses, video ve bağlantı yükleme; iş takibi ve transkript görüntüleme süreçlerini yönetin.",
+    "Medya Zekâsı mobil uygulamasıyla saha ekipleri Android ve iOS üzerinden ses, video ve bağlantıları kurumsal medya kuyruğuna aktarabilir, iş durumlarını takip edebilir.",
   path: "/mobil-uygulama",
 });
 

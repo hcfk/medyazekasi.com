@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { buildMetadata } from "@/lib/seo";
 import { mobileReleaseInfo } from "@/lib/mobile-release";
 
-export const metadata: Metadata = {
-  title: "Gizlilik Politikası",
+export const metadata = buildMetadata({
+  title: "Gizlilik Politikası | Medya Zekâsı",
   description:
     "Medya Zekâsı mobil uygulaması ve iletişim kanalları için gizlilik politikası.",
-};
+  path: "/gizlilik-politikasi",
+});
 
 export default function PrivacyPolicyPage() {
   const { developer, appName } = mobileReleaseInfo;
@@ -33,9 +34,8 @@ export default function PrivacyPolicyPage() {
             Gizlilik Politikası
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Bu politika, {appName} mobil uygulaması ve ilgili iletişim
-            kanallarında işlenen temel veriler, kullanım amacı ve iletişim
-            noktalarını açıklar.
+            Bu politika, {appName} mobil uygulaması ve ilgili iletişim kanallarında
+            işlenen temel veriler, kullanım amacı ve iletişim noktalarını açıklar.
           </p>
         </section>
 
@@ -46,11 +46,10 @@ export default function PrivacyPolicyPage() {
                 1. Toplanan veriler
               </h2>
               <p className="mt-3 leading-8">
-                Uygulama, kullanıcının kurumsal hesabıyla giriş yapması,
-                oluşturduğu medya işlerini yüklemesi ve kendi kayıtlarına
-                erişmesi için gerekli sınırlı verileri işler. Buna kullanıcı
-                kimliği, kurum hesabı, yüklenen medya dosyaları, YouTube
-                bağlantıları ve oluşturulan transkript çıktıları dahildir.
+                Uygulama, kullanıcının kurumsal hesabıyla giriş yapması, oluşturduğu medya
+                işlerini yüklemesi ve kendi kayıtlarına erişmesi için gerekli sınırlı
+                verileri işler. Buna kullanıcı kimliği, kurum hesabı, yüklenen medya
+                dosyaları, YouTube bağlantıları ve oluşturulan transkript çıktıları dahildir.
               </p>
             </section>
 
@@ -59,9 +58,9 @@ export default function PrivacyPolicyPage() {
                 2. Verilerin kullanım amacı
               </h2>
               <p className="mt-3 leading-8">
-                Veriler; oturum açma, medya yükleme, iş durumu takibi,
-                transkript gösterimi, teknik destek, hata analizi ve kurumsal
-                operasyon akışının sürdürülmesi amaçlarıyla kullanılır.
+                Veriler; oturum açma, medya yükleme, iş durumu takibi, transkript
+                gösterimi, teknik destek, hata analizi ve kurumsal operasyon akışının
+                sürdürülmesi amaçlarıyla kullanılır.
               </p>
             </section>
 
@@ -78,23 +77,19 @@ export default function PrivacyPolicyPage() {
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                4. İzinler
-              </h2>
+              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">4. İzinler</h2>
               <p className="mt-3 leading-8">
-                Mikrofon, medya arşivi ve paylaşım izinleri yalnızca
-                kullanıcının ses kaydı alıp medya dosyası seçmesi veya başka
-                uygulamalardan içerik aktarması için kullanılır.
+                Mikrofon, medya arşivi ve paylaşım izinleri yalnızca kullanıcının ses kaydı
+                alıp medya dosyası seçmesi veya başka uygulamalardan içerik aktarması için
+                kullanılır.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                5. İletişim
-              </h2>
+              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">5. İletişim</h2>
               <p className="mt-3 leading-8">
-                Gizlilik, destek veya şikayet konuları için geliştirici ile
-                aşağıdaki kanallardan iletişime geçebilirsiniz.
+                Gizlilik, destek veya şikayet konuları için geliştirici ile aşağıdaki
+                kanallardan iletişime geçebilirsiniz.
               </p>
               <div className="mt-4 space-y-2">
                 <p>Geliştirici: {developer.name}</p>

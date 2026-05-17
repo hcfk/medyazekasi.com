@@ -31,7 +31,7 @@ export async function POST(request: Request) {
 
       if (!response.ok) {
         return NextResponse.json(
-          { message: "Webhook servisine iletim basarisiz oldu." },
+          { message: "Webhook servisine iletim başarısız oldu." },
           { status: 502 },
         );
       }
@@ -44,13 +44,13 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { message: "Form verileri gecersiz." },
+        { message: "Form verileri geçersiz." },
         { status: 400 },
       );
     }
 
     return NextResponse.json(
-      { message: "Beklenmeyen bir hata olustu." },
+      { message: "Beklenmeyen bir hata oluştu." },
       { status: 500 },
     );
   }

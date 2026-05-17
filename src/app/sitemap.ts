@@ -1,22 +1,55 @@
 import type { MetadataRoute } from "next";
 
-import { getAllInsights } from "@/lib/content";
-import { pagePaths, siteConfig } from "@/lib/site";
+import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const staticPages = pagePaths.map((path) => ({
-    url: `${siteConfig.url}${path}`,
-    lastModified: new Date(),
-    changeFrequency: path === "/" ? "weekly" : "monthly",
-    priority: path === "/" ? 1 : 0.8,
-  })) satisfies MetadataRoute.Sitemap;
+  const routes: Array<{
+    path: string;
+    changeFrequency: "weekly" | "monthly";
+    priority: number;
+  }> = [
+    { path: "/", changeFrequency: "weekly", priority: 1 },
+    { path: "/platform", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/mobil-uygulama", changeFrequency: "monthly", priority: 0.9 },
+    { path: "/kamu-kurumlari", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/belediyeler", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/basin-yayin", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/ozellikler", changeFrequency: "monthly", priority: 0.8 },
+    { path: "/guvenlik", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/demo", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/iletisim", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/insights", changeFrequency: "weekly", priority: 0.7 },
+    {
+      path: "/insights/belediye-basinyayin-otomasyon",
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      path: "/insights/kamu-kurumsal-hafiza",
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      path: "/insights/toplanti-kaydi-transkripsiyon",
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      path: "/insights/yapay-zeka-ile-ozetleme",
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+    {
+      path: "/insights/kurumsal-medya-arsivi",
+      changeFrequency: "weekly",
+      priority: 0.6,
+    },
+  ];
 
-  const insights = getAllInsights().map((insight) => ({
-    url: `${siteConfig.url}/insights/${insight.slug}`,
+  return routes.map((route) => ({
+    url: route.path === "/" ? siteConfig.url : `${siteConfig.url}${route.path}`,
     lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.72,
-  })) satisfies MetadataRoute.Sitemap;
-
-  return [...staticPages, ...insights];
+    changeFrequency: route.changeFrequency,
+    priority: route.priority,
+  }));
 }

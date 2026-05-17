@@ -6,9 +6,9 @@ import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { securityHighlights } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Güvenlik",
+  title: "Güvenlik ve Veri Kontrolü | Medya Zekâsı",
   description:
-    "Rol bazlı erişim, kullanıcı ve bölüm ayrıştırması, kontrollü arşiv ve kurum politikalarına göre yapılandırılabilir veri yönetimi yaklaşımı.",
+    "Medya Zekâsı rol bazlı erişim, kullanıcı ve birim ayrıştırması, kontrollü arşiv ve kurum politikalarına göre yapılandırılabilir veri yönetimi yaklaşımı sunar.",
   path: "/guvenlik",
 });
 

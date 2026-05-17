@@ -1,77 +1,108 @@
 import Link from "next/link";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
 import { navigation, siteConfig } from "@/lib/site";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-slate-200 bg-slate-950 text-slate-200">
-      <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:px-10 lg:grid-cols-[1.2fr_1fr_1fr]">
-        <div>
-          <div className="flex items-center gap-3">
-            <div className="flex size-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0f4c81,#10bcd4)] font-bold text-white">
-              MZ
+      <div className="mx-auto max-w-7xl px-6 py-14 md:px-10">
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_0.95fr_1fr]">
+          <div className="rounded-[2rem] border border-white/10 bg-white/4 p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
+            <div className="flex items-center gap-3">
+              <div className="flex size-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0f4c81,#10bcd4)] font-bold text-white shadow-[0_16px_35px_rgba(16,188,212,0.20)]">
+                MZ
+              </div>
+              <div>
+                <p className="text-lg font-semibold text-white">{siteConfig.name}</p>
+                <p className="text-sm text-slate-400">
+                  Web ve mobil üzerinden uçtan uca kurumsal medya yönetimi.
+                </p>
+              </div>
             </div>
-            <div>
-              <p className="text-lg font-semibold text-white">{siteConfig.name}</p>
-              <p className="text-sm text-slate-400">
-                Web ve mobil üzerinden uçtan uca kurumsal medya yönetimi.
-              </p>
+            <p className="mt-5 max-w-lg text-sm leading-7 text-slate-400">
+              Kayıtlarınız dosya olarak kalmasın, kurumsal hafızaya dönüşsün.
+              Sahadan yükleyin, merkezden yönetin, yapay zekâ ile işleyin.
+            </p>
+            <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-4 py-2 text-sm text-cyan-100">
+              Kurum içi kontrol hedeflerine uygun yapılandırılabilir
             </div>
           </div>
-          <p className="mt-5 max-w-lg text-sm leading-7 text-slate-400">
-            Kayıtlarınız dosya olarak kalmasın, kurumsal hafızaya dönüşsün.
-            Sahadan yükleyin, merkezden yönetin, yapay zekâ ile işleyin.
-          </p>
-        </div>
 
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
-            Sayfalar
-          </p>
-          <div className="mt-4 flex flex-col gap-3 text-sm">
-            {navigation.map((item) =>
-              item.children ? (
-                item.children.map((child) => (
-                  <Link key={child.href} href={child.href} className="text-slate-300 hover:text-white">
-                    {child.title}
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
+              Sayfalar
+            </p>
+            <div className="mt-4 grid gap-3 text-sm">
+              {navigation.map((item) =>
+                item.children ? (
+                  item.children.map((child) => (
+                    <Link
+                      key={child.href}
+                      href={child.href}
+                      className="inline-flex items-center gap-2 text-slate-300 transition hover:text-white"
+                    >
+                      {child.title}
+                    </Link>
+                  ))
+                ) : (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="inline-flex items-center gap-2 text-slate-300 transition hover:text-white"
+                  >
+                    {item.title}
                   </Link>
-                ))
-              ) : (
-                <Link key={item.href} href={item.href} className="text-slate-300 hover:text-white">
-                  {item.title}
-                </Link>
-              ),
-            )}
+                ),
+              )}
+            </div>
+          </div>
+
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
+              İletişim
+            </p>
+            <div className="mt-4 space-y-4 text-sm text-slate-300">
+              <div className="flex items-start gap-3">
+                <MapPin className="mt-0.5 size-4 text-cyan-300" />
+                <p>{siteConfig.address}</p>
+              </div>
+              <div className="flex items-center gap-3">
+                <Mail className="size-4 text-cyan-300" />
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
+                  {siteConfig.email}
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="size-4 text-cyan-300" />
+                <a href={siteConfig.phoneHref} className="hover:text-white">
+                  {siteConfig.phone}
+                </a>
+              </div>
+              <div className="pt-2">
+                <a
+                  href={siteConfig.developer.website}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-200 transition hover:border-cyan-300/40 hover:text-white"
+                >
+                  Geliştirici: {siteConfig.developer.name}
+                  <ArrowUpRight className="size-4" />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div>
-          <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
-            İletişim
-          </p>
-          <div className="mt-4 space-y-3 text-sm text-slate-300">
-            <p>{siteConfig.address}</p>
-            <p>
-              <a href={`mailto:${siteConfig.email}`} className="hover:text-white">
-                {siteConfig.email}
-              </a>
-            </p>
-            <p>
-              <a href={siteConfig.phoneHref} className="hover:text-white">
-                {siteConfig.phone}
-              </a>
-            </p>
-            <p>
-              Geliştirici:{" "}
-              <a
-                href={siteConfig.developer.website}
-                target="_blank"
-                rel="noreferrer"
-                className="hover:text-white"
-              >
-                {siteConfig.developer.name}
-              </a>
-            </p>
+        <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.</p>
+          <div className="flex flex-wrap gap-4">
+            <Link href="/gizlilik-politikasi" className="hover:text-slate-300">
+              Gizlilik Politikası
+            </Link>
+            <Link href="/magaza-metinleri" className="hover:text-slate-300">
+              Mağaza Metinleri
+            </Link>
           </div>
         </div>
       </div>

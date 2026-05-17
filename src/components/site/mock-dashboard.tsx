@@ -144,7 +144,7 @@ export function MockDashboard() {
                   Arşiv Arama
                 </p>
                 <p className="mt-2 text-sm font-medium text-slate-950">
-                  “Mayıs meclis oturumu ulaşım gündemi”
+                  &quot;Mayıs meclis oturumu ulaşım gündemi&quot;
                 </p>
                 <p className="mt-3 text-sm text-slate-600">
                   Kayıt, transkript ve özet aynı sonuç kümesinde bulunabilir.

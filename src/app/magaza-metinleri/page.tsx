@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { Copy, ExternalLink, FileText } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { buildMetadata } from "@/lib/seo";
 import { mobileReleaseInfo } from "@/lib/mobile-release";
 
-export const metadata: Metadata = {
-  title: "Mağaza Metinleri",
-  description:
-    "App Store ve Google Play yayın sayfaları için hazır Medya Zekâsı metinleri.",
-};
+export const metadata = buildMetadata({
+  title: "Mağaza Metinleri | Medya Zekâsı",
+  description: "App Store ve Google Play yayın sayfaları için hazır Medya Zekâsı metinleri.",
+  path: "/magaza-metinleri",
+});
 
 export default function StoreCopyPage() {
   const { appName, storeCopy } = mobileReleaseInfo;
@@ -35,8 +35,8 @@ export default function StoreCopyPage() {
             {appName} için mağaza metinleri
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Aşağıdaki metinler App Store Connect ve Google Play Console
-            ekranlarına düzenlenmeden yakın biçimde taşınabilir.
+            Aşağıdaki metinler App Store Connect ve Google Play Console ekranlarına
+            düzenlenmeden yakın biçimde taşınabilir.
           </p>
         </section>
 
@@ -69,18 +69,14 @@ export default function StoreCopyPage() {
               <p className="mt-4 text-sm uppercase tracking-[0.24em] text-slate-500">
                 Keywords
               </p>
-              <p className="mt-2 leading-8 text-slate-700">
-                {storeCopy.keywords.join(", ")}
-              </p>
+              <p className="mt-2 leading-8 text-slate-700">{storeCopy.keywords.join(", ")}</p>
             </CardContent>
           </Card>
         </section>
 
         <Card className="rounded-[1.8rem] border-white/60 bg-white/85 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
           <CardContent className="p-8">
-            <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-              Uzun açıklama
-            </h2>
+            <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">Uzun açıklama</h2>
             <div className="mt-5 space-y-4">
               {storeCopy.fullDescription.map((paragraph) => (
                 <p

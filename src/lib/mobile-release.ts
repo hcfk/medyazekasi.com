@@ -23,15 +23,7 @@ export const mobileReleaseInfo = {
     "Kredi bakiyesi ve hesap bilgisi",
     "Tema seçimi ve şifre değiştirme",
   ],
-  screens: [
-    "Login",
-    "Home",
-    "Jobs",
-    "New Job",
-    "Job Detail",
-    "Settings",
-    "Change Password",
-  ],
+  screens: ["Login", "Home", "Jobs", "New Job", "Job Detail", "Settings", "Change Password"],
   permissions: {
     android: [
       "İnternet erişimi",

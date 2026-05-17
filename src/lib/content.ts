@@ -14,6 +14,8 @@ export type InsightMeta = {
   description: string;
   audience: string;
   readingTime: string;
+  datePublished: string;
+  dateModified: string;
 };
 
 type Frontmatter = Omit<InsightMeta, "slug">;
@@ -24,8 +26,10 @@ export function getAllInsights(): InsightMeta[] {
   return files
     .filter((file) => file.endsWith(".mdx"))
     .map((file) => {
-      const source = fs.readFileSync(path.join(contentDirectory, file), "utf8");
+      const filePath = path.join(contentDirectory, file);
+      const source = fs.readFileSync(filePath, "utf8");
       const { data } = matter(source);
+      const stats = fs.statSync(filePath);
 
       return {
         slug: file.replace(/\.mdx$/, ""),
@@ -33,16 +37,23 @@ export function getAllInsights(): InsightMeta[] {
         description: String(data.description),
         audience: String(data.audience),
         readingTime: String(data.readingTime),
+        datePublished:
+          typeof data.datePublished === "string"
+            ? data.datePublished
+            : stats.birthtime.toISOString(),
+        dateModified:
+          typeof data.dateModified === "string"
+            ? data.dateModified
+            : stats.mtime.toISOString(),
       };
     });
 }
 
 export async function getInsightBySlug(slug: string) {
-  const source = fs.readFileSync(
-    path.join(contentDirectory, `${slug}.mdx`),
-    "utf8",
-  );
+  const filePath = path.join(contentDirectory, `${slug}.mdx`);
+  const source = fs.readFileSync(filePath, "utf8");
   const { content, data } = matter(source);
+  const stats = fs.statSync(filePath);
 
   const compiled = await compileMDX<Frontmatter>({
     source: content,
@@ -59,6 +70,14 @@ export async function getInsightBySlug(slug: string) {
       description: String(data.description),
       audience: String(data.audience),
       readingTime: String(data.readingTime),
+      datePublished:
+        typeof data.datePublished === "string"
+          ? data.datePublished
+          : stats.birthtime.toISOString(),
+      dateModified:
+        typeof data.dateModified === "string"
+          ? data.dateModified
+          : stats.mtime.toISOString(),
     },
     content: compiled.content,
   };

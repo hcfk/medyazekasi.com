@@ -5,9 +5,9 @@ import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Kamu Kurumları İçin",
+  title: "Kamu Kurumları İçin Medya Yönetim Platformu | Medya Zekâsı",
   description:
-    "Kamu kurumları için toplantı, eğitim, kurul, saha ve basın kayıtlarını kurumsal hafızaya dönüştüren medya yönetim platformu.",
+    "Kamu kurumları toplantı, kurul, eğitim, basın açıklaması ve saha kayıtlarını Medya Zekâsı ile metne, özete, altyazıya ve kurumsal hafızaya dönüştürebilir.",
   path: "/kamu-kurumlari",
 });
 

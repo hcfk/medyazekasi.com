@@ -8,9 +8,9 @@ import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { contactCards, siteConfig } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "İletişim",
+  title: "İletişim | Medya Zekâsı",
   description:
-    "Demo, ürün bilgilendirmesi ve genel iletişim için Medya Zekâsı iletişim sayfası.",
+    "Medya Zekâsı hakkında bilgi almak, demo talep etmek veya kurumunuza özel kurulum seçeneklerini görüşmek için iletişime geçin.",
   path: "/iletisim",
 });
 

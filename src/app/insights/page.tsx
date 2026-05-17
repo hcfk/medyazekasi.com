@@ -6,9 +6,9 @@ import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { getAllInsights } from "@/lib/content";
 
 export const metadata = buildMetadata({
-  title: "Insights",
+  title: "Insights | Kurumsal Medya Yönetimi Rehberleri | Medya Zekâsı",
   description:
-    "Belediyeler, kamu kurumları, toplantı transkripsiyonu, yapay zekâ ile özetleme ve kurumsal medya arşivi üzerine içerik merkezi.",
+    "Kamu kurumları, belediyeler ve basın-yayın ekipleri için kurumsal medya yönetimi, transkripsiyon, özetleme ve arşivleme rehberleri.",
   path: "/insights",
 });
 

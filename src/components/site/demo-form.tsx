@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
+import { trackEvent } from "@/lib/analytics";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -75,8 +76,10 @@ export function DemoForm() {
     form.reset();
     setStatus("success");
     setMessage(
-      result.message ?? "Talebiniz alındı. Ekibimiz sizinle en kısa sürede iletişime geçecek.",
+      result.message ??
+        "Talebiniz alındı. Ekibimiz sizinle en kısa sürede iletişime geçecek.",
     );
+    trackEvent("demo_request_submit", { form_location: "demo_page" });
   }
 
   return (

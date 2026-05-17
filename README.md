@@ -33,14 +33,19 @@ npm run start
 
 ## Ortam Değişkenleri
 
-Şu anda demo formu placeholder API route kullanır ve zorunlu environment variable yoktur.
-
-İleride e-posta veya CRM entegrasyonu bağlanacaksa örnek yapı:
-
 ```bash
-DEMO_REQUEST_WEBHOOK_URL=
-DEMO_REQUEST_API_KEY=
+NEXT_PUBLIC_SITE_URL=https://medyazekasi.com
+NEXT_PUBLIC_GA_ID=G-WN1L5GERHH
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+DEMO_WEBHOOK_URL=
 ```
+
+Notlar:
+
+- `NEXT_PUBLIC_SITE_URL` canonical URL, Open Graph, sitemap ve robots üretiminde kullanılır.
+- `NEXT_PUBLIC_GA_ID` public GA4 Measurement ID içindir.
+- `NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION` Search Console meta tag doğrulaması için opsiyoneldir.
+- Demo formu için secrets gerekiyorsa yalnızca server-side environment variable kullanılmalıdır.
 
 ## Önemli Rotalar
 
@@ -71,8 +76,46 @@ DEMO_REQUEST_API_KEY=
 Notlar:
 
 - Route sunucu tarafında doğrulama yapar.
-- Secrets kullanılmaz.
+- Google Analytics’e yalnızca generik `demo_request_submit` olayı gönderilir.
+- Kişisel veriler analytics tarafına gönderilmez.
 - E-posta sağlayıcısı veya CRM entegrasyonu için route içinde TODO notu bırakılmıştır.
+
+## Google Tools Setup
+
+### A) Google Analytics 4
+
+- Measurement ID: `G-WN1L5GERHH`
+- Hostinger environment variable:
+
+```bash
+NEXT_PUBLIC_GA_ID=G-WN1L5GERHH
+```
+
+- Deploy sonrası test:
+  `Google Analytics > Reports > Realtime`
+
+### B) Google Search Console
+
+- Önerilen doğrulama yöntemi: Hostinger üzerinde DNS TXT kaydı
+- Alternatif meta tag yöntemi:
+
+```bash
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=
+```
+
+- Doğrulama sonrası sitemap gönderimi:
+  `https://medyazekasi.com/sitemap.xml`
+
+### C) Test URL'leri
+
+- `https://medyazekasi.com/robots.txt`
+- `https://medyazekasi.com/sitemap.xml`
+
+### D) SEO test araçları
+
+- Google Search Console URL Inspection
+- PageSpeed Insights
+- Rich Results Test
 
 ## Hostinger Deployment
 
@@ -83,7 +126,13 @@ Hostinger Next.js hosting ile uyumludur.
 - Install command: `npm install`
 - Build command: `npm run build`
 - Start command: `npm run start`
+- `package.json` start script: `next start -p 3000`
 - Node sürümü: `20+`
+
+Not:
+
+- Hostinger beklentisine göre uygulama `3000` portundan açılır.
+- Next.js production sunucusu Hostinger tarafında `process.env.PORT` veya `3000` ile eşlenir.
 
 GitHub senkron akışı:
 
@@ -91,7 +140,8 @@ GitHub senkron akışı:
 2. Hostinger panelinde GitHub bağlantısını açın.
 3. Bu repo’yu seçin.
 4. Build ve start komutlarını yukarıdaki gibi tanımlayın.
-5. Domain bağlantısını `medyazekasi.com` ve `www.medyazekasi.com` için yönetin.
+5. Environment variable alanına gerekli public değişkenleri ekleyin.
+6. Domain bağlantısını `medyazekasi.com` ve `www.medyazekasi.com` için yönetin.
 
 ## Kontrol
 

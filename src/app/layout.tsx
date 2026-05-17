@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 
+import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
@@ -25,10 +26,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
-    template: "%s | Medya Zekâsı",
-  },
+  title: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
   description: siteConfig.description,
   keywords: [
     "medya yönetim platformu",
@@ -52,14 +50,26 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     locale: "tr_TR",
     type: "website",
+    images: [
+      {
+        url: `${siteConfig.url}${siteConfig.ogImagePath}`,
+        width: 1200,
+        height: 630,
+        alt: "Medya Zekâsı açık grafik görseli",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
     description: siteConfig.description,
+    images: [`${siteConfig.url}${siteConfig.ogImagePath}`],
   },
   alternates: {
-    canonical: "/",
+    canonical: siteConfig.url,
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
   },
 };
 
@@ -74,6 +84,7 @@ export default function RootLayout({
       className={`${manrope.variable} ${ibmPlexMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
+        <GoogleAnalytics />
         <SeoJsonLd
           data={[
             buildOrganizationJsonLd(),

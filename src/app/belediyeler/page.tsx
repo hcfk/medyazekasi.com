@@ -5,9 +5,9 @@ import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Belediyeler İçin",
+  title: "Belediyeler İçin Yapay Zekâ Destekli Medya Yönetimi | Medya Zekâsı",
   description:
-    "Belediyeler için başkanlık, meclis, basın-yayın, canlı yayın ve saha kayıtlarını yöneten yapay zekâ destekli medya yönetim platformu.",
+    "Medya Zekâsı belediyelerin başkan konuşmaları, meclis toplantıları, canlı yayınları, saha kayıtları ve basın süreçlerini web ve mobil üzerinden yönetmesine yardımcı olur.",
   path: "/belediyeler",
 });
 

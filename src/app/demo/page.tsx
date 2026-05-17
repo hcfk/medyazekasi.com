@@ -5,9 +5,9 @@ import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Demo Talep Et",
+  title: "Demo Talep Et | Medya Zekâsı",
   description:
-    "Kurumunuz için web ve mobil medya yönetim akışını değerlendirmek üzere Medya Zekâsı demo talebi oluşturun.",
+    "Kurumunuzun medya, toplantı, yayın ve basın-yayın süreçleri için Medya Zekâsı demosu talep edin.",
   path: "/demo",
 });
 

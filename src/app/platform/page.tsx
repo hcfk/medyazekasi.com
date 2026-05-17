@@ -8,9 +8,9 @@ import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { features, workflowSteps } from "@/lib/site";
 
 export const metadata = buildMetadata({
-  title: "Platform",
+  title: "Platform | Medya Zekâsı",
   description:
-    "Web paneli, mobil uygulamalar, yapay zekâ işleme akışı ve kurumsal arşiv katmanlarıyla Medya Zekâsı platformunu keşfedin.",
+    "Medya Zekâsı platformu medya toplama, kuyruk tabanlı işleme, transkripsiyon, yapay zekâ ile özetleme, altyazı, bildirim ve kurumsal arşiv süreçlerini tek merkezde yönetir.",
   path: "/platform",
 });
 

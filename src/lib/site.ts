@@ -1,6 +1,8 @@
+const defaultSiteUrl = "https://medyazekasi.com";
+
 export const siteConfig = {
   name: "Medya Zekâsı",
-  url: "https://medyazekasi.com",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || defaultSiteUrl).replace(/\/+$/, ""),
   description:
     "Medya Zekâsı; kamu kurumları, belediyeler ve basın-yayın ekipleri için ses, video, toplantı ve saha kayıtlarını metne, özete, altyazıya ve aranabilir kurumsal arşive dönüştüren web ve mobil medya yönetim platformudur.",
   tagline: "Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
@@ -8,6 +10,8 @@ export const siteConfig = {
   phone: "+90 312 440 18 20",
   phoneHref: "tel:+903124401820",
   address: "Mustafa Kemal Mah 2139 Cad IBK Plaza No:2 Çankaya Ankara",
+  logoPath: "/icon.png",
+  ogImagePath: "/og-image.png",
   developer: {
     name: "Gokbilge",
     website: "https://gokbilge.com",

@@ -23,9 +23,7 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({
-  params,
-}: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const insight = getAllInsights().find((item) => item.slug === slug);
 
@@ -34,9 +32,10 @@ export async function generateMetadata({
   }
 
   return buildMetadata({
-    title: insight.title,
+    title: `${insight.title} | Medya Zekâsı`,
     description: insight.description,
     path: `/insights/${slug}`,
+    type: "article",
   });
 }
 
@@ -63,6 +62,8 @@ export default async function InsightPage({ params }: PageProps) {
             title: meta.title,
             description: meta.description,
             path: `/insights/${slug}`,
+            datePublished: meta.datePublished,
+            dateModified: meta.dateModified,
           }),
         ]}
       />

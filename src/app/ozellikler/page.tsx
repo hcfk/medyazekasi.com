@@ -33,9 +33,9 @@ const icons = [
 ];
 
 export const metadata = buildMetadata({
-  title: "Özellikler",
+  title: "Özellikler | Transkripsiyon, Özetleme, Altyazı ve Arşiv | Medya Zekâsı",
   description:
-    "Medya toplama, kuyruk tabanlı işleme, transkripsiyon, özetleme, altyazı, arşiv ve rol bazlı yetkilendirme özelliklerini keşfedin.",
+    "Medya Zekâsı; medya yükleme, kuyruk yönetimi, ses ve video transkripsiyonu, yapay zekâ ile özetleme, altyazı üretimi, bildirimler ve istatistikler sunar.",
   path: "/ozellikler",
 });
 

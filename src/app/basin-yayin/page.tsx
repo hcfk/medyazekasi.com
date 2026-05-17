@@ -5,9 +5,9 @@ import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Basın-Yayın Birimleri İçin",
+  title: "Basın-Yayın Birimleri İçin Medya Otomasyonu | Medya Zekâsı",
   description:
-    "Basın-yayın birimleri için konuşma, açıklama, etkinlik ve canlı yayın kayıtlarını haber, özet ve arşiv içeriğine dönüştüren sistem.",
+    "Basın-yayın ekipleri Medya Zekâsı ile toplantı, röportaj, canlı yayın ve etkinlik kayıtlarını hızlıca yazıya, özete, altyazıya ve yayıma hazır içeriğe dönüştürür.",
   path: "/basin-yayin",
 });
 
