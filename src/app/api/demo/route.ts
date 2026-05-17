@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       message:
-        "Talebiniz alindi. Ekibimiz en kisa surede sizinle iletisime gececek.",
+        "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek.",
     });
   } catch (error) {
     if (error instanceof z.ZodError) {

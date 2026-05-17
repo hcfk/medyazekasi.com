@@ -6,9 +6,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { mobileReleaseInfo } from "@/lib/mobile-release";
 
 export const metadata: Metadata = {
-  title: "Gizlilik Politikasi",
+  title: "Gizlilik Politikası",
   description:
-    "Medya Zekasi mobil uygulamasi ve iletisim kanallari icin gizlilik politikasi.",
+    "Medya Zekâsı mobil uygulaması ve iletişim kanalları için gizlilik politikası.",
 };
 
 export default function PrivacyPolicyPage() {
@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
           href="/"
           className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
         >
-          Ana sayfaya don
+          Ana sayfaya dön
         </Link>
 
         <section className="rounded-[2rem] border border-white/60 bg-white/75 p-8 shadow-[0_25px_70px_rgba(15,23,42,0.08)] backdrop-blur">
@@ -30,12 +30,12 @@ export default function PrivacyPolicyPage() {
             <Badge variant="outline">Mobil uygulama</Badge>
           </div>
           <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            Gizlilik Politikasi
+            Gizlilik Politikası
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Bu politika, {appName} mobil uygulamasi ve ilgili iletisim
-            kanallarinda islenen temel veriler, kullanim amaci ve iletisim
-            noktalarini aciklar.
+            Bu politika, {appName} mobil uygulaması ve ilgili iletişim
+            kanallarında işlenen temel veriler, kullanım amacı ve iletişim
+            noktalarını açıklar.
           </p>
         </section>
 
@@ -46,58 +46,58 @@ export default function PrivacyPolicyPage() {
                 1. Toplanan veriler
               </h2>
               <p className="mt-3 leading-8">
-                Uygulama, kullanicinin kurumsal hesabiyla giris yapmasi,
-                olusturdugu medya islerini yuklemesi ve kendi kayitlarina
-                erismesi icin gerekli sinirli verileri isler. Buna kullanici
-                kimligi, kurum hesabi, yuklenen medya dosyalari, YouTube
-                baglantilari ve olusturulan transkript ciktilari dahildir.
+                Uygulama, kullanıcının kurumsal hesabıyla giriş yapması,
+                oluşturduğu medya işlerini yüklemesi ve kendi kayıtlarına
+                erişmesi için gerekli sınırlı verileri işler. Buna kullanıcı
+                kimliği, kurum hesabı, yüklenen medya dosyaları, YouTube
+                bağlantıları ve oluşturulan transkript çıktıları dahildir.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                2. Verilerin kullanim amaci
+                2. Verilerin kullanım amacı
               </h2>
               <p className="mt-3 leading-8">
-                Veriler; oturum acma, medya yukleme, is durumu takibi,
-                transkript gosterimi, teknik destek, hata analizi ve kurumsal
-                operasyon akisinin surdurulmesi amaclariyla kullanilir.
+                Veriler; oturum açma, medya yükleme, iş durumu takibi,
+                transkript gösterimi, teknik destek, hata analizi ve kurumsal
+                operasyon akışının sürdürülmesi amaçlarıyla kullanılır.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                3. Gizlilik ve guvenlik
+                3. Gizlilik ve güvenlik
               </h2>
               <ul className="mt-3 space-y-3 leading-8">
-                <li>Uygulama icinde reklam takibi bulunmaz.</li>
-                <li>iOS privacy manifest icinde tracking kapali olarak tanimlidir.</li>
-                <li>JWT token guvenli depolama mekanizmasinda saklanir.</li>
-                <li>Mobil istemci yalnizca kullanicinin kendi islerine erisir.</li>
+                <li>Uygulama içinde reklam takibi bulunmaz.</li>
+                <li>iOS privacy manifest içinde tracking kapalı olarak tanımlıdır.</li>
+                <li>JWT token güvenli depolama mekanizmasında saklanır.</li>
+                <li>Mobil istemci yalnızca kullanıcının kendi işlerine erişir.</li>
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                4. Izinler
+                4. İzinler
               </h2>
               <p className="mt-3 leading-8">
-                Mikrofon, medya arsivi ve paylasim izinleri yalnizca
-                kullanicinin ses kaydi alip medya dosyasi secmesi veya baska
-                uygulamalardan icerik aktarmasi icin kullanilir.
+                Mikrofon, medya arşivi ve paylaşım izinleri yalnızca
+                kullanıcının ses kaydı alıp medya dosyası seçmesi veya başka
+                uygulamalardan içerik aktarması için kullanılır.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                5. Iletisim
+                5. İletişim
               </h2>
               <p className="mt-3 leading-8">
-                Gizlilik, destek veya sikayet konulari icin gelistirici ile
-                asagidaki kanallardan iletisime gecebilirsiniz.
+                Gizlilik, destek veya şikayet konuları için geliştirici ile
+                aşağıdaki kanallardan iletişime geçebilirsiniz.
               </p>
               <div className="mt-4 space-y-2">
-                <p>Gelistirici: {developer.name}</p>
+                <p>Geliştirici: {developer.name}</p>
                 <p>
                   E-posta:{" "}
                   <a

@@ -16,7 +16,7 @@ const formSchema = z.object({
   institution: z.string().min(2, "Kurum adi gerekli."),
   email: z.email("Gecerli bir e-posta girin."),
   phone: z.string().min(10, "Telefon numarasi gerekli."),
-  notes: z.string().min(20, "Ihtiyacinizi kisaca anlatin."),
+  notes: z.string().min(20, "İhtiyacınızı kısaca anlatın."),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -103,11 +103,11 @@ export function DemoForm() {
       </div>
 
       <div className="space-y-2">
-        <Label htmlFor="notes">Ihtiyac</Label>
+        <Label htmlFor="notes">İhtiyaç</Label>
         <Textarea
           id="notes"
           rows={6}
-          placeholder="Ornek: Belediye baskani konusmalari, meclis toplantilari ve basin aciklamalari icin kurumsal hafiza akisi istiyoruz."
+          placeholder="Örnek: Belediye başkanı konuşmaları, meclis toplantıları ve basın açıklamaları için kurumsal hafıza akışı istiyoruz."
           {...form.register("notes")}
         />
         <p className="text-sm text-red-600">
@@ -126,7 +126,7 @@ export function DemoForm() {
           ) : (
             <Send />
           )}
-          Demo Talebi Gonder
+          Demo Talebi Gönder
         </Button>
         {message ? (
           <p

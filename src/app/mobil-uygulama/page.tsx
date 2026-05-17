@@ -1,6 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ExternalLink, ShieldCheck, Smartphone, Store, Upload } from "lucide-react";
+import {
+  ExternalLink,
+  ShieldCheck,
+  Smartphone,
+  Store,
+  Upload,
+} from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -9,7 +15,7 @@ import { mobileReleaseInfo } from "@/lib/mobile-release";
 export const metadata: Metadata = {
   title: "Mobil Uygulama",
   description:
-    "iOS ve Android icin Medya Zekasi mobil uygulama yayin ve magaza hazirlik bilgileri.",
+    "iOS ve Android için Medya Zekâsı mobil uygulama yayın ve mağaza hazırlık bilgileri.",
 };
 
 export default function MobileAppPage() {
@@ -22,21 +28,21 @@ export default function MobileAppPage() {
           href="/"
           className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
         >
-          Ana sayfaya don
+          Ana sayfaya dön
         </Link>
 
         <section className="rounded-[2rem] border border-white/60 bg-white/75 p-8 shadow-[0_25px_70px_rgba(15,23,42,0.08)] backdrop-blur">
           <div className="flex flex-wrap gap-3">
             <Badge variant="secondary">iOS</Badge>
             <Badge variant="secondary">Android</Badge>
-            <Badge variant="outline">Store release hazirligi</Badge>
+            <Badge variant="outline">Store release hazırlığı</Badge>
           </div>
           <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            Medya Zekasi mobil uygulamasi icin yayin bilgileri
+            Medya Zekâsı mobil uygulaması için yayın bilgileri
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Bu sayfa App Store ve Google Play yayin sureclerinde gereken temel
-            urun, izin, gizlilik ve iletisim bilgilerini tek yerde toplar.
+            Bu sayfa App Store ve Google Play yayın süreçlerinde gereken temel
+            ürün, izin, gizlilik ve iletişim bilgilerini tek yerde toplar.
           </p>
         </section>
 
@@ -46,21 +52,21 @@ export default function MobileAppPage() {
               icon: Smartphone,
               title: "Uygulama kimlikleri",
               lines: [
-                `Uygulama adi: ${info.appName}`,
+                `Uygulama adı: ${info.appName}`,
                 `Android package: ${info.androidPackage}`,
                 `iOS bundle: ${info.iosBundle}`,
                 `JS component: ${info.componentName}`,
-                `Surum: ${info.version}`,
+                `Sürüm: ${info.version}`,
               ],
             },
             {
               icon: Upload,
-              title: "Yayinlanan temel ozellikler",
+              title: "Yayınlanan temel özellikler",
               lines: info.highlights,
             },
             {
               icon: ShieldCheck,
-              title: "Gizlilik ve guvenlik",
+              title: "Gizlilik ve güvenlik",
               lines: info.privacy,
             },
           ].map((item) => {
@@ -96,18 +102,18 @@ export default function MobileAppPage() {
                 <Store className="size-6" />
               </div>
               <h2 className="mt-5 text-2xl font-semibold text-[var(--brand-ink)]">
-                Magaza ve teknik notlar
+                Mağaza ve teknik notlar
               </h2>
               <p className="mt-4 leading-7 text-slate-700">
-                Mobil istemci mevcut platform hesabiyla giris yapar ve sunucu
-                uzerinde yalnizca kullanicinin kendi islerine erisir.
+                Mobil istemci mevcut platform hesabıyla giriş yapar ve sunucu
+                üzerinde yalnızca kullanıcının kendi işlerine erişir.
               </p>
               <ul className="mt-4 space-y-3 text-slate-700">
-                <li>API tabani: {info.apiBaseUrl}</li>
+                <li>API tabanı: {info.apiBaseUrl}</li>
                 <li>Ekranlar: {info.screens.join(", ")}</li>
-                <li>Android paylasim intent akisi tanimli</li>
+                <li>Android paylaşım intent akışı tanımlı</li>
                 <li>iOS privacy manifest mevcut</li>
-                <li>No-signup model: kurum hesabi ile giris</li>
+                <li>No-signup model: kurum hesabı ile giriş</li>
               </ul>
             </CardContent>
           </Card>
@@ -118,14 +124,14 @@ export default function MobileAppPage() {
                 <ExternalLink className="size-6" />
               </div>
               <h2 className="mt-5 text-2xl font-semibold text-[var(--brand-ink)]">
-                Gelistirici ve iletisim
+                Geliştirici ve iletişim
               </h2>
               <p className="mt-4 leading-7 text-slate-700">
-                Urun gelistirici ve olasi sikayet, iletisim veya kurumsal talep
-                noktasi:
+                Ürün geliştirici ve olası şikayet, iletişim veya kurumsal talep
+                noktası:
               </p>
               <div className="mt-4 space-y-3 text-slate-700">
-                <p>Gelistirici: {info.developer.name}</p>
+                <p>Geliştirici: {info.developer.name}</p>
                 <p>
                   Web:{" "}
                   <a
@@ -193,20 +199,20 @@ export default function MobileAppPage() {
           <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
             <CardContent className="p-7">
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                Yayin baglantilari
+                Yayın bağlantıları
               </h2>
               <div className="mt-4 flex flex-col gap-3 text-slate-700">
                 <Link
                   href="/magaza-metinleri"
                   className="font-medium text-[var(--brand-copper)]"
                 >
-                  Magaza metinlerini ac
+                  Mağaza metinlerini aç
                 </Link>
                 <Link
                   href="/gizlilik-politikasi"
                   className="font-medium text-[var(--brand-copper)]"
                 >
-                  Gizlilik politikasini ac
+                  Gizlilik politikasını aç
                 </Link>
               </div>
             </CardContent>
@@ -215,7 +221,7 @@ export default function MobileAppPage() {
           <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
             <CardContent className="p-7">
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                Magaza kopyasi ozeti
+                Mağaza kopyası özeti
               </h2>
               <p className="mt-4 leading-7 text-slate-700">
                 {info.storeCopy.shortDescription}

@@ -16,23 +16,23 @@ const ibmPlexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://medyazekasi.com"),
   title: {
-    default: "Medya Zekasi",
-    template: "%s | Medya Zekasi",
+    default: "Medya Zekâsı",
+    template: "%s | Medya Zekâsı",
   },
   description:
-    "Toplanti, yayin ve saha kayitlarini metne, ozete ve kurumsal hafizaya donusturen medya yonetim platformu.",
+    "Toplantı, yayın ve saha kayıtlarını metne, özete ve kurumsal hafızaya dönüştüren medya yönetim platformu.",
   keywords: [
-    "Medya Zekasi",
-    "kurumsal hafiza",
+    "Medya Zekâsı",
+    "kurumsal hafıza",
     "transkripsiyon",
-    "belediye yazilimi",
-    "kamu kurumu yazilimi",
-    "medya yonetim platformu",
+    "belediye yazılımı",
+    "kamu kurumu yazılımı",
+    "medya yönetim platformu",
   ],
   openGraph: {
-    title: "Medya Zekasi",
+    title: "Medya Zekâsı",
     description:
-      "Kamu kurumlari ve belediyeler icin medya, transkripsiyon ve kurumsal hafiza platformu.",
+      "Kamu kurumları ve belediyeler için medya, transkripsiyon ve kurumsal hafıza platformu.",
     url: "https://medyazekasi.com",
     siteName: "Medya Zekasi",
     locale: "tr_TR",
@@ -40,9 +40,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medya Zekasi",
+    title: "Medya Zekâsı",
     description:
-      "Kayitlari dosya olmaktan cikarip aranabilir kurumsal bilgiye donusturun.",
+      "Kayıtları dosya olmaktan çıkarıp aranabilir kurumsal bilgiye dönüştürün.",
   },
 };
 

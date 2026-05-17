@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { ArrowRight, AudioLines, Building2, FileText, ShieldCheck, Workflow } from "lucide-react";
+import {
+  ArrowRight,
+  AudioLines,
+  Building2,
+  FileText,
+  ShieldCheck,
+  Workflow,
+} from "lucide-react";
 
 import { DemoForm } from "@/components/site/demo-form";
 import { Reveal } from "@/components/site/reveal";
@@ -13,36 +20,36 @@ import { cn } from "@/lib/utils";
 const capabilities = [
   {
     icon: AudioLines,
-    title: "Kayittan metne hizli gecis",
+    title: "Kayıttan metne hızlı geçiş",
     description:
-      "Toplanti, roportaj, canli yayin ve saha kayitlarini duzenli is akisina alir.",
+      "Toplantı, röportaj, canlı yayın ve saha kayıtlarını düzenli iş akışına alır.",
   },
   {
     icon: FileText,
-    title: "Ozet ve icerik taslagi",
+    title: "Özet ve içerik taslağı",
     description:
-      "Uzun kayitlari basin metni, not ve arsivlenebilir bilgiye donusturur.",
+      "Uzun kayıtları basın metni, not ve arşivlenebilir bilgiye dönüştürür.",
   },
   {
     icon: ShieldCheck,
-    title: "Kurum icinde veri kontrolu",
+    title: "Kurum içinde veri kontrolü",
     description:
-      "Hassas kayitlari kurum denetiminde tutmaya uygun operasyon modeli sunar.",
+      "Hassas kayıtları kurum denetiminde tutmaya uygun operasyon modeli sunar.",
   },
   {
     icon: Workflow,
-    title: "Surec gorunurlugu",
+    title: "Süreç görünürlüğü",
     description:
-      "Hangi dosyanin hangi asamada oldugunu ekip ve yonetim seviyesinde izlenebilir kilar.",
+      "Hangi dosyanın hangi aşamada olduğunu ekip ve yönetim seviyesinde izlenebilir kılar.",
   },
 ];
 
 const sectors = [
   "Belediyeler",
-  "Bakanliklar",
-  "Universiteler",
-  "Basin-Yayin Birimleri",
-  "Ozel Kalem ve Ust Yonetim",
+  "Bakanlıklar",
+  "Üniversiteler",
+  "Basın-Yayın Birimleri",
+  "Özel Kalem ve Üst Yönetim",
   "Saha ve Denetim Ekipleri",
 ];
 
@@ -57,19 +64,19 @@ export default function Home() {
           <Reveal className="space-y-8">
             <div className="space-y-4">
               <Badge className="rounded-full bg-[var(--brand-gold)] px-4 py-1 text-[var(--brand-ink)] hover:bg-[var(--brand-gold)]">
-                Medya Yonetimi + Kurumsal Hafiza
+                Medya Yönetimi + Kurumsal Hafıza
               </Badge>
               <div className="space-y-5">
                 <p className="font-mono text-sm uppercase tracking-[0.3em] text-slate-500">
                   medyazekasi.com
                 </p>
                 <h1 className="max-w-3xl text-5xl font-semibold tracking-[-0.04em] text-[var(--brand-ink)] md:text-7xl">
-                  Kayitlari dosya olmaktan cikarip kurumsal bilgiye donusturun.
+                  Kayıtları dosya olmaktan çıkarıp kurumsal bilgiye dönüştürün.
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-slate-700 md:text-xl">
-                  Medya Zekasi; kamu kurumlari, belediyeler ve basin ekipleri icin
-                  toplanti, yayin ve saha kayitlarini metne, ozete ve yeniden
-                  kullanilabilir icerige ceviren merkezi operasyon katmanidir.
+                  Medya Zekâsı; kamu kurumları, belediyeler ve basın ekipleri için
+                  toplantı, yayın ve saha kayıtlarını metne, özete ve yeniden
+                  kullanılabilir içeriğe çeviren merkezi operasyon katmanıdır.
                 </p>
               </div>
             </div>
@@ -82,7 +89,7 @@ export default function Home() {
                   "h-12 rounded-full bg-[var(--brand-ink)] px-7 text-white hover:bg-[var(--brand-ink)]/92",
                 )}
               >
-                Demo talebi olustur
+                Demo talebi oluştur
                 <ArrowRight />
               </a>
               <a
@@ -92,15 +99,15 @@ export default function Home() {
                   "h-12 rounded-full border-[var(--brand-ink)]/15 bg-white/70 px-7 text-[var(--brand-ink)]",
                 )}
               >
-                Kaynaklari incele
+                Kaynakları incele
               </a>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-3">
               {[
-                ["Transkripsiyon", "Ses ve video akisi"],
-                ["Rol bazli erisim", "Birimlere gore ayrisma"],
-                ["Aranabilir arsiv", "Tek merkezde kurumsal hafiza"],
+                ["Transkripsiyon", "Ses ve video akışı"],
+                ["Rol bazlı erişim", "Birimlere göre ayrışma"],
+                ["Aranabilir arşiv", "Tek merkezde kurumsal hafıza"],
               ].map(([title, description]) => (
                 <div
                   key={title}
@@ -125,22 +132,22 @@ export default function Home() {
                 <div className="flex items-center justify-between rounded-[1.5rem] border border-white/12 bg-white/6 px-5 py-4">
                   <div>
                     <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/65">
-                      Operasyon Akisi
+                      Operasyon Akışı
                     </p>
                     <p className="mt-2 text-2xl font-semibold">
-                      Yayin, toplanti, roportaj
+                      Yayın, toplantı, röportaj
                     </p>
                   </div>
                   <div className="rounded-full bg-white/12 px-4 py-2 text-sm">
-                    Canli + arsiv
+                    Canlı + arşiv
                   </div>
                 </div>
 
                 <div className="mt-6 space-y-4">
                   {[
-                    "Kayit sisteme alinır ve sahipligi tanimlanir",
-                    "Metin, ozet ve cikti akisi otomatik ilerler",
-                    "Basin birimi, yonetim ve ilgili ekipler sonuca erisir",
+                    "Kayıt sisteme alınır ve sahipliği tanımlanır",
+                    "Metin, özet ve çıktı akışı otomatik ilerler",
+                    "Basın birimi, yönetim ve ilgili ekipler sonuca erişir",
                   ].map((item, index) => (
                     <div
                       key={item}
@@ -157,18 +164,18 @@ export default function Home() {
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">
                   <div className="rounded-[1.4rem] bg-white/8 p-5">
                     <p className="font-mono text-xs uppercase tracking-[0.24em] text-white/65">
-                      Kullanici ayrisma
+                      Kullanıcı ayrışma
                     </p>
                     <p className="mt-3 text-lg font-medium">
-                      Basin, ozel kalem, yonetim ve saha ekipleri icin duzenli erisim.
+                      Basın, özel kalem, yönetim ve saha ekipleri için düzenli erişim.
                     </p>
                   </div>
                   <div className="rounded-[1.4rem] bg-[var(--brand-gold)] p-5 text-[var(--brand-ink)]">
                     <p className="font-mono text-xs uppercase tracking-[0.24em]">
-                      Sonuc
+                      Sonuç
                     </p>
                     <p className="mt-3 text-lg font-semibold">
-                      Kurum icin daha hizli icerik, daha temiz arsiv, daha net kontrol.
+                      Kurum için daha hızlı içerik, daha temiz arşiv, daha net kontrol.
                     </p>
                   </div>
                 </div>
@@ -182,7 +189,7 @@ export default function Home() {
         <Reveal>
           <div className="rounded-[2rem] border border-[var(--brand-sand)] bg-white/70 p-6 shadow-[0_20px_60px_rgba(20,33,61,0.06)] backdrop-blur">
             <p className="font-mono text-sm uppercase tracking-[0.28em] text-slate-500">
-              Ideal kullanim alanlari
+              İdeal kullanım alanları
             </p>
             <div className="mt-5 flex flex-wrap gap-3">
               {sectors.map((sector) => (
@@ -205,7 +212,7 @@ export default function Home() {
             Platform kabiliyetleri
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            Medya operasyonunu hizla duzenleyen cekirdek katmanlar.
+            Medya operasyonunu hızla düzenleyen çekirdek katmanlar.
           </h2>
         </Reveal>
 
@@ -237,31 +244,31 @@ export default function Home() {
       <section className="mx-auto grid max-w-7xl gap-6 px-6 py-12 md:px-10 lg:grid-cols-[0.88fr_1.12fr]">
         <Reveal className="rounded-[2rem] border border-[var(--brand-sand)] bg-[var(--brand-ink)] p-8 text-white shadow-[0_24px_80px_rgba(20,33,61,0.18)]">
           <p className="font-mono text-sm uppercase tracking-[0.28em] text-white/60">
-            Neden simdi?
+            Neden şimdi?
           </p>
           <h2 className="mt-4 text-4xl font-semibold tracking-tight">
-            Kamu iletisiminde hiz, duzen ve denetim ayni anda gerekli.
+            Kamu iletişiminde hız, düzen ve denetim aynı anda gerekli.
           </h2>
           <p className="mt-5 text-lg leading-8 text-white/78">
-            Kurumlar artik yalnizca kayit alan degil, kaydi anlamli bilgiye
-            ceviren sistemlere ihtiyac duyuyor. Medya Zekasi bu gecisi operasyonel
-            bir standarda donusturur.
+            Kurumlar artık yalnızca kayıt alan değil, kaydı anlamlı bilgiye
+            çeviren sistemlere ihtiyaç duyuyor. Medya Zekâsı bu geçişi operasyonel
+            bir standarda dönüştürür.
           </p>
         </Reveal>
 
         <Reveal delay={0.08} className="grid gap-4 md:grid-cols-3">
           {[
             {
-              title: "Baskanlik ve ust yonetim",
-              text: "Konusmalar, toplantilar ve aciklamalar geri donuk ulasilabilir hale gelir.",
+              title: "Başkanlık ve üst yönetim",
+              text: "Konuşmalar, toplantılar ve açıklamalar geri dönük ulaşılabilir hale gelir.",
             },
             {
-              title: "Basin-yayin ekipleri",
-              text: "Haber, duyuru ve sosyal medya ciktilari icin ham kayit daha hizli islenir.",
+              title: "Basın-yayın ekipleri",
+              text: "Haber, duyuru ve sosyal medya çıktıları için ham kayıt daha hızlı işlenir.",
             },
             {
               title: "Saha ve denetim birimleri",
-              text: "Kaydin kimden geldigi ve hangi surecten gectigi daha net izlenir.",
+              text: "Kaydın kimden geldiği ve hangi süreçten geçtiği daha net izlenir.",
             },
           ].map((item) => (
             <div
@@ -288,12 +295,12 @@ export default function Home() {
               Kaynaklar
             </p>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight text-[var(--brand-ink)]">
-              MDX tabanli icerik akisi ile kullanim senaryolari.
+              MDX tabanlı içerik akışı ile kullanım senaryoları.
             </h2>
           </div>
           <p className="max-w-xl text-base leading-7 text-slate-700">
-            Sitedeki bu bolum editoryal olarak buyuyebilir. Yeni dosya ekledikce
-            kartlar ve detay sayfalari otomatik uretilir.
+            Sitedeki bu bölüm editoryal olarak büyüyebilir. Yeni dosya ekledikçe
+            kartlar ve detay sayfaları otomatik üretilir.
           </p>
         </Reveal>
 
@@ -314,7 +321,7 @@ export default function Home() {
                       {insight.description}
                     </p>
                     <p className="mt-6 inline-flex items-center gap-2 font-medium text-[var(--brand-copper)]">
-                      Detayi oku
+                      Detayı oku
                       <ArrowRight className="size-4" />
                     </p>
                   </CardContent>
@@ -331,12 +338,12 @@ export default function Home() {
             Mobil uygulama
           </p>
           <h2 className="text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            iOS ve Android yayin bilgileri de artik sitede.
+            iOS ve Android yayın bilgileri de artık sitede.
           </h2>
           <p className="max-w-xl text-lg leading-8 text-slate-700">
-            Magaza yayini icin gereken uygulama kimlikleri, izinler, gizlilik
-            notlari ve gelistirici iletisim bilgilerini ayri bir sayfada
-            topladik.
+            Mağaza yayını için gereken uygulama kimlikleri, izinler, gizlilik
+            notları ve geliştirici iletişim bilgilerini ayrı bir sayfada
+            topladık.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Link
@@ -346,7 +353,7 @@ export default function Home() {
                 "inline-flex h-12 rounded-full bg-[var(--brand-ink)] px-7 text-white hover:bg-[var(--brand-ink)]/92",
               )}
             >
-              Mobil uygulama sayfasini ac
+              Mobil uygulama sayfasını aç
               <ArrowRight />
             </Link>
             <Link
@@ -356,7 +363,7 @@ export default function Home() {
                 "inline-flex h-12 rounded-full border-[var(--brand-ink)]/15 bg-white/70 px-7 text-[var(--brand-ink)]",
               )}
             >
-              Gizlilik politikasi
+              Gizlilik politikası
             </Link>
           </div>
         </Reveal>
@@ -364,9 +371,9 @@ export default function Home() {
         <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2">
           {[
             "Android package ve iOS bundle bilgileri",
-            "Mikrofon, medya ve paylasim izinleri",
+            "Mikrofon, medya ve paylaşım izinleri",
             "Privacy manifest ve tracking durumu",
-            "Gelistirici, sikayet ve kurumsal iletisim bilgileri",
+            "Geliştirici, şikayet ve kurumsal iletişim bilgileri",
           ].map((item) => (
             <div
               key={item}
@@ -387,20 +394,20 @@ export default function Home() {
             Demo talebi
           </p>
           <h2 className="text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            Kurumunuza uygun akisi birlikte kuralim.
+            Kurumunuza uygun akışı birlikte kuralım.
           </h2>
           <p className="max-w-xl text-lg leading-8 text-slate-700">
-            Hostinger uzerinde calisacak bu form, istenirse bir webhook&apos;a baglanip
-            CRM veya e-posta akisiniza yonlendirilebilir.
+            Hostinger üzerinde çalışacak bu form, istenirse bir webhook&apos;a bağlanıp
+            CRM veya e-posta akışınıza yönlendirilebilir.
           </p>
           <div className="rounded-[1.75rem] border border-[var(--brand-sand)] bg-white/70 p-6">
             <p className="font-medium text-[var(--brand-ink)]">
-              Ornek kullanim senaryolari
+              Örnek kullanım senaryoları
             </p>
             <ul className="mt-4 space-y-3 text-slate-700">
-              <li>Meclis ve kurul toplantilarinin kurumsal hafizaya alinmasi</li>
-              <li>Baskan konusmalarindan basin metni ve sosyal medya taslagi uretimi</li>
-              <li>Saha, roportaj ve canli yayin kayitlarinin tek merkezde yonetimi</li>
+              <li>Meclis ve kurul toplantılarının kurumsal hafızaya alınması</li>
+              <li>Başkan konuşmalarından basın metni ve sosyal medya taslağı üretimi</li>
+              <li>Saha, röportaj ve canlı yayın kayıtlarının tek merkezde yönetimi</li>
             </ul>
           </div>
         </Reveal>
@@ -413,10 +420,10 @@ export default function Home() {
       <footer className="mx-auto max-w-7xl px-6 pb-10 pt-6 md:px-10">
         <div className="rounded-[1.8rem] border border-[var(--brand-sand)] bg-white/70 p-6 text-slate-700 shadow-[0_18px_55px_rgba(20,33,61,0.06)]">
           <p className="font-mono text-sm uppercase tracking-[0.28em] text-slate-500">
-            Gelistirici ve iletisim
+            Geliştirici ve iletişim
           </p>
           <div className="mt-4 grid gap-3 md:grid-cols-2">
-            <p>Gelistirici: {developer.name}</p>
+            <p>Geliştirici: {developer.name}</p>
             <p>
               Web:{" "}
               <a

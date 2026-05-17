@@ -7,9 +7,9 @@ import { Card, CardContent } from "@/components/ui/card";
 import { mobileReleaseInfo } from "@/lib/mobile-release";
 
 export const metadata: Metadata = {
-  title: "Magaza Metinleri",
+  title: "Mağaza Metinleri",
   description:
-    "App Store ve Google Play yayin sayfalari icin hazir Medya Zekasi metinleri.",
+    "App Store ve Google Play yayın sayfaları için hazır Medya Zekâsı metinleri.",
 };
 
 export default function StoreCopyPage() {
@@ -22,21 +22,21 @@ export default function StoreCopyPage() {
           href="/mobil-uygulama"
           className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
         >
-          Mobil uygulama sayfasina don
+          Mobil uygulama sayfasına dön
         </Link>
 
         <section className="rounded-[2rem] border border-white/60 bg-white/75 p-8 shadow-[0_25px_70px_rgba(15,23,42,0.08)] backdrop-blur">
           <div className="flex flex-wrap gap-3">
             <Badge variant="secondary">App Store</Badge>
             <Badge variant="secondary">Google Play</Badge>
-            <Badge variant="outline">Hazir kopya</Badge>
+            <Badge variant="outline">Hazır kopya</Badge>
           </div>
           <h1 className="mt-6 text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            {appName} icin magaza metinleri
+            {appName} için mağaza metinleri
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Asagidaki metinler App Store Connect ve Google Play Console
-            ekranlarina duzenlenmeden yakin bicimde tasinabilir.
+            Aşağıdaki metinler App Store Connect ve Google Play Console
+            ekranlarına düzenlenmeden yakın biçimde taşınabilir.
           </p>
         </section>
 
@@ -46,7 +46,7 @@ export default function StoreCopyPage() {
               <div className="flex items-center gap-3">
                 <FileText className="size-5 text-[var(--brand-copper)]" />
                 <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                  Kisa aciklama
+                  Kısa açıklama
                 </h2>
               </div>
               <p className="mt-4 rounded-2xl bg-[var(--secondary)]/60 p-4 leading-8 text-slate-800">
@@ -60,7 +60,7 @@ export default function StoreCopyPage() {
               <div className="flex items-center gap-3">
                 <Copy className="size-5 text-[var(--brand-copper)]" />
                 <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                  Alt baslik ve anahtar kelimeler
+                  Alt başlık ve anahtar kelimeler
                 </h2>
               </div>
               <p className="mt-4 rounded-2xl bg-[var(--secondary)]/60 p-4 leading-8 text-slate-800">
@@ -79,7 +79,7 @@ export default function StoreCopyPage() {
         <Card className="rounded-[1.8rem] border-white/60 bg-white/85 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
           <CardContent className="p-8">
             <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-              Uzun aciklama
+              Uzun açıklama
             </h2>
             <div className="mt-5 space-y-4">
               {storeCopy.fullDescription.map((paragraph) => (
@@ -98,7 +98,7 @@ export default function StoreCopyPage() {
           <Card className="rounded-[1.8rem] border-white/60 bg-white/85 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
             <CardContent className="p-8">
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                Destek ve gizlilik baglantilari
+                Destek ve gizlilik bağlantıları
               </h2>
               <div className="mt-4 space-y-3 text-slate-700">
                 <p>
@@ -128,12 +128,12 @@ export default function StoreCopyPage() {
               <div className="flex items-center gap-3">
                 <ExternalLink className="size-5 text-[var(--brand-copper)]" />
                 <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                  Kullanim notu
+                  Kullanım notu
                 </h2>
               </div>
               <p className="mt-4 leading-8 text-slate-700">
-                App Store icin alt baslik ve keyword alanlari ayri kullanilabilir.
-                Google Play icin kisa aciklama ve tam aciklama alanlari bu sayfadaki
+                App Store için alt başlık ve keyword alanları ayrı kullanılabilir.
+                Google Play için kısa açıklama ve tam açıklama alanları bu sayfadaki
                 metinlerle doldurulabilir.
               </p>
             </CardContent>
