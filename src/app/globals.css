@@ -59,7 +59,7 @@
   --secondary: #eef7fb;
   --secondary-foreground: #0f172a;
   --muted: #edf2f7;
-  --muted-foreground: #475569;
+  --muted-foreground: #334155;
   --accent: #22d3ee;
   --accent-foreground: #083344;
   --destructive: #c2410c;
@@ -110,5 +110,10 @@
 
   p {
     text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgba(16, 188, 212, 0.22);
+    color: #0f172a;
   }
 }
