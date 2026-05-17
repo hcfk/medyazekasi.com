@@ -16,12 +16,12 @@ const queueItems = [
 
 export function MockDashboard() {
   return (
-    <div className="relative mx-auto w-full max-w-[46rem] overflow-hidden rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,250,252,0.94))] p-3 shadow-[0_28px_70px_rgba(15,23,42,0.12)] sm:p-4">
+    <div className="relative w-full overflow-hidden rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,250,252,0.94))] p-3 shadow-[0_28px_70px_rgba(15,23,42,0.12)] sm:p-4 lg:p-5">
       <div className="absolute left-10 top-8 h-24 w-24 rounded-full bg-cyan-300/12 blur-3xl" />
       <div className="absolute right-10 top-16 h-28 w-28 rounded-full bg-blue-300/10 blur-3xl" />
 
       <div className="relative space-y-4">
-        <div className="grid gap-4 xl:grid-cols-[15rem_auto_1fr] xl:items-center">
+        <div className="grid gap-4 xl:grid-cols-[16rem_4rem_minmax(0,1fr)] xl:items-stretch">
           <div className="rounded-[1.8rem] border border-slate-200 bg-white p-3 shadow-[0_16px_40px_rgba(20,33,61,0.10)]">
             <div className="rounded-[1.45rem] bg-[linear-gradient(180deg,#effbff,#ffffff)] p-4">
               <div className="mx-auto h-1.5 w-18 rounded-full bg-slate-200" />
@@ -54,7 +54,7 @@ export function MockDashboard() {
             </div>
           </div>
 
-          <div className="hidden xl:flex xl:h-full xl:min-h-[22rem] xl:w-16 xl:flex-col xl:items-center xl:justify-center">
+          <div className="hidden xl:flex xl:h-full xl:min-h-[22rem] xl:flex-col xl:items-center xl:justify-center">
             <div className="relative flex size-12 items-center justify-center rounded-2xl border border-cyan-200 bg-white text-cyan-700 shadow-[0_12px_28px_rgba(16,188,212,0.14)]">
               <Workflow className="size-5" />
             </div>
@@ -64,9 +64,9 @@ export function MockDashboard() {
             <div className="mt-3 h-28 w-px bg-[linear-gradient(180deg,rgba(16,188,212,0),rgba(16,188,212,0.55),rgba(16,188,212,0))]" />
           </div>
 
-          <div className="rounded-[1.8rem] border border-slate-200/90 bg-white/94 p-4 shadow-[0_18px_50px_rgba(20,33,61,0.07)]">
-            <div className="flex flex-col gap-3 rounded-[1.2rem] border border-slate-200 bg-slate-50 px-4 py-3 sm:flex-row sm:items-center sm:justify-between">
-              <div>
+          <div className="min-w-0 rounded-[1.8rem] border border-slate-200/90 bg-white/94 p-4 shadow-[0_18px_50px_rgba(20,33,61,0.07)]">
+            <div className="flex flex-col gap-3 rounded-[1.2rem] border border-slate-200 bg-slate-50 px-4 py-3 md:flex-row md:items-center md:justify-between">
+              <div className="min-w-0">
                 <p className="text-[11px] uppercase tracking-[0.22em] text-slate-500">
                   Web Dashboard
                 </p>
@@ -79,7 +79,7 @@ export function MockDashboard() {
               </div>
             </div>
 
-            <div className="mt-4 grid gap-4 md:grid-cols-2">
+            <div className="mt-4 grid gap-4 xl:grid-cols-2">
               <div className="rounded-[1.3rem] border border-slate-200 bg-slate-50 p-4">
                 <div className="flex items-center gap-2 text-sm font-semibold text-slate-950">
                   <Layers3 className="size-4 text-cyan-700" />
@@ -91,7 +91,7 @@ export function MockDashboard() {
                       key={name}
                       className="flex items-center justify-between gap-3 rounded-2xl bg-white px-4 py-3 text-sm text-slate-700 shadow-sm"
                     >
-                      <span className="line-clamp-1">{name}</span>
+                      <span className="line-clamp-1 min-w-0">{name}</span>
                       <span className="shrink-0 rounded-full bg-cyan-50 px-3 py-1 text-cyan-900">
                         {status}
                       </span>
@@ -127,7 +127,7 @@ export function MockDashboard() {
           </div>
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
+        <div className="grid gap-4 lg:grid-cols-2">
           <div className="rounded-[1.5rem] border border-slate-200 bg-white/92 p-4 shadow-[0_14px_40px_rgba(20,33,61,0.05)]">
             <div className="flex items-center gap-2 text-sm font-semibold text-slate-950">
               <FileSearch className="size-4 text-cyan-700" />
