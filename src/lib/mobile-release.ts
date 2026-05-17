@@ -53,4 +53,27 @@ export const mobileReleaseInfo = {
     "JWT token yalnizca guvenli depolamada tutulur",
     "Mobil istemci yalnizca kullanicinin kendi islerine erisir",
   ],
+  storeCopy: {
+    subtitle: "Kurumsal medya kayitlarini mobile tasiyan is akisiniz",
+    shortDescription:
+      "Ses, video ve YouTube kayitlarini gonderin; islerinizi mobilde takip edin.",
+    fullDescription: [
+      "Medya Zekasi, kurum ici medya islerini mobil cihazlardan yonetmek isteyen ekipler icin gelistirilmis resmi mobil istemcidir.",
+      "Kullanicilar mevcut kurum hesaplariyla giris yapabilir, ses ve video dosyasi yukleyebilir, uygulama icinde ses kaydi alip is olusturabilir, YouTube linki gonderebilir ve kendi islerinin durumunu takip edebilir.",
+      "Tamamlanan islerde transkript metni goruntulenebilir, kopyalanabilir ve duzenlenebilir. Ayarlar ekraninda kredi bilgisi, tema secimi ve sifre degistirme gibi temel hesap islemleri yer alir.",
+      "Uygulama ozellikle belediyeler, basin-yayin ekipleri, kamu kurumlari ve saha ekipleri icin hizli is olusturma ve kurumsal hafiza akisina mobil erisim saglar.",
+    ],
+    keywords: [
+      "medya zekasi",
+      "transkripsiyon",
+      "kurumsal hafiza",
+      "belediye",
+      "kamu",
+      "ses kaydi",
+      "video yukleme",
+      "youtubedan is olusturma",
+    ],
+    supportUrl: "https://medyazekasi.com/gizlilik-politikasi",
+    marketingUrl: "https://medyazekasi.com/mobil-uygulama",
+  },
 };

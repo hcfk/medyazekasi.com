@@ -338,16 +338,27 @@ export default function Home() {
             notlari ve gelistirici iletisim bilgilerini ayri bir sayfada
             topladik.
           </p>
-          <Link
-            href="/mobil-uygulama"
-            className={cn(
-              buttonVariants({ size: "lg" }),
-              "inline-flex h-12 rounded-full bg-[var(--brand-ink)] px-7 text-white hover:bg-[var(--brand-ink)]/92",
-            )}
-          >
-            Mobil uygulama sayfasini ac
-            <ArrowRight />
-          </Link>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/mobil-uygulama"
+              className={cn(
+                buttonVariants({ size: "lg" }),
+                "inline-flex h-12 rounded-full bg-[var(--brand-ink)] px-7 text-white hover:bg-[var(--brand-ink)]/92",
+              )}
+            >
+              Mobil uygulama sayfasini ac
+              <ArrowRight />
+            </Link>
+            <Link
+              href="/gizlilik-politikasi"
+              className={cn(
+                buttonVariants({ size: "lg", variant: "outline" }),
+                "inline-flex h-12 rounded-full border-[var(--brand-ink)]/15 bg-white/70 px-7 text-[var(--brand-ink)]",
+              )}
+            >
+              Gizlilik politikasi
+            </Link>
+          </div>
         </Reveal>
 
         <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2">

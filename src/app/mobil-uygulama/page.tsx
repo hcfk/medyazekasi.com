@@ -188,6 +188,47 @@ export default function MobileAppPage() {
             </CardContent>
           </Card>
         </section>
+
+        <section className="grid gap-5 lg:grid-cols-2">
+          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
+            <CardContent className="p-7">
+              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
+                Yayin baglantilari
+              </h2>
+              <div className="mt-4 flex flex-col gap-3 text-slate-700">
+                <Link
+                  href="/magaza-metinleri"
+                  className="font-medium text-[var(--brand-copper)]"
+                >
+                  Magaza metinlerini ac
+                </Link>
+                <Link
+                  href="/gizlilik-politikasi"
+                  className="font-medium text-[var(--brand-copper)]"
+                >
+                  Gizlilik politikasini ac
+                </Link>
+              </div>
+            </CardContent>
+          </Card>
+
+          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
+            <CardContent className="p-7">
+              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
+                Magaza kopyasi ozeti
+              </h2>
+              <p className="mt-4 leading-7 text-slate-700">
+                {info.storeCopy.shortDescription}
+              </p>
+              <p className="mt-4 text-sm uppercase tracking-[0.24em] text-slate-500">
+                Subtitle
+              </p>
+              <p className="mt-2 leading-7 text-slate-700">
+                {info.storeCopy.subtitle}
+              </p>
+            </CardContent>
+          </Card>
+        </section>
       </div>
     </main>
   );
