@@ -40,65 +40,73 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
   --radius-sm: calc(var(--radius) * 0.6);
-  --radius-md: calc(var(--radius) * 0.8);
+  --radius-md: calc(var(--radius) * 0.82);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-xl: calc(var(--radius) * 1.35);
   --radius-2xl: calc(var(--radius) * 1.8);
-  --radius-3xl: calc(var(--radius) * 2.2);
-  --radius-4xl: calc(var(--radius) * 2.6);
+  --radius-3xl: calc(var(--radius) * 2.1);
 }
 
 :root {
-  --background: #f7f4ee;
-  --foreground: #14213d;
-  --card: #fffdf8;
-  --card-foreground: #14213d;
-  --popover: #fffdf8;
-  --popover-foreground: #14213d;
-  --primary: #14213d;
-  --primary-foreground: #f8f3e8;
-  --secondary: #eadfca;
-  --secondary-foreground: #14213d;
-  --muted: #efe6d8;
-  --muted-foreground: #5a6274;
-  --accent: #f5c45b;
-  --accent-foreground: #14213d;
-  --destructive: #b42318;
-  --border: #ddcfb8;
-  --input: #d8ccb9;
-  --ring: #b6872f;
-  --chart-1: #14213d;
-  --chart-2: #d99058;
-  --chart-3: #f5c45b;
-  --chart-4: #8aa6a3;
-  --chart-5: #6d5d4f;
-  --radius: 1.25rem;
-  --sidebar: #fffaf1;
-  --sidebar-foreground: #14213d;
-  --sidebar-primary: #14213d;
-  --sidebar-primary-foreground: #f8f3e8;
-  --sidebar-accent: #f5c45b;
-  --sidebar-accent-foreground: #14213d;
-  --sidebar-border: #ddcfb8;
-  --sidebar-ring: #b6872f;
-  --brand-ink: #14213d;
-  --brand-copper: #d99058;
-  --brand-gold: #f5c45b;
-  --brand-sand: #eadfca;
+  --background: #f7fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #0f172a;
+  --primary-foreground: #f8fafc;
+  --secondary: #eef7fb;
+  --secondary-foreground: #0f172a;
+  --muted: #edf2f7;
+  --muted-foreground: #475569;
+  --accent: #22d3ee;
+  --accent-foreground: #083344;
+  --destructive: #c2410c;
+  --border: #d8e2eb;
+  --input: #d8e2eb;
+  --ring: #0ea5c6;
+  --chart-1: #0f172a;
+  --chart-2: #0f4c81;
+  --chart-3: #10bcd4;
+  --chart-4: #8b5cf6;
+  --chart-5: #f97316;
+  --radius: 1.2rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #0f172a;
+  --sidebar-primary-foreground: #f8fafc;
+  --sidebar-accent: #ecfeff;
+  --sidebar-accent-foreground: #0f172a;
+  --sidebar-border: #d8e2eb;
+  --sidebar-ring: #22d3ee;
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   html {
     @apply font-sans;
   }
+
   body {
     @apply bg-background text-foreground;
     background-image:
-      radial-gradient(circle at top left, rgba(245, 196, 91, 0.18), transparent 28%),
-      radial-gradient(circle at 85% 15%, rgba(217, 144, 88, 0.16), transparent 22%),
-      linear-gradient(180deg, #f7f4ee 0%, #ffffff 45%, #f1ebde 100%);
+      radial-gradient(circle at top left, rgba(16, 188, 212, 0.12), transparent 26%),
+      radial-gradient(circle at top right, rgba(15, 76, 129, 0.11), transparent 22%),
+      linear-gradient(180deg, #f7fafc 0%, #ffffff 48%, #f4f8fb 100%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
   }
 }

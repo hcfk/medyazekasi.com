@@ -34,8 +34,7 @@ export function getAllInsights(): InsightMeta[] {
         audience: String(data.audience),
         readingTime: String(data.readingTime),
       };
-    })
-    .sort((left, right) => left.title.localeCompare(right.title, "tr"));
+    });
 }
 
 export async function getInsightBySlug(slug: string) {

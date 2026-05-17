@@ -1,5 +1,15 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
+
+import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { SiteFooter } from "@/components/site/site-footer";
+import { SiteHeader } from "@/components/site/site-header";
+import {
+  buildOrganizationJsonLd,
+  buildSoftwareJsonLd,
+  buildWebsiteJsonLd,
+} from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -14,35 +24,42 @@ const ibmPlexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://medyazekasi.com"),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: "Medya Zekâsı",
+    default: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
     template: "%s | Medya Zekâsı",
   },
-  description:
-    "Toplantı, yayın ve saha kayıtlarını metne, özete ve kurumsal hafızaya dönüştüren medya yönetim platformu.",
+  description: siteConfig.description,
   keywords: [
-    "Medya Zekâsı",
-    "kurumsal hafıza",
-    "transkripsiyon",
-    "belediye yazılımı",
-    "kamu kurumu yazılımı",
     "medya yönetim platformu",
+    "yapay zekâ destekli medya yönetimi",
+    "kurumsal medya arşivi",
+    "ses kaydını yazıya çevirme",
+    "video kaydını yazıya çevirme",
+    "toplantı transkripsiyon sistemi",
+    "belediyeler için medya yönetimi",
+    "kamu kurumları için medya yönetimi",
+    "basın yayın yönetim sistemi",
+    "otomatik altyazı oluşturma",
+    "yapay zekâ ile özetleme",
+    "kurumsal hafıza platformu",
+    "mobil medya yönetimi",
   ],
   openGraph: {
-    title: "Medya Zekâsı",
-    description:
-      "Kamu kurumları ve belediyeler için medya, transkripsiyon ve kurumsal hafıza platformu.",
-    url: "https://medyazekasi.com",
-    siteName: "Medya Zekasi",
+    title: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: siteConfig.name,
     locale: "tr_TR",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medya Zekâsı",
-    description:
-      "Kayıtları dosya olmaktan çıkarıp aranabilir kurumsal bilgiye dönüştürün.",
+    title: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
+    description: siteConfig.description,
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -57,7 +74,18 @@ export default function RootLayout({
       className={`${manrope.variable} ${ibmPlexMono.variable} h-full scroll-smooth antialiased`}
     >
       <body className="min-h-full bg-background text-foreground">
-        {children}
+        <SeoJsonLd
+          data={[
+            buildOrganizationJsonLd(),
+            buildWebsiteJsonLd(),
+            buildSoftwareJsonLd(),
+          ]}
+        />
+        <div className="relative flex min-h-screen flex-col">
+          <SiteHeader />
+          <div className="flex-1">{children}</div>
+          <SiteFooter />
+        </div>
       </body>
     </html>
   );

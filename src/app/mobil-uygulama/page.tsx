@@ -1,241 +1,118 @@
-import type { Metadata } from "next";
-import Link from "next/link";
-import {
-  ExternalLink,
-  ShieldCheck,
-  Smartphone,
-  Store,
-  Upload,
-} from "lucide-react";
+import { Mic, PlaySquare, Smartphone, UploadCloud, View, BellRing } from "lucide-react";
 
-import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
-import { mobileReleaseInfo } from "@/lib/mobile-release";
+import { CTASection } from "@/components/site/cta-section";
+import { MobileMockup } from "@/components/site/mobile-mockup";
+import { PageHero } from "@/components/site/page-hero";
+import { Reveal } from "@/components/site/reveal";
+import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = buildMetadata({
   title: "Mobil Uygulama",
   description:
-    "iOS ve Android için Medya Zekâsı mobil uygulama yayın ve mağaza hazırlık bilgileri.",
-};
+    "Medya Zekâsı Android ve iOS uygulamaları ile sahadan ses, video ve bağlantı yükleme; iş takibi ve transkript görüntüleme süreçlerini yönetin.",
+  path: "/mobil-uygulama",
+});
 
-export default function MobileAppPage() {
-  const info = mobileReleaseInfo;
+export default function MobilePage() {
+  const mobileCards = [
+    {
+      icon: UploadCloud,
+      title: "Ses/video yükleme",
+      description: "Sahadan gelen kayıtları doğrudan mobil uygulama üzerinden sisteme aktarın.",
+    },
+    {
+      icon: Mic,
+      title: "Uygulama içi kayıt",
+      description: "Yeni medya işi oluştururken uygulama içinde ses kaydı başlatın.",
+    },
+    {
+      icon: PlaySquare,
+      title: "YouTube bağlantısı gönderme",
+      description: "Canlı yayın veya video bağlantılarını doğrudan iş akışına ekleyin.",
+    },
+    {
+      icon: BellRing,
+      title: "İş durumunu takip etme",
+      description: "Kuyruktaki işlerin durumunu ve tamamlanma bilgisini mobilde görün.",
+    },
+    {
+      icon: View,
+      title: "Transkript görüntüleme",
+      description: "Tamamlanan işlerde oluşan metni mobil cihaz üzerinden inceleyin.",
+    },
+    {
+      icon: Smartphone,
+      title: "Kurumsal erişim modeli",
+      description: "Mobil istemci, mevcut kurum hesabı ile kontrollü ve rol odaklı kullanıma uygundur.",
+    },
+  ];
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(245,196,91,0.18),_transparent_35%),linear-gradient(180deg,#f7f4ee_0%,#ffffff_55%,#f4efe5_100%)] pb-20">
-      <div className="mx-auto flex max-w-7xl flex-col gap-8 px-6 pt-14 md:px-10">
-        <Link
-          href="/"
-          className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
-        >
-          Ana sayfaya dön
-        </Link>
+    <main className="mx-auto max-w-7xl px-6 py-12 md:px-10">
+      <SeoJsonLd
+        data={buildBreadcrumbJsonLd([
+          { name: "Ana Sayfa", path: "/" },
+          { name: "Mobil Uygulama", path: "/mobil-uygulama" },
+        ])}
+      />
+      <PageHero
+        eyebrow="Android ve iOS"
+        title="Sahadan yükleyin, merkezden yönetin, yapay zekâ ile işleyin."
+        description="Medya Zekâsı mobil uygulamaları; kurum sahasından ses, video ve bağlantı aktarımını hızlandırır. Kayıt mobilde başlar, merkez operasyonu web panelinde tamamlanır."
+        badge="Mobil medya yönetimi"
+      />
 
-        <section className="rounded-[2rem] border border-white/60 bg-white/75 p-8 shadow-[0_25px_70px_rgba(15,23,42,0.08)] backdrop-blur">
-          <div className="flex flex-wrap gap-3">
-            <Badge variant="secondary">iOS</Badge>
-            <Badge variant="secondary">Android</Badge>
-            <Badge variant="outline">Store release hazırlığı</Badge>
-          </div>
-          <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
-            Medya Zekâsı mobil uygulaması için yayın bilgileri
-          </h1>
-          <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Bu sayfa App Store ve Google Play yayın süreçlerinde gereken temel
-            ürün, izin, gizlilik ve iletişim bilgilerini tek yerde toplar.
-          </p>
-        </section>
-
-        <section className="grid gap-5 lg:grid-cols-3">
-          {[
-            {
-              icon: Smartphone,
-              title: "Uygulama kimlikleri",
-              lines: [
-                `Uygulama adı: ${info.appName}`,
-                `Android package: ${info.androidPackage}`,
-                `iOS bundle: ${info.iosBundle}`,
-                `JS component: ${info.componentName}`,
-                `Sürüm: ${info.version}`,
-              ],
-            },
-            {
-              icon: Upload,
-              title: "Yayınlanan temel özellikler",
-              lines: info.highlights,
-            },
-            {
-              icon: ShieldCheck,
-              title: "Gizlilik ve güvenlik",
-              lines: info.privacy,
-            },
-          ].map((item) => {
-            const Icon = item.icon;
-
+      <section className="mt-12 grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <Reveal>
+          <MobileMockup />
+        </Reveal>
+        <div className="grid gap-4 md:grid-cols-2">
+          {mobileCards.map((card, index) => {
+            const Icon = card.icon;
             return (
-              <Card
-                key={item.title}
-                className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]"
+              <Reveal
+                key={card.title}
+                delay={index * 0.06}
+                className="rounded-[1.7rem] border border-slate-200/80 bg-white/84 p-6 shadow-[0_16px_50px_rgba(20,33,61,0.06)]"
               >
-                <CardContent className="p-7">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--brand-gold)]/28 text-[var(--brand-ink)]">
-                    <Icon className="size-6" />
-                  </div>
-                  <h2 className="mt-5 text-2xl font-semibold text-[var(--brand-ink)]">
-                    {item.title}
-                  </h2>
-                  <ul className="mt-4 space-y-3 text-slate-700">
-                    {item.lines.map((line) => (
-                      <li key={line}>{line}</li>
-                    ))}
-                  </ul>
-                </CardContent>
-              </Card>
+                <div className="flex size-11 items-center justify-center rounded-full bg-cyan-100 text-cyan-900">
+                  <Icon className="size-5" />
+                </div>
+                <h2 className="mt-4 text-2xl font-semibold text-slate-950">{card.title}</h2>
+                <p className="mt-3 leading-7 text-slate-700">{card.description}</p>
+              </Reveal>
             );
           })}
-        </section>
+        </div>
+      </section>
 
-        <section className="grid gap-5 lg:grid-cols-2">
-          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
-            <CardContent className="p-7">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--brand-gold)]/28 text-[var(--brand-ink)]">
-                <Store className="size-6" />
-              </div>
-              <h2 className="mt-5 text-2xl font-semibold text-[var(--brand-ink)]">
-                Mağaza ve teknik notlar
-              </h2>
-              <p className="mt-4 leading-7 text-slate-700">
-                Mobil istemci mevcut platform hesabıyla giriş yapar ve sunucu
-                üzerinde yalnızca kullanıcının kendi işlerine erişir.
-              </p>
-              <ul className="mt-4 space-y-3 text-slate-700">
-                <li>API tabanı: {info.apiBaseUrl}</li>
-                <li>Ekranlar: {info.screens.join(", ")}</li>
-                <li>Android paylaşım intent akışı tanımlı</li>
-                <li>iOS privacy manifest mevcut</li>
-                <li>No-signup model: kurum hesabı ile giriş</li>
-              </ul>
-            </CardContent>
-          </Card>
+      <section className="mt-12 grid gap-5 lg:grid-cols-3">
+        {[
+          "Android ve iOS istemcileri mevcut kurum hesabı ile giriş modeline uygundur.",
+          "Mobil iş akışı, web panelindeki operasyonel görünürlüğü tamamlayan saha katmanıdır.",
+          "Transkript ve iş takibi sayesinde kullanıcılar yalnızca yükleme değil sonuç erişimi de sağlar.",
+        ].map((item, index) => (
+          <Reveal
+            key={item}
+            delay={index * 0.05}
+            className="rounded-[1.7rem] border border-slate-200/80 bg-slate-950 p-6 text-white shadow-[0_18px_55px_rgba(15,23,42,0.18)]"
+          >
+            <p className="text-lg leading-8 text-slate-200/85">{item}</p>
+          </Reveal>
+        ))}
+      </section>
 
-          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
-            <CardContent className="p-7">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--brand-gold)]/28 text-[var(--brand-ink)]">
-                <ExternalLink className="size-6" />
-              </div>
-              <h2 className="mt-5 text-2xl font-semibold text-[var(--brand-ink)]">
-                Geliştirici ve iletişim
-              </h2>
-              <p className="mt-4 leading-7 text-slate-700">
-                Ürün geliştirici ve olası şikayet, iletişim veya kurumsal talep
-                noktası:
-              </p>
-              <div className="mt-4 space-y-3 text-slate-700">
-                <p>Geliştirici: {info.developer.name}</p>
-                <p>
-                  Web:{" "}
-                  <a
-                    href={info.developer.website}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="font-medium text-[var(--brand-copper)]"
-                  >
-                    {info.developer.website}
-                  </a>
-                </p>
-                <p>
-                  E-posta:{" "}
-                  <a
-                    href={`mailto:${info.developer.email}`}
-                    className="font-medium text-[var(--brand-copper)]"
-                  >
-                    {info.developer.email}
-                  </a>
-                </p>
-                <p>
-                  Telefon:{" "}
-                  <a
-                    href={info.developer.phoneHref}
-                    className="font-medium text-[var(--brand-copper)]"
-                  >
-                    {info.developer.phone}
-                  </a>
-                </p>
-                <p>Adres: {info.developer.address}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section className="grid gap-5 lg:grid-cols-2">
-          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
-            <CardContent className="p-7">
-              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                Android izinleri
-              </h2>
-              <ul className="mt-4 space-y-3 text-slate-700">
-                {info.permissions.android.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-
-          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
-            <CardContent className="p-7">
-              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                iOS izinleri
-              </h2>
-              <ul className="mt-4 space-y-3 text-slate-700">
-                {info.permissions.ios.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
-        </section>
-
-        <section className="grid gap-5 lg:grid-cols-2">
-          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
-            <CardContent className="p-7">
-              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                Yayın bağlantıları
-              </h2>
-              <div className="mt-4 flex flex-col gap-3 text-slate-700">
-                <Link
-                  href="/magaza-metinleri"
-                  className="font-medium text-[var(--brand-copper)]"
-                >
-                  Mağaza metinlerini aç
-                </Link>
-                <Link
-                  href="/gizlilik-politikasi"
-                  className="font-medium text-[var(--brand-copper)]"
-                >
-                  Gizlilik politikasını aç
-                </Link>
-              </div>
-            </CardContent>
-          </Card>
-
-          <Card className="rounded-[1.8rem] border-white/60 bg-white/80 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
-            <CardContent className="p-7">
-              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                Mağaza kopyası özeti
-              </h2>
-              <p className="mt-4 leading-7 text-slate-700">
-                {info.storeCopy.shortDescription}
-              </p>
-              <p className="mt-4 text-sm uppercase tracking-[0.24em] text-slate-500">
-                Subtitle
-              </p>
-              <p className="mt-2 leading-7 text-slate-700">
-                {info.storeCopy.subtitle}
-              </p>
-            </CardContent>
-          </Card>
-        </section>
-      </div>
+      <section className="mt-12">
+        <CTASection
+          title="Mobil iş akışını kurumunuzda nasıl kurgulayabileceğimizi görün."
+          description="Android ve iOS uygulamalarının saha ekipleri, basın birimleri ve yönetim akışı ile nasıl birleştiğini canlı demo üzerinden inceleyin."
+          primaryHref="/demo"
+          primaryLabel="Demo Talep Et"
+          secondaryHref="/platform"
+          secondaryLabel="Platformu İncele"
+        />
+      </section>
     </main>
   );
 }

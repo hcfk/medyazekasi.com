@@ -1,46 +1,103 @@
 # medyazekasi.com
 
-Hostinger Next.js hosting icin hazirlanmis, GitHub senkronlu Medya Zekasi pazarlama sitesi.
+Medya Zekâsı için Next.js App Router tabanlı, SEO odaklı kurumsal ürün sitesi.
 
 ## Teknoloji
 
-- Next.js 16
-- Tailwind CSS 4
-- shadcn/ui
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- shadcn/ui tabanlı temel UI bileşenleri
+- lucide-react
 - Framer Motion
-- MDX tabanli icerik akisi
-- Next.js API Route ile demo talep formu
+- MDX tabanlı insights içerikleri
 
-## Gelistirme
+## Kurulum
 
 ```bash
 npm install
+```
+
+## Geliştirme
+
+```bash
 npm run dev
 ```
 
-## Demo formu
-
-`/api/demo` route'u form verisini dogrular. `DEMO_WEBHOOK_URL` tanimliysa payload'i bu adrese POST eder. Tanimli degilse basarili yanit doner; boylece Hostinger ortamina webhook eklenene kadar form akisi bozulmaz.
-
-`.env.local` icine:
+## Production Build
 
 ```bash
-DEMO_WEBHOOK_URL=https://ornek-endpoint.com/webhooks/demo
+npm run build
+npm run start
 ```
 
-## Icerik yonetimi
+## Ortam Değişkenleri
 
-MDX icerikleri `content/insights/*.mdx` altinda tutulur. Ana sayfadaki "Kaynaklar" bolumu bu dosyalardan otomatik uretilir.
+Şu anda demo formu placeholder API route kullanır ve zorunlu environment variable yoktur.
 
-## GitHub ve Hostinger
+İleride e-posta veya CRM entegrasyonu bağlanacaksa örnek yapı:
 
-1. Bu klasoru yeni bir GitHub reposuna gonderin.
-2. Hostinger panelinde `Add website` > `Deploy with GitHub` akisini secin.
-3. Reponuzu baglayin ve framework olarak `Next.js` secin.
-4. Build command: `npm run build`
-5. Start command: `npm run start`
-6. Domain olarak `medyazekasi.com` ve `www.medyazekasi.com` baglantilarini tanimlayin.
+```bash
+DEMO_REQUEST_WEBHOOK_URL=
+DEMO_REQUEST_API_KEY=
+```
 
-## DNS notu
+## Önemli Rotalar
 
-Hostinger paneli hangi A/CNAME kayitlarini verdiyse alan adinizin DNS yonetiminde aynen uygulayin. Hostinger tarafinda DNS de yonetiliyorsa ekstra saglayici gerekmeyebilir.
+- `/`
+- `/platform`
+- `/mobil-uygulama`
+- `/kamu-kurumlari`
+- `/belediyeler`
+- `/basin-yayin`
+- `/ozellikler`
+- `/guvenlik`
+- `/demo`
+- `/iletisim`
+- `/insights`
+
+## SEO ve İçerik
+
+- Sayfa metadata yapısı `src/lib/seo.ts` içinde merkezî olarak oluşturulur.
+- Site navigasyonu ve kurumsal içerik blokları `src/lib/site.ts` içinde tutulur.
+- Insights içerikleri `content/insights/*.mdx` altında yer alır.
+- `robots.txt` ve `sitemap.xml` App Router metadata route olarak üretilir.
+
+## Demo Talep Formu
+
+- Sayfa: `/demo`
+- API route: `/api/demo-request`
+
+Notlar:
+
+- Route sunucu tarafında doğrulama yapar.
+- Secrets kullanılmaz.
+- E-posta sağlayıcısı veya CRM entegrasyonu için route içinde TODO notu bırakılmıştır.
+
+## Hostinger Deployment
+
+Hostinger Next.js hosting ile uyumludur.
+
+Önerilen ayarlar:
+
+- Install command: `npm install`
+- Build command: `npm run build`
+- Start command: `npm run start`
+- Node sürümü: `20+`
+
+GitHub senkron akışı:
+
+1. Repo’yu GitHub’a gönderin.
+2. Hostinger panelinde GitHub bağlantısını açın.
+3. Bu repo’yu seçin.
+4. Build ve start komutlarını yukarıdaki gibi tanımlayın.
+5. Domain bağlantısını `medyazekasi.com` ve `www.medyazekasi.com` için yönetin.
+
+## Kontrol
+
+Yerel doğrulama:
+
+```bash
+npm run lint
+npm run build
+```
