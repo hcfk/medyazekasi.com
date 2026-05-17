@@ -2,8 +2,8 @@ import { Mic, Play, SendHorizonal, Waves } from "lucide-react";
 
 export function MobileMockup() {
   return (
-    <div className="mx-auto w-full max-w-sm rounded-[2.5rem] border border-slate-200 bg-white p-3 shadow-[0_30px_80px_rgba(20,33,61,0.15)]">
-      <div className="rounded-[2rem] bg-[linear-gradient(180deg,#eff8ff,#ffffff)] p-5">
+    <div className="mx-auto w-full max-w-sm overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white p-3 shadow-[0_30px_80px_rgba(20,33,61,0.15)]">
+      <div className="rounded-[2rem] bg-[linear-gradient(180deg,#effbff,#ffffff)] p-5">
         <div className="mx-auto h-1.5 w-24 rounded-full bg-slate-200" />
         <div className="mt-5 rounded-[1.5rem] bg-slate-950 p-4 text-white">
           <p className="text-xs uppercase tracking-[0.24em] text-cyan-200">Mobil İş Oluştur</p>
@@ -24,7 +24,7 @@ export function MobileMockup() {
           </div>
         </div>
         <div className="mt-4 rounded-[1.5rem] border border-slate-200 bg-white p-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between gap-3">
             <p className="text-sm font-semibold text-slate-950">İş durumu</p>
             <span className="rounded-full bg-cyan-50 px-3 py-1 text-xs font-medium text-cyan-800">
               İşleniyor
