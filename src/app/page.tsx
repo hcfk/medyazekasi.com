@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { getAllInsights } from "@/lib/content";
+import { mobileReleaseInfo } from "@/lib/mobile-release";
 import { cn } from "@/lib/utils";
 
 const capabilities = [
@@ -46,6 +47,7 @@ const sectors = [
 ];
 
 const insights = getAllInsights();
+const developer = mobileReleaseInfo.developer;
 
 export default function Home() {
   return (
@@ -323,6 +325,48 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:px-10 lg:grid-cols-[0.9fr_1.1fr]">
+        <Reveal className="space-y-5">
+          <p className="font-mono text-sm uppercase tracking-[0.28em] text-slate-500">
+            Mobil uygulama
+          </p>
+          <h2 className="text-4xl font-semibold tracking-tight text-[var(--brand-ink)] md:text-5xl">
+            iOS ve Android yayin bilgileri de artik sitede.
+          </h2>
+          <p className="max-w-xl text-lg leading-8 text-slate-700">
+            Magaza yayini icin gereken uygulama kimlikleri, izinler, gizlilik
+            notlari ve gelistirici iletisim bilgilerini ayri bir sayfada
+            topladik.
+          </p>
+          <Link
+            href="/mobil-uygulama"
+            className={cn(
+              buttonVariants({ size: "lg" }),
+              "inline-flex h-12 rounded-full bg-[var(--brand-ink)] px-7 text-white hover:bg-[var(--brand-ink)]/92",
+            )}
+          >
+            Mobil uygulama sayfasini ac
+            <ArrowRight />
+          </Link>
+        </Reveal>
+
+        <Reveal delay={0.08} className="grid gap-4 md:grid-cols-2">
+          {[
+            "Android package ve iOS bundle bilgileri",
+            "Mikrofon, medya ve paylasim izinleri",
+            "Privacy manifest ve tracking durumu",
+            "Gelistirici, sikayet ve kurumsal iletisim bilgileri",
+          ].map((item) => (
+            <div
+              key={item}
+              className="rounded-[1.8rem] border border-[var(--brand-sand)] bg-white/75 p-6 shadow-[0_18px_55px_rgba(20,33,61,0.06)]"
+            >
+              <p className="text-lg font-medium text-[var(--brand-ink)]">{item}</p>
+            </div>
+          ))}
+        </Reveal>
+      </section>
+
       <section
         id="demo"
         className="mx-auto grid max-w-7xl gap-8 px-6 py-12 md:px-10 lg:grid-cols-[0.9fr_1.1fr]"
@@ -354,6 +398,47 @@ export default function Home() {
           <DemoForm />
         </Reveal>
       </section>
+
+      <footer className="mx-auto max-w-7xl px-6 pb-10 pt-6 md:px-10">
+        <div className="rounded-[1.8rem] border border-[var(--brand-sand)] bg-white/70 p-6 text-slate-700 shadow-[0_18px_55px_rgba(20,33,61,0.06)]">
+          <p className="font-mono text-sm uppercase tracking-[0.28em] text-slate-500">
+            Gelistirici ve iletisim
+          </p>
+          <div className="mt-4 grid gap-3 md:grid-cols-2">
+            <p>Gelistirici: {developer.name}</p>
+            <p>
+              Web:{" "}
+              <a
+                href={developer.website}
+                target="_blank"
+                rel="noreferrer"
+                className="font-medium text-[var(--brand-copper)]"
+              >
+                {developer.website}
+              </a>
+            </p>
+            <p>
+              E-posta:{" "}
+              <a
+                href={`mailto:${developer.email}`}
+                className="font-medium text-[var(--brand-copper)]"
+              >
+                {developer.email}
+              </a>
+            </p>
+            <p>
+              Telefon:{" "}
+              <a
+                href={developer.phoneHref}
+                className="font-medium text-[var(--brand-copper)]"
+              >
+                {developer.phone}
+              </a>
+            </p>
+            <p className="md:col-span-2">Adres: {developer.address}</p>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
