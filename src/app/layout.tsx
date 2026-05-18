@@ -27,8 +27,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
-  description: siteConfig.description,
+  title: {
+    default: "Medya Zekâsı",
+    template: "%s",
+  },
+  description: "Medya Zekâsı resmi web sitesi.",
   keywords: [
     "medya yönetim platformu",
     "yapay zekâ destekli medya yönetimi",
@@ -45,8 +48,8 @@ export const metadata: Metadata = {
     "mobil medya yönetimi",
   ],
   openGraph: {
-    title: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
-    description: siteConfig.description,
+    title: "Medya Zekâsı",
+    description: "Medya Zekâsı resmi web sitesi.",
     url: siteConfig.url,
     siteName: siteConfig.name,
     locale: "tr_TR",
@@ -62,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Medya Zekâsı | Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu",
-    description: siteConfig.description,
+    title: "Medya Zekâsı",
+    description: "Medya Zekâsı resmi web sitesi.",
     images: [`${siteConfig.url}${siteConfig.ogImagePath}`],
   },
   alternates: {
