@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import {
   buildArticleJsonLd,
   buildBreadcrumbJsonLd,
+  buildFaqJsonLd,
   buildMetadata,
 } from "@/lib/seo";
 import { getAllInsights, getInsightBySlug } from "@/lib/content";
@@ -15,6 +16,36 @@ type PageProps = {
   params: Promise<{
     slug: string;
   }>;
+};
+
+const insightFaqs: Record<string, Array<{ question: string; answer: string }>> = {
+  "desifre-transkripsiyon-kamu-veri-guvenligi": [
+    {
+      question: "Deşifre ile transkripsiyon arasındaki fark nedir?",
+      answer:
+        "Deşifre daha çok bir kaydın yazıya dökülmesini anlatan kullanıcı dilidir. Transkripsiyon ise bu dönüşümün manuel veya otomatik yöntemlerle yapılmasını kapsayan daha geniş bir kavramdır.",
+    },
+    {
+      question: "Sesten metne ile videodan metne arasında fark var mı?",
+      answer:
+        "Temel amaç aynıdır: konuşmayı metne çevirmek. Ancak videodan metne süreçlerinde altyazı, zaman kodu ve yayın yeniden kullanımı gibi ek ihtiyaçlar daha sık ortaya çıkar.",
+    },
+    {
+      question: "Konuşmacı tanıma neden önemli?",
+      answer:
+        "Çok katılımcılı kayıtlarda kimin ne söylediğini ayırmak; tutanak, özet, arşiv ve belge güvenilirliği açısından kritiktir.",
+    },
+    {
+      question: "Belediyeler için transkripsiyon neden faydalıdır?",
+      answer:
+        "Meclis toplantıları, saha kayıtları, basın açıklamaları ve canlı yayınlar daha hızlı metne dökülür; aranabilir arşiv ve kurumsal hafıza daha güçlü hale gelir.",
+    },
+    {
+      question: "Kurumsal kullanımda en önemli seçim kriteri nedir?",
+      answer:
+        "Doğruluk ve hız kadar veri yönetimi, yetkilendirme, arşivleme ve kurum içi kontrol ihtiyacı da belirleyicidir.",
+    },
+  ],
 };
 
 export async function generateStaticParams() {
@@ -48,6 +79,7 @@ export default async function InsightPage({ params }: PageProps) {
   }
 
   const { meta, content } = await getInsightBySlug(slug);
+  const faqItems = insightFaqs[slug];
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 md:px-10">
@@ -65,6 +97,7 @@ export default async function InsightPage({ params }: PageProps) {
             datePublished: meta.datePublished,
             dateModified: meta.dateModified,
           }),
+          ...(faqItems ? [buildFaqJsonLd(faqItems)] : []),
         ]}
       />
 

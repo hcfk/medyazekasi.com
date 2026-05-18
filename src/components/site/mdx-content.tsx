@@ -19,6 +19,12 @@ const components: MDXComponents = {
   p: (props) => (
     <p className="mt-4 text-base leading-8 text-slate-700" {...props} />
   ),
+  a: (props) => (
+    <a
+      className="font-medium text-cyan-900 underline decoration-cyan-300 underline-offset-4 transition hover:text-cyan-700"
+      {...props}
+    />
+  ),
   ul: (props) => (
     <ul className="mt-4 list-disc space-y-2 pl-6 text-slate-700" {...props} />
   ),
