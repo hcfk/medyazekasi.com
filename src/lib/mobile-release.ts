@@ -23,28 +23,66 @@ export const mobileReleaseInfo = {
     "Kredi bakiyesi ve hesap bilgisi",
     "Tema seçimi ve şifre değiştirme",
   ],
-  screens: ["Login", "Home", "Jobs", "New Job", "Job Detail", "Settings", "Change Password"],
+  screens: ["Giriş", "Ana Sayfa", "İşlerim", "Yeni İş", "İş Detayı", "Ayarlar", "Şifre Değiştir"],
   permissions: {
     android: [
-      "İnternet erişimi",
-      "Mikrofon",
-      "Ses ve video dosyalarını okuma",
-      "Android paylaşım (SEND / SEND_MULTIPLE) entegrasyonu",
+      {
+        name: "İnternet erişimi",
+        purpose: "Sunucu API çağrıları, oturum işlemleri, medya yükleme ve iş durumu takibi için gereklidir.",
+      },
+      {
+        name: "Mikrofon",
+        purpose: "Kullanıcı uygulama içinden yeni ses kaydı başlatmak istediğinde kullanılır.",
+      },
+      {
+        name: "Ses ve video dosyalarına erişim",
+        purpose: "Kullanıcının cihazından seçtiği medya dosyalarını kurumsal kuyruğa yüklemek için gerekir.",
+      },
+      {
+        name: "Paylaşım entegrasyonu",
+        purpose: "Android paylaş menüsünden ses, video veya bağlantıların uygulamaya aktarılmasını sağlar.",
+      },
     ],
     ios: [
-      "Mikrofon erişimi",
-      "Fotoğraf arşivi içinden ses/video seçimi",
-      "Paylaşılan içeriği uygulama akışına alma",
-      "App Transport Security ile güvenli ağ kullanımı",
+      {
+        name: "Mikrofon erişimi",
+        purpose: "Uygulama içinden doğrudan ses kaydı başlatma akışında kullanılır.",
+      },
+      {
+        name: "Fotoğraf arşivi / dosya seçimi",
+        purpose: "Kullanıcının seçtiği ses ve video içeriklerini sisteme göndermesi için gerekir.",
+      },
+      {
+        name: "Paylaşım akışı",
+        purpose: "Başka uygulamalardan paylaşılan medya ve bağlantıların Medya Zekâsı iş akışına alınmasını sağlar.",
+      },
+      {
+        name: "Güvenli ağ erişimi",
+        purpose: "App Transport Security uyumlu biçimde şifreli ağ trafiği üzerinden API erişimi için kullanılır.",
+      },
     ],
   },
   privacy: [
-    "iOS privacy manifest tanımlı",
-    "Tracking kapalı",
-    "Collected data types boş tanımlı",
-    "JWT token yalnızca güvenli depolamada tutulur",
-    "Mobil istemci yalnızca kullanıcının kendi işlerine erişir",
+    "Uygulama reklam takibi yapmaz.",
+    "Analitik ve izleme çerezleri mobil uygulama içinde kullanılmaz.",
+    "JWT token yalnızca güvenli depolama alanında tutulur.",
+    "Mobil istemci yalnızca kullanıcının yetkili olduğu işlere erişir.",
+    "Veri işleme akışı kurum politikalarına göre yapılandırılabilir.",
   ],
+  ageRating: {
+    appStore: "4+",
+    googlePlay: "3+",
+    targetAudience: "Kurumsal kullanıcılar, kamu kurumları, belediyeler ve basın-yayın ekipleri",
+    statement:
+      "Uygulama çocuklara yönelik değildir; kamuya açık sosyal ağ, kumar, yetişkin içerik veya reklam takibi içermez.",
+    questionnaire: [
+      "Kamuya açık kullanıcı üretimli içerik akışı bulunmaz.",
+      "Sınırsız web gezintisi sunulmaz.",
+      "Şiddet, cinsellik, korku, kumar, alkol veya uyuşturucu içeriği hedeflenmez.",
+      "Uygulama içi satın alma ve reklam altyapısı yoktur.",
+      "Kurumsal oturum ve kontrollü medya işleme akışı odaklıdır.",
+    ],
+  },
   storeCopy: {
     subtitle: "Kurumsal medya kayıtlarını mobile taşıyan iş akışınız",
     shortDescription:

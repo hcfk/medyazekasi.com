@@ -13,15 +13,12 @@ export const metadata = buildMetadata({
 });
 
 export default function PrivacyPolicyPage() {
-  const { developer, appName } = mobileReleaseInfo;
+  const { developer, appName, privacy } = mobileReleaseInfo;
 
   return (
     <main className="min-h-screen bg-[radial-gradient(circle_at_top,_rgba(245,196,91,0.18),_transparent_35%),linear-gradient(180deg,#f7f4ee_0%,#ffffff_55%,#f4efe5_100%)] pb-20">
       <div className="mx-auto flex max-w-5xl flex-col gap-8 px-6 pt-14 md:px-10">
-        <Link
-          href="/"
-          className="text-sm font-medium text-slate-600 transition hover:text-slate-950"
-        >
+        <Link href="/" className="text-sm font-medium text-slate-600 transition hover:text-slate-950">
           Ana sayfaya dön
         </Link>
 
@@ -34,22 +31,20 @@ export default function PrivacyPolicyPage() {
             Gizlilik Politikası
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Bu politika, {appName} mobil uygulaması ve ilgili iletişim kanallarında
-            işlenen temel veriler, kullanım amacı ve iletişim noktalarını açıklar.
+            Bu politika, {appName} mobil uygulaması ve ilgili iletişim kanallarında işlenen temel
+            veriler, kullanım amacı ve iletişim noktalarını açıklar.
           </p>
         </section>
 
         <Card className="rounded-[1.8rem] border-white/60 bg-white/85 shadow-[0_20px_55px_rgba(20,33,61,0.08)]">
           <CardContent className="space-y-8 p-8 text-slate-700">
             <section>
-              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                1. Toplanan veriler
-              </h2>
+              <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">1. Toplanan veriler</h2>
               <p className="mt-3 leading-8">
-                Uygulama, kullanıcının kurumsal hesabıyla giriş yapması, oluşturduğu medya
-                işlerini yüklemesi ve kendi kayıtlarına erişmesi için gerekli sınırlı
-                verileri işler. Buna kullanıcı kimliği, kurum hesabı, yüklenen medya
-                dosyaları, YouTube bağlantıları ve oluşturulan transkript çıktıları dahildir.
+                Uygulama, kullanıcının kurumsal hesabıyla giriş yapması, oluşturduğu medya işlerini
+                yüklemesi ve kendi kayıtlarına erişmesi için gerekli sınırlı verileri işler. Buna
+                kullanıcı kimliği, kurum hesabı, yüklenen medya dosyaları, YouTube bağlantıları ve
+                oluşturulan transkript çıktıları dahildir.
               </p>
             </section>
 
@@ -58,9 +53,9 @@ export default function PrivacyPolicyPage() {
                 2. Verilerin kullanım amacı
               </h2>
               <p className="mt-3 leading-8">
-                Veriler; oturum açma, medya yükleme, iş durumu takibi, transkript
-                gösterimi, teknik destek, hata analizi ve kurumsal operasyon akışının
-                sürdürülmesi amaçlarıyla kullanılır.
+                Veriler; oturum açma, medya yükleme, iş durumu takibi, transkript gösterimi, teknik
+                destek, hata analizi ve kurumsal operasyon akışının sürdürülmesi amaçlarıyla
+                kullanılır.
               </p>
             </section>
 
@@ -69,45 +64,45 @@ export default function PrivacyPolicyPage() {
                 3. Gizlilik ve güvenlik
               </h2>
               <ul className="mt-3 space-y-3 leading-8">
-                <li>Uygulama içinde reklam takibi bulunmaz.</li>
-                <li>iOS privacy manifest içinde tracking kapalı olarak tanımlıdır.</li>
-                <li>JWT token güvenli depolama mekanizmasında saklanır.</li>
-                <li>Mobil istemci yalnızca kullanıcının kendi işlerine erişir.</li>
+                {privacy.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">4. İzinler</h2>
               <p className="mt-3 leading-8">
-                Mikrofon, medya arşivi ve paylaşım izinleri yalnızca kullanıcının ses kaydı
-                alıp medya dosyası seçmesi veya başka uygulamalardan içerik aktarması için
-                kullanılır.
+                Mikrofon, medya arşivi ve paylaşım izinleri yalnızca kullanıcının ses kaydı alıp
+                medya dosyası seçmesi veya başka uygulamalardan içerik aktarması için kullanılır.
+                Detaylı izin açıklamaları için{" "}
+                <Link
+                  href="/mobil-izinler"
+                  className="font-semibold text-[var(--brand-copper)] underline underline-offset-4"
+                >
+                  Mobil İzinler
+                </Link>{" "}
+                sayfasını inceleyebilirsiniz.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">5. İletişim</h2>
               <p className="mt-3 leading-8">
-                Gizlilik, destek veya şikayet konuları için geliştirici ile aşağıdaki
-                kanallardan iletişime geçebilirsiniz.
+                Gizlilik, destek veya şikayet konuları için geliştirici ile aşağıdaki kanallardan
+                iletişime geçebilirsiniz.
               </p>
               <div className="mt-4 space-y-2">
                 <p>Geliştirici: {developer.name}</p>
                 <p>
                   E-posta:{" "}
-                  <a
-                    href={`mailto:${developer.email}`}
-                    className="font-medium text-[var(--brand-copper)]"
-                  >
+                  <a href={`mailto:${developer.email}`} className="font-medium text-[var(--brand-copper)]">
                     {developer.email}
                   </a>
                 </p>
                 <p>
                   Telefon:{" "}
-                  <a
-                    href={developer.phoneHref}
-                    className="font-medium text-[var(--brand-copper)]"
-                  >
+                  <a href={developer.phoneHref} className="font-medium text-[var(--brand-copper)]">
                     {developer.phone}
                   </a>
                 </p>

@@ -35,8 +35,8 @@ export default function StoreCopyPage() {
             {appName} için mağaza metinleri
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Aşağıdaki metinler App Store Connect ve Google Play Console ekranlarına
-            düzenlenmeden yakın biçimde taşınabilir.
+            Aşağıdaki metinler App Store Connect ve Google Play Console ekranlarına düzenlenmeden
+            yakın biçimde taşınabilir.
           </p>
         </section>
 
@@ -45,9 +45,7 @@ export default function StoreCopyPage() {
             <CardContent className="p-8">
               <div className="flex items-center gap-3">
                 <FileText className="size-5 text-[var(--brand-copper)]" />
-                <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                  Kısa açıklama
-                </h2>
+                <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">Kısa açıklama</h2>
               </div>
               <p className="mt-4 rounded-2xl bg-[var(--secondary)]/60 p-4 leading-8 text-slate-800">
                 {storeCopy.shortDescription}
@@ -66,9 +64,7 @@ export default function StoreCopyPage() {
               <p className="mt-4 rounded-2xl bg-[var(--secondary)]/60 p-4 leading-8 text-slate-800">
                 {storeCopy.subtitle}
               </p>
-              <p className="mt-4 text-sm uppercase tracking-[0.24em] text-slate-500">
-                Keywords
-              </p>
+              <p className="mt-4 text-sm uppercase tracking-[0.24em] text-slate-500">Keywords</p>
               <p className="mt-2 leading-8 text-slate-700">{storeCopy.keywords.join(", ")}</p>
             </CardContent>
           </Card>
@@ -99,19 +95,13 @@ export default function StoreCopyPage() {
               <div className="mt-4 space-y-3 text-slate-700">
                 <p>
                   Marketing URL:{" "}
-                  <a
-                    href={storeCopy.marketingUrl}
-                    className="font-medium text-[var(--brand-copper)]"
-                  >
+                  <a href={storeCopy.marketingUrl} className="font-medium text-[var(--brand-copper)]">
                     {storeCopy.marketingUrl}
                   </a>
                 </p>
                 <p>
                   Privacy Policy URL:{" "}
-                  <a
-                    href={storeCopy.supportUrl}
-                    className="font-medium text-[var(--brand-copper)]"
-                  >
+                  <a href={storeCopy.supportUrl} className="font-medium text-[var(--brand-copper)]">
                     {storeCopy.supportUrl}
                   </a>
                 </p>
@@ -123,15 +113,20 @@ export default function StoreCopyPage() {
             <CardContent className="p-8">
               <div className="flex items-center gap-3">
                 <ExternalLink className="size-5 text-[var(--brand-copper)]" />
-                <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">
-                  Kullanım notu
-                </h2>
+                <h2 className="text-2xl font-semibold text-[var(--brand-ink)]">Kullanım notu</h2>
               </div>
               <p className="mt-4 leading-8 text-slate-700">
-                App Store için alt başlık ve keyword alanları ayrı kullanılabilir.
-                Google Play için kısa açıklama ve tam açıklama alanları bu sayfadaki
-                metinlerle doldurulabilir.
+                App Store için alt başlık ve keyword alanları ayrı kullanılabilir. Google Play için
+                kısa açıklama ve tam açıklama alanları bu sayfadaki metinlerle doldurulabilir.
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <Link href="/mobil-izinler" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900">
+                  Mobil İzinler
+                </Link>
+                <Link href="/yas-siniflandirmasi" className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900">
+                  Yaş Sınıflandırması
+                </Link>
+              </div>
             </CardContent>
           </Card>
         </section>

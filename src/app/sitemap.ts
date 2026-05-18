@@ -19,6 +19,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/demo", changeFrequency: "monthly", priority: 0.7 },
     { path: "/iletisim", changeFrequency: "monthly", priority: 0.7 },
     { path: "/cerez-politikasi", changeFrequency: "monthly", priority: 0.6 },
+    { path: "/mobil-izinler", changeFrequency: "monthly", priority: 0.6 },
+    { path: "/yas-siniflandirmasi", changeFrequency: "monthly", priority: 0.6 },
     { path: "/insights", changeFrequency: "weekly", priority: 0.7 },
     {
       path: "/insights/belediye-basinyayin-otomasyon",
