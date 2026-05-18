@@ -2,8 +2,10 @@ import { BadgeCheck, FileOutput, LayoutDashboard, Smartphone } from "lucide-reac
 
 import { CTASection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { getInsightsBySlugs } from "@/lib/content";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { features, workflowSteps } from "@/lib/site";
 
@@ -15,6 +17,11 @@ export const metadata = buildMetadata({
 });
 
 export default function PlatformPage() {
+  const relatedInsights = getInsightsBySlugs([
+    "desifre-transkripsiyon-kamu-veri-guvenligi",
+    "toplanti-kaydi-transkripsiyon",
+    "yapay-zeka-ile-ozetleme",
+  ]);
   return (
     <main className="mx-auto max-w-7xl px-6 py-12 md:px-10">
       <SeoJsonLd
@@ -98,6 +105,13 @@ export default function PlatformPage() {
         </div>
       </section>
 
+      <section className="mt-12">
+        <RelatedInsightsSection
+          title="Platform katmanlarını açıklayan transkripsiyon ve özetleme içerikleri."
+          description="Web paneli, mobil akış, konuşmacı tanıma ve özetleme mantığını ürün sayfasından destekleyen makalelere buradan geçiş verin."
+          insights={relatedInsights}
+        />
+      </section>
       <section className="mt-12">
         <CTASection
           title="Platform katmanlarını kurum yapınıza göre konumlandırın."

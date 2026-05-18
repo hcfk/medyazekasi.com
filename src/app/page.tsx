@@ -16,6 +16,7 @@ import { FeatureCard } from "@/components/site/feature-card";
 import { HeroSection } from "@/components/site/hero-section";
 import { InsightCard } from "@/components/site/insight-card";
 import { MobileMockup } from "@/components/site/mobile-mockup";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { WorkflowStep } from "@/components/site/workflow-step";
@@ -54,7 +55,7 @@ const homeFeatureIcons = [
 ];
 
 export default function HomePage() {
-  const insights = getAllInsights().slice(0, 4);
+  const insights = getAllInsights().slice(0, 8);
 
   return (
     <main>
@@ -277,13 +278,21 @@ export default function HomePage() {
             görünürlüğünü ürün odaklı bilgi mimarisiyle destekler.
           </p>
         </Reveal>
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {insights.map((insight, index) => (
             <Reveal key={insight.slug} delay={index * 0.04}>
               <InsightCard insight={insight} />
             </Reveal>
           ))}
         </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 pb-4 md:px-10">
+        <RelatedInsightsSection
+          title="Çözüm sayfalarından makalelere uzanan içerik ağını güçlendirin."
+          description="Transkripsiyon, deşifre, belediye basın-yayın süreçleri, saha kayıtları ve kurumsal hafıza konularındaki makaleler ürün sayfalarına düzenli iç link akışı sağlar."
+          insights={getAllInsights().slice(8, 11)}
+        />
       </section>
 
       <section className="mx-auto max-w-7xl px-6 py-12 md:px-10 md:py-14">

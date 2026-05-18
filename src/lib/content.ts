@@ -46,7 +46,19 @@ export function getAllInsights(): InsightMeta[] {
             ? data.dateModified
             : stats.mtime.toISOString(),
       };
-    });
+    })
+    .sort(
+      (left, right) =>
+        new Date(right.datePublished).getTime() - new Date(left.datePublished).getTime(),
+    );
+}
+
+export function getInsightsBySlugs(slugs: string[]) {
+  const insightMap = new Map(getAllInsights().map((insight) => [insight.slug, insight]));
+
+  return slugs
+    .map((slug) => insightMap.get(slug))
+    .filter((insight): insight is InsightMeta => Boolean(insight));
 }
 
 export async function getInsightBySlug(slug: string) {

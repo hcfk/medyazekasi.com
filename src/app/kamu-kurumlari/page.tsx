@@ -1,7 +1,9 @@
 import { CTASection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { getInsightsBySlugs } from "@/lib/content";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -12,6 +14,11 @@ export const metadata = buildMetadata({
 });
 
 export default function PublicInstitutionsPage() {
+  const relatedInsights = getInsightsBySlugs([
+    "kamu-kurumsal-hafiza",
+    "desifre-transkripsiyon-kamu-veri-guvenligi",
+    "kamu-video-altyazi-zorunlulugu",
+  ]);
   const sections = [
     "Toplantı, kurul, komisyon ve eğitim kayıtlarını metne ve özetlere dönüştürür.",
     "Kurumsal hafızayı kişilerden bağımsız, aranabilir bilgi yapısına taşır.",
@@ -42,6 +49,13 @@ export default function PublicInstitutionsPage() {
             <p className="text-lg leading-8 text-slate-700">{item}</p>
           </Reveal>
         ))}
+      </section>
+      <section className="mt-12">
+        <RelatedInsightsSection
+          title="Kamu kurumları için kurumsal hafıza, erişilebilirlik ve veri yönetimi içerikleri."
+          description="Toplantı kayıtlarının yazıya dökülmesi, altyazı süreçleri ve kontrollü arşiv yaklaşımı için ilgili içeriklerden ürün sayfalarına geçiş kurun."
+          insights={relatedInsights}
+        />
       </section>
       <section className="mt-12">
         <CTASection

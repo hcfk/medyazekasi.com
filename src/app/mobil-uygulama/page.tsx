@@ -4,9 +4,11 @@ import { BellRing, FileBadge2, Mic, PlaySquare, ShieldCheck, Smartphone, UploadC
 import { CTASection } from "@/components/site/cta-section";
 import { MobileMockup } from "@/components/site/mobile-mockup";
 import { PageHero } from "@/components/site/page-hero";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { Card, CardContent } from "@/components/ui/card";
+import { getInsightsBySlugs } from "@/lib/content";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -17,6 +19,11 @@ export const metadata = buildMetadata({
 });
 
 export default function MobilePage() {
+  const relatedInsights = getInsightsBySlugs([
+    "saha-ekipleri-mobil-ses-kaydi",
+    "canli-yayin-transkripsiyon",
+    "desifre-transkripsiyon-kamu-veri-guvenligi",
+  ]);
   const mobileCards = [
     {
       icon: UploadCloud,
@@ -166,6 +173,13 @@ export default function MobilePage() {
         </div>
       </section>
 
+      <section className="mt-12">
+        <RelatedInsightsSection
+          title="Mobil saha akışı, ses kaydı ve canlı yayın içerikleri."
+          description="Sahadan içerik toplama, mobil kayıt, YouTube bağlantısı ve sonradan transkripsiyon akışları için ilgili rehberleri inceleyin."
+          insights={relatedInsights}
+        />
+      </section>
       <section className="mt-12">
         <CTASection
           title="Mobil iş akışını kurumunuzda nasıl kurgulayabileceğimizi görün."

@@ -1,7 +1,9 @@
 import { CTASection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { getInsightsBySlugs } from "@/lib/content";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { securityHighlights } from "@/lib/site";
 
@@ -13,6 +15,11 @@ export const metadata = buildMetadata({
 });
 
 export default function SecurityPage() {
+  const relatedInsights = getInsightsBySlugs([
+    "desifre-transkripsiyon-kamu-veri-guvenligi",
+    "kamu-kurumsal-hafiza",
+    "kurumsal-medya-arsivi",
+  ]);
   return (
     <main className="mx-auto max-w-7xl px-6 py-12 md:px-10">
       <SeoJsonLd
@@ -36,6 +43,13 @@ export default function SecurityPage() {
             <p className="text-lg leading-8 text-slate-700">{item}</p>
           </Reveal>
         ))}
+      </section>
+      <section className="mt-12">
+        <RelatedInsightsSection
+          title="Veri yönetimi, kurumsal hafıza ve arşiv kontrolü üzerine ilgili makaleler."
+          description="Güvenlik yaklaşımını yalnızca ürün metniyle değil, veri işleme ve arşiv mantığını açıklayan içeriklerle de destekleyin."
+          insights={relatedInsights}
+        />
       </section>
       <section className="mt-12">
         <CTASection

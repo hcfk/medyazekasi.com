@@ -1,7 +1,9 @@
 import { CTASection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { getInsightsBySlugs } from "@/lib/content";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -12,6 +14,11 @@ export const metadata = buildMetadata({
 });
 
 export default function MunicipalitiesPage() {
+  const relatedInsights = getInsightsBySlugs([
+    "belediye-basinyayin-otomasyon",
+    "belediye-meclis-tutanagi",
+    "canli-yayin-transkripsiyon",
+  ]);
   const cards = [
     {
       title: "Başkanlık ve özel kalem",
@@ -55,6 +62,13 @@ export default function MunicipalitiesPage() {
             <p className="mt-3 leading-7 text-slate-700">{item.text}</p>
           </Reveal>
         ))}
+      </section>
+      <section className="mt-12">
+        <RelatedInsightsSection
+          title="Belediye operasyonlarına özel rehberler ve kullanım senaryoları."
+          description="Meclis toplantıları, canlı yayınlar ve basın-yayın akışlarında hangi içerik modelinin daha verimli çalıştığını ilgili makaleler üzerinden inceleyin."
+          insights={relatedInsights}
+        />
       </section>
       <section className="mt-12">
         <CTASection

@@ -14,8 +14,10 @@ import {
 import { CTASection } from "@/components/site/cta-section";
 import { FeatureCard } from "@/components/site/feature-card";
 import { PageHero } from "@/components/site/page-hero";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { getInsightsBySlugs } from "@/lib/content";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { features } from "@/lib/site";
 
@@ -40,6 +42,11 @@ export const metadata = buildMetadata({
 });
 
 export default function FeaturesPage() {
+  const relatedInsights = getInsightsBySlugs([
+    "toplanti-kaydi-transkripsiyon",
+    "yapay-zeka-ile-ozetleme",
+    "kurumsal-medya-arsivi",
+  ]);
   return (
     <main className="mx-auto max-w-7xl px-6 py-12 md:px-10">
       <SeoJsonLd
@@ -67,6 +74,13 @@ export default function FeaturesPage() {
             </Reveal>
           );
         })}
+      </section>
+      <section className="mt-12">
+        <RelatedInsightsSection
+          title="Özelliklerin gerçek kullanımını anlatan transkripsiyon ve arşiv içerikleri."
+          description="Toplantı kaydı, yapay zekâ ile özetleme ve kurumsal medya arşivi odaklı makaleler özellikler sayfasına daha güçlü semantik bağ kurar."
+          insights={relatedInsights}
+        />
       </section>
       <section className="mt-12">
         <CTASection

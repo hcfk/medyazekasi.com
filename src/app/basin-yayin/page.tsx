@@ -1,7 +1,9 @@
 import { CTASection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
+import { RelatedInsightsSection } from "@/components/site/related-insights-section";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
+import { getInsightsBySlugs } from "@/lib/content";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -12,6 +14,11 @@ export const metadata = buildMetadata({
 });
 
 export default function PressMediaPage() {
+  const relatedInsights = getInsightsBySlugs([
+    "basin-bulteni-transkripsiyon",
+    "belediye-basinyayin-otomasyon",
+    "canli-yayin-transkripsiyon",
+  ]);
   const points = [
     "Konuşma ve açıklamaları daha hızlı yazıya çevirir.",
     "Uzun kayıtları haber, duyuru ve sosyal medya taslağına dönüştürmeye yardımcı olur.",
@@ -42,6 +49,13 @@ export default function PressMediaPage() {
             <p className="text-lg leading-8 text-slate-700">{point}</p>
           </Reveal>
         ))}
+      </section>
+      <section className="mt-12">
+        <RelatedInsightsSection
+          title="Basın-yayın ekipleri için içerik üretimi ve arşiv akışı rehberleri."
+          description="Bülten üretimi, canlı yayın tekrar kullanımı ve belediye basın operasyonu konularındaki makaleler basın-yayın çözüm sayfasını destekler."
+          insights={relatedInsights}
+        />
       </section>
       <section className="mt-12">
         <CTASection
