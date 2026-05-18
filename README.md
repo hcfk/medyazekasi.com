@@ -151,3 +151,32 @@ Yerel doğrulama:
 npm run lint
 npm run build
 ```
+
+Canlı deploy sonrası doğrulama:
+
+```bash
+npm run test:live
+```
+
+Deploy sonrası 1-2 dakika bekleyerek çalıştırmak için:
+
+```bash
+npm run test:live -- --delay=90
+```
+
+Farklı bir domain veya geçici URL için:
+
+```bash
+npm run test:live -- --url=https://ornek-domain.com --delay=120
+```
+
+Bu script şunları kontrol eder:
+
+- `robots.txt` erişimi ve `Allow: /`
+- `sitemap.xml` erişimi ve temel URL varlığı
+- ana public sayfaların `200 OK` dönmesi
+- `title`, `meta description`, `canonical`, tek `h1`
+- temel landmark varlığı: `main`, `header`, `nav`
+- JSON-LD structured data varlığı
+- insight makalelerinde `Article`, `FAQPage`, `BreadcrumbList`
+- raster `img` etiketlerinde eksik `alt` olup olmadığı

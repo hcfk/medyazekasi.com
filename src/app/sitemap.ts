@@ -1,7 +1,21 @@
 import type { MetadataRoute } from "next";
 
-import { getAllInsights } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
+
+const insightSlugs = [
+  "basin-bulteni-transkripsiyon",
+  "belediye-basinyayin-otomasyon",
+  "belediye-meclis-tutanagi",
+  "canli-yayin-transkripsiyon",
+  "desifre-transkripsiyon-kamu-veri-guvenligi",
+  "kamu-kurumsal-hafiza",
+  "kamu-video-altyazi-zorunlulugu",
+  "kurumsal-medya-arsivi",
+  "saha-ekipleri-mobil-ses-kaydi",
+  "toplanti-kaydi-transkripsiyon",
+  "universite-ders-kaydi-transkripsiyon",
+  "yapay-zeka-ile-ozetleme",
+] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes: Array<{
@@ -26,11 +40,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/insights", changeFrequency: "weekly", priority: 0.7 },
   ];
 
-  const insightRoutes = getAllInsights().map((insight) => ({
-    path: `/insights/${insight.slug}`,
+  const insightRoutes = insightSlugs.map((slug) => ({
+    path: `/insights/${slug}`,
     changeFrequency: "weekly" as const,
-    priority:
-      insight.slug === "desifre-transkripsiyon-kamu-veri-guvenligi" ? 0.7 : 0.6,
+    priority: slug === "desifre-transkripsiyon-kamu-veri-guvenligi" ? 0.7 : 0.6,
   }));
 
   return [...routes, ...insightRoutes].map((route) => ({
