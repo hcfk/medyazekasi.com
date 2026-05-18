@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { ChevronDown, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { navigation, siteConfig } from "@/lib/site";
@@ -10,10 +10,36 @@ import { cn } from "@/lib/utils";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
+
+  useEffect(() => {
+    function handleScroll() {
+      setHasScrolled(window.scrollY > 12);
+    }
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-white/82 backdrop-blur-2xl">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 md:px-10">
+    <header
+      className={cn(
+        "sticky top-0 z-50 transition-all duration-300",
+        hasScrolled
+          ? "border-b border-slate-200/80 bg-white/92 shadow-[0_14px_40px_rgba(15,23,42,0.08)] backdrop-blur-2xl"
+          : "border-b border-slate-200/70 bg-white/82 backdrop-blur-2xl",
+      )}
+    >
+      <div
+        className={cn(
+          "mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 md:px-10",
+          hasScrolled ? "py-3" : "py-4",
+        )}
+      >
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Ana sayfa">
           <div className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0f172a,#0f4c81,#10bcd4)] text-sm font-bold text-white shadow-[0_12px_30px_rgba(16,188,212,0.25)]">
             MZ
