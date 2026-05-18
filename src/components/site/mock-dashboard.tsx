@@ -16,7 +16,11 @@ const queueItems = [
 
 export function MockDashboard() {
   return (
-    <div className="relative w-full overflow-hidden rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,250,252,0.94))] p-3 shadow-[0_28px_70px_rgba(15,23,42,0.12)] sm:p-4 lg:p-5">
+    <div
+      role="img"
+      aria-label="Web dashboard ve mobil yükleme mockup görseli. Sahadan yükleme, transkripsiyon, özetleme, altyazı üretimi ve aranabilir kurumsal arşiv akışını gösterir."
+      className="relative w-full overflow-hidden rounded-[2rem] border border-slate-200/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.95),rgba(247,250,252,0.94))] p-3 shadow-[0_28px_70px_rgba(15,23,42,0.12)] sm:p-4 lg:p-5"
+    >
       <div className="absolute left-10 top-8 h-24 w-24 rounded-full bg-cyan-300/12 blur-3xl" />
       <div className="absolute right-10 top-16 h-28 w-28 rounded-full bg-blue-300/10 blur-3xl" />
 

@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         url: `${siteConfig.url}${siteConfig.ogImagePath}`,
         width: 1200,
         height: 630,
-        alt: "Medya Zekâsı açık grafik görseli",
+        alt: "Medya Zekâsı ana sayfası için yapay zekâ destekli transkripsiyon ve kurumsal medya yönetimi görseli",
       },
     ],
   },

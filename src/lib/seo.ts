@@ -22,15 +22,20 @@ export function buildMetadata({
   path,
   keywords = [],
   type = "website",
+  ogImageAlt,
 }: {
   title: string;
   description: string;
   path: string;
   keywords?: string[];
   type?: "website" | "article";
+  ogImageAlt?: string;
 }): Metadata {
   const url = buildAbsoluteUrl(path);
   const ogImage = buildAbsoluteUrl(siteConfig.ogImagePath);
+  const resolvedOgImageAlt =
+    ogImageAlt ||
+    `${title} sayfası için Medya Zekâsı ürün görseli, transkripsiyon ve kurumsal medya yönetimi tanıtımı`;
 
   return {
     title,
@@ -51,7 +56,7 @@ export function buildMetadata({
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${siteConfig.name} açık grafik görseli`,
+          alt: resolvedOgImageAlt,
         },
       ],
     },
@@ -149,9 +154,7 @@ export function buildArticleJsonLd({
   };
 }
 
-export function buildFaqJsonLd(
-  items: Array<{ question: string; answer: string }>,
-) {
+export function buildFaqJsonLd(items: Array<{ question: string; answer: string }>) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",

@@ -2,7 +2,11 @@ import { Mic, Play, SendHorizonal, Waves } from "lucide-react";
 
 export function MobileMockup() {
   return (
-    <div className="mx-auto w-full max-w-sm overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white p-3 shadow-[0_30px_80px_rgba(20,33,61,0.15)]">
+    <div
+      role="img"
+      aria-label="Mobil uygulama mockup görseli. Sahadan yükleme, uygulama içi ses kaydı, YouTube bağlantısı gönderme ve toplantı kaydını metne çevirme akışını gösterir."
+      className="mx-auto w-full max-w-sm overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white p-3 shadow-[0_30px_80px_rgba(20,33,61,0.15)]"
+    >
       <div className="rounded-[2rem] bg-[linear-gradient(180deg,#effbff,#ffffff)] p-5">
         <div className="mx-auto h-1.5 w-24 rounded-full bg-slate-200" />
         <div className="mt-5 rounded-[1.5rem] bg-slate-950 p-4 text-white">
