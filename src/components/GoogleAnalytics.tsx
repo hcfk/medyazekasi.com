@@ -1,17 +1,53 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 
+import { consentEventName, consentStorageKey, type ConsentPreferences } from "@/lib/consent";
+
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
+function hasAnalyticsConsent() {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  const stored = window.localStorage.getItem(consentStorageKey);
+
+  if (!stored) {
+    return false;
+  }
+
+  try {
+    const parsed = JSON.parse(stored) as ConsentPreferences;
+    return parsed.analytics;
+  } catch {
+    return false;
+  }
+}
 
 export function GoogleAnalytics() {
   const pathname = usePathname();
+  const [isEnabled, setIsEnabled] = useState(() => hasAnalyticsConsent());
   const skipInitialPageView = useRef(true);
 
   useEffect(() => {
-    if (!gaId || typeof window === "undefined" || typeof window.gtag !== "function") {
+    function syncConsent() {
+      setIsEnabled(hasAnalyticsConsent());
+    }
+
+    window.addEventListener("storage", syncConsent);
+    window.addEventListener(consentEventName, syncConsent as EventListener);
+
+    return () => {
+      window.removeEventListener("storage", syncConsent);
+      window.removeEventListener(consentEventName, syncConsent as EventListener);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!gaId || !isEnabled || typeof window === "undefined" || typeof window.gtag !== "function") {
       return;
     }
 
@@ -25,9 +61,9 @@ export function GoogleAnalytics() {
       page_location: window.location.href,
       page_title: document.title,
     });
-  }, [pathname]);
+  }, [isEnabled, pathname]);
 
-  if (!gaId) {
+  if (!gaId || !isEnabled) {
     return null;
   }
 

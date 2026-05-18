@@ -240,5 +240,6 @@ export const pagePaths = [
   "/iletisim",
   "/insights",
   "/gizlilik-politikasi",
+  "/cerez-politikasi",
   "/magaza-metinleri",
 ];

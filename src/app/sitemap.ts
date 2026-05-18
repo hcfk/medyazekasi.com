@@ -18,6 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/guvenlik", changeFrequency: "monthly", priority: 0.7 },
     { path: "/demo", changeFrequency: "monthly", priority: 0.7 },
     { path: "/iletisim", changeFrequency: "monthly", priority: 0.7 },
+    { path: "/cerez-politikasi", changeFrequency: "monthly", priority: 0.6 },
     { path: "/insights", changeFrequency: "weekly", priority: 0.7 },
     {
       path: "/insights/belediye-basinyayin-otomasyon",

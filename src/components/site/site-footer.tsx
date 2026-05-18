@@ -15,14 +15,14 @@ export function SiteFooter() {
               </div>
               <div>
                 <p className="text-lg font-semibold text-white">{siteConfig.name}</p>
-                <p className="text-sm text-slate-400">
+                <p className="text-sm text-slate-300">
                   Web ve mobil üzerinden uçtan uca kurumsal medya yönetimi.
                 </p>
               </div>
             </div>
-            <p className="mt-5 max-w-lg text-sm leading-7 text-slate-400">
-              Kayıtlarınız dosya olarak kalmasın, kurumsal hafızaya dönüşsün.
-              Sahadan yükleyin, merkezden yönetin, yapay zekâ ile işleyin.
+            <p className="mt-5 max-w-lg text-sm leading-7 text-slate-300">
+              Kayıtlarınız dosya olarak kalmasın, kurumsal hafızaya dönüşsün. Sahadan yükleyin,
+              merkezden yönetin, yapay zekâ ile işleyin.
             </p>
             <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500/10 px-4 py-2 text-sm text-cyan-100">
               Kurum içi kontrol hedeflerine uygun yapılandırılabilir
@@ -95,10 +95,15 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/10 pt-6 text-sm text-slate-500 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.</p>
+          <p>
+            © {new Date().getFullYear()} {siteConfig.name}. Tüm hakları saklıdır.
+          </p>
           <div className="flex flex-wrap gap-4">
             <Link href="/gizlilik-politikasi" className="hover:text-slate-300">
               Gizlilik Politikası
+            </Link>
+            <Link href="/cerez-politikasi" className="hover:text-slate-300">
+              Çerez Politikası
             </Link>
             <Link href="/magaza-metinleri" className="hover:text-slate-300">
               Mağaza Metinleri

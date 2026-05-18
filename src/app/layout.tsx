@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 
+import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { SiteFooter } from "@/components/site/site-footer";
@@ -97,6 +98,7 @@ export default function RootLayout({
           <div className="flex-1">{children}</div>
           <SiteFooter />
         </div>
+        <CookieConsentBanner />
       </body>
     </html>
   );
