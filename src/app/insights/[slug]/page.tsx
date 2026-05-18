@@ -46,6 +46,108 @@ const insightFaqs: Record<string, Array<{ question: string; answer: string }>> =
         "Doğruluk ve hız kadar veri yönetimi, yetkilendirme, arşivleme ve kurum içi kontrol ihtiyacı da belirleyicidir.",
     },
   ],
+  "belediye-meclis-tutanagi": [
+    {
+      question: "Belediye meclis tutanağı ne zaman hazırlanmalıdır?",
+      answer:
+        "Belediye Meclisi Çalışma Yönetmeliği uyarınca tutanaklar bir sonraki birleşimden önce üyelere dağıtılabilecek şekilde hazırlanmalıdır.",
+    },
+    {
+      question: "Meclis tutanağı kelimesi kelimesine mi yazılır?",
+      answer:
+        "Uygulamada birçok kurum özet tutanak kullanır; ancak kayıt cihazı esas alınır. Otomatik transkripsiyon hem tam metin hem de özet üretim sürecini hızlandırabilir.",
+    },
+    {
+      question: "Otomatik transkripsiyon Türkçe meclis toplantılarında işe yarar mı?",
+      answer:
+        "Türkçe desteği güçlü sistemler meclis toplantılarında önemli hız avantajı sağlar. Teknik terimler ve özel isimler için editör kontrolü önerilir.",
+    },
+  ],
+  "kamu-video-altyazi-zorunlulugu": [
+    {
+      question: "Kamu kurumları video içeriklerine altyazı eklemek zorunda mı?",
+      answer:
+        "Bu alanı tek başına düzenleyen kapsamlı bir zorunluluk her senaryoda aynı değildir; ancak erişilebilirlik standartları ve kurumsal hizmet beklentileri altyazıyı güçlü biçimde gerekli hale getirir.",
+    },
+    {
+      question: "SRT ile VTT arasındaki fark nedir?",
+      answer:
+        "SRT yaygın ve platform bağımsız bir altyazı formatıdır. VTT ise özellikle web ve HTML5 video kullanımı için daha modern bir formattır.",
+    },
+    {
+      question: "Altyazı SEO’ya katkı sağlar mı?",
+      answer:
+        "Evet. Altyazı ve transkript, video içeriğin arama motorları tarafından daha iyi anlaşılmasına ve indekslenmesine yardımcı olur.",
+    },
+  ],
+  "basin-bulteni-transkripsiyon": [
+    {
+      question: "Transkripsiyon sistemi basın bültenini tamamen otomatik yazar mı?",
+      answer:
+        "Sistem taslak metin ve özet üretimini hızlandırır; ancak nihai bültenin editör kontrolünden geçmesi gerekir.",
+    },
+    {
+      question: "Sosyal medya içerikleri transkript üzerinden üretilebilir mi?",
+      answer:
+        "Evet. Tam metinden kısa özet, alıntı ve platforma uygun içerik taslakları üretmek mümkündür.",
+    },
+    {
+      question: "Eski basın arşivi de geriye dönük işlenebilir mi?",
+      answer:
+        "Evet. Mevcut ses ve video kayıtları sisteme yüklenerek daha sonra aranabilir arşive dönüştürülebilir.",
+    },
+  ],
+  "saha-ekipleri-mobil-ses-kaydi": [
+    {
+      question: "Saha personeli teknik bilgi olmadan mobil kayıt kullanabilir mi?",
+      answer:
+        "Evet. İyi tasarlanmış mobil akışlar, kayıt alma ve merkeze gönderme işlemlerini sadeleştirerek teknik bariyeri düşürür.",
+    },
+    {
+      question: "İnternet olmadan saha kaydı alınabilir mi?",
+      answer:
+        "Kayıt çevrimdışı alınabilir; bağlantı kurulduğunda merkezi sisteme aktarılacak şekilde kurgulanabilir.",
+    },
+    {
+      question: "Saha kayıtlarında veri güvenliği neden önemlidir?",
+      answer:
+        "Saha kayıtları vatandaş beyanı, konum bilgisi ve operasyon detayları içerebilir. Bu nedenle erişim ve saklama politikaları dikkatle yönetilmelidir.",
+    },
+  ],
+  "universite-ders-kaydi-transkripsiyon": [
+    {
+      question: "Üniversite ders kayıtları hangi formatlarda işlenebilir?",
+      answer:
+        "MP3, WAV, MP4 gibi yaygın ses ve video formatları ile bağlantı tabanlı içerikler işlenebilir.",
+    },
+    {
+      question: "Tüm ders kayıtlarını transkribe etmek gerekli midir?",
+      answer:
+        "Hayır. Kurumlar önceliği yüksek etkili dersler, hizmet içi eğitimler veya erişilebilirlik ihtiyacı daha yoğun içeriklere verebilir.",
+    },
+    {
+      question: "Transkripsiyon öğrenci erişilebilirliğini nasıl etkiler?",
+      answer:
+        "Metin, altyazı ve aranabilir kayıt yapısı sayesinde öğrenciler içeriğe farklı öğrenme biçimleriyle daha rahat erişebilir.",
+    },
+  ],
+  "canli-yayin-transkripsiyon": [
+    {
+      question: "Canlı yayınlarda anlık mı sonradan transkripsiyon mu daha uygundur?",
+      answer:
+        "Çoğu kamu kurumu için sonradan transkripsiyon daha sürdürülebilir ve daha yüksek doğruluk sağlayan bir yaklaşımdır. Anlık transkripsiyon ise erişilebilirlik önceliği yüksek yayınlarda değerlidir.",
+    },
+    {
+      question: "YouTube arşivleri geriye dönük metne dönüştürülebilir mi?",
+      answer:
+        "Evet. Yayın bağlantıları veya kayıt dosyaları üzerinden arşivdeki içerikler daha sonra transkribe edilerek aranabilir hale getirilebilir.",
+    },
+    {
+      question: "Canlı yayın transkripti SEO’ya katkı sağlar mı?",
+      answer:
+        "Evet. Metinleşen yayın içeriği arama motorları tarafından indekslenebilir hale gelir ve kurumsal görünürlüğü artırabilir.",
+    },
+  ],
 };
 
 export async function generateStaticParams() {
