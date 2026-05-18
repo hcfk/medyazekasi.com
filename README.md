@@ -174,6 +174,7 @@ Bu script şunları kontrol eder:
 
 - `robots.txt` erişimi ve `Allow: /`
 - `sitemap.xml` erişimi ve temel URL varlığı
+- `llms.txt` erişimi ve temel bölüm yapısı
 - ana public sayfaların `200 OK` dönmesi
 - `title`, `meta description`, `canonical`, tek `h1`
 - temel landmark varlığı: `main`, `header`, `nav`

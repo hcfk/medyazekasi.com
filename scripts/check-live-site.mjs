@@ -197,6 +197,48 @@ function validateSitemap(result, baseUrl) {
   return checks;
 }
 
+function validateLlms(result, baseUrl) {
+  const checks = [];
+  checks.push({
+    label: "llms status",
+    ok: result.ok,
+    detail: `HTTP ${result.status}`,
+  });
+  checks.push({
+    label: "llms heading",
+    ok: /^#\s+.+/m.test(result.text),
+    detail: "H1 present",
+  });
+  checks.push({
+    label: "llms summary",
+    ok: /^>\s+.+/m.test(result.text),
+    detail: "blockquote summary",
+  });
+  checks.push({
+    label: "llms docs section",
+    ok: /##\s+Docs/m.test(result.text),
+    detail: "Docs section",
+  });
+  checks.push({
+    label: "llms insights section",
+    ok: /##\s+Insights/m.test(result.text),
+    detail: "Insights section",
+  });
+  checks.push({
+    label: "llms platform link",
+    ok: result.text.includes(`${baseUrl}/platform`),
+    detail: `${baseUrl}/platform`,
+  });
+  checks.push({
+    label: "llms article link",
+    ok: result.text.includes(
+      `${baseUrl}/insights/desifre-transkripsiyon-kamu-veri-guvenligi`,
+    ),
+    detail: "desifre insight",
+  });
+  return checks;
+}
+
 function validateHtmlPage(result, route, baseUrl) {
   const title = getTextMatch(result.text, /<title>(.*?)<\/title>/is);
   const description = getTextMatch(
@@ -304,6 +346,7 @@ async function main() {
 
   const robots = await fetchText(`${baseUrl}/robots.txt`, "text/plain");
   const sitemap = await fetchText(`${baseUrl}/sitemap.xml`, "xml");
+  const llms = await fetchText(`${baseUrl}/llms.txt`, "text/plain");
   const pageResults = [];
 
   for (const route of publicRoutes) {
@@ -324,12 +367,14 @@ async function main() {
   const allChecks = [
     ...validateRobots(robots, baseUrl),
     ...validateSitemap(sitemap, baseUrl),
+    ...validateLlms(llms, baseUrl),
     ...pageResults.flatMap(({ route, result }) => validateHtmlPage(result, route, baseUrl)),
     ...articleResults.flatMap(({ route, result }) => validateArticlePage(result, route)),
   ];
 
   printChecks("Robots", validateRobots(robots, baseUrl));
   printChecks("Sitemap", validateSitemap(sitemap, baseUrl));
+  printChecks("LLMs", validateLlms(llms, baseUrl));
 
   for (const { route, result } of pageResults) {
     printChecks(`Page ${route}`, validateHtmlPage(result, route, baseUrl));
