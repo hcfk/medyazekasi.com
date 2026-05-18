@@ -48,6 +48,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 0.6,
     },
+    {
+      path: "/insights/desifre-transkripsiyon-kamu-veri-guvenligi",
+      changeFrequency: "weekly",
+      priority: 0.7,
+    },
   ];
 
   return routes.map((route) => ({
