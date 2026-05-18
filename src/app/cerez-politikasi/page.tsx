@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Çerez Politikası | Medya Zekâsı",
   description:
-    "Medya Zekâsı web sitesi için çerez kullanımı, kategoriler, saklama mantığı ve tercih yönetimi bilgileri.",
+    "Medya Zekâsı web sitesi için çerez kullanımı, Google Analytics 4, saklama süreleri ve tercih yönetimi bilgileri.",
   path: "/cerez-politikasi",
 });
 
@@ -28,8 +28,8 @@ export default function CookiePolicyPage() {
             Çerez Politikası
           </h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-            Bu sayfa, medyazekasi.com üzerinde kullanılan çerez kategorileri, amaçları ve
-            tercihlerinizi nasıl yöneteceğiniz hakkında bilgi verir.
+            Bu sayfa, medyazekasi.com üzerinde kullanılan çerez kategorileri, analitik yaklaşımı,
+            saklama mantığı ve tercihlerinizi nasıl yönetebileceğiniz hakkında bilgi verir.
           </p>
         </section>
 
@@ -38,68 +38,84 @@ export default function CookiePolicyPage() {
             <section>
               <h2 className="text-2xl font-semibold text-slate-950">1. Çerez nedir?</h2>
               <p className="mt-3 leading-8">
-                Çerezler, ziyaret ettiğiniz web siteleri tarafından tarayıcınıza yerleştirilen
-                küçük veri dosyalarıdır. Bazı çerezler sitenin temel çalışması için gereklidir;
-                bazıları ise performans ve kullanım ölçümü amacıyla kullanılabilir.
+                Çerezler, ziyaret ettiğiniz web siteleri tarafından tarayıcınıza yerleştirilen küçük
+                veri dosyalarıdır. Bazı çerezler sitenin temel çalışması için gereklidir; bazıları ise
+                performans ve kullanım ölçümü amacıyla kullanılabilir.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-slate-950">
-                2. Kullandığımız çerez kategorileri
+                2. Kullandığımız çerez ve benzeri teknolojiler
               </h2>
               <div className="mt-4 grid gap-4 md:grid-cols-2">
                 <div className="rounded-[1.3rem] border border-slate-200 bg-slate-50 p-5">
                   <h3 className="text-lg font-semibold text-slate-950">Zorunlu çerezler</h3>
                   <p className="mt-2 leading-7">
-                    Sayfanın güvenli biçimde çalışması, temel gezinme ve çerez tercihlerinizin
-                    saklanması için kullanılır.
+                    Güvenli gezinme, temel site işlevleri ve çerez tercihlerinizin saklanması için
+                    kullanılır. Bu kategori kapatılamaz.
                   </p>
                 </div>
                 <div className="rounded-[1.3rem] border border-slate-200 bg-slate-50 p-5">
                   <h3 className="text-lg font-semibold text-slate-950">Analitik çerezler</h3>
                   <p className="mt-2 leading-7">
-                    Site performansını ve kullanım akışını anlamak için Google Analytics 4
-                    kullanılır. Bu kategori yalnızca onay vermeniz halinde etkinleşir.
+                    Web sitesi kullanımını toplu seviyede anlamak için Google Analytics 4 kullanılır.
+                    Bu kategori yalnızca onay vermeniz halinde etkinleşir.
                   </p>
                 </div>
               </div>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-slate-950">
-                3. Analitik çerezler ne zaman çalışır?
-              </h2>
+              <h2 className="text-2xl font-semibold text-slate-950">3. Analitik yaklaşımımız</h2>
               <p className="mt-3 leading-8">
-                Analitik çerezler varsayılan olarak kapalıdır. Sitede gösterilen çerez banner&apos;ında
-                “Analitiği Kabul Et” seçeneğini kullanmanız veya tercih panelinde analitik
-                çerezleri etkinleştirmeniz halinde devreye alınır.
+                Site üzerinde Google Analytics 4 kullanılmaktadır. Analitik kodu varsayılan olarak
+                yüklenmez; yalnızca çerez banner’ında analitik izni vermeniz halinde etkinleştirilir.
+                Analitik olaylar, sayfa görüntüleme ve form gönderimi gibi genel kullanım bilgileriyle
+                sınırlıdır.
+              </p>
+              <p className="mt-3 leading-8">
+                Google Analytics’e ad, e-posta, telefon, mesaj içeriği veya kişiyi doğrudan
+                tanımlayabilecek form verileri gönderilmez.
+              </p>
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-slate-950">4. Saklama ve tercih yönetimi</h2>
+              <p className="mt-3 leading-8">
+                Çerez tercihleriniz tarayıcınızın yerel depolama alanında saklanır. Tarayıcı verilerinizi
+                temizlemeniz halinde tercih paneli yeniden gösterilebilir. Analitik çerezleri kabul
+                etmezseniz site temel işlevleriyle kullanılmaya devam eder.
               </p>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold text-slate-950">
-                4. Tercihlerinizi nasıl değiştirebilirsiniz?
+                5. Çerezleri nasıl değiştirebilirsiniz?
               </h2>
               <p className="mt-3 leading-8">
-                İlk ziyaretinizde gösterilen çerez tercih paneli üzerinden seçim yapabilirsiniz.
-                Tercihleriniz tarayıcınızda saklanır. Tarayıcı verilerinizi temizlemeniz halinde
-                tercih paneli yeniden gösterilebilir.
+                İlk ziyaretinizde gösterilen çerez paneli üzerinden seçim yapabilirsiniz. Ayrıca
+                tarayıcı ayarlarınızdan çerezleri silebilir veya engelleyebilirsiniz. Ancak bu durumda
+                bazı tercihlerin yeniden sorulması gerekebilir.
               </p>
             </section>
 
             <section>
-              <h2 className="text-2xl font-semibold text-slate-950">5. Daha fazla bilgi</h2>
-              <p className="mt-3 leading-8">
-                Kişisel verilerin işlenmesi hakkında daha fazla bilgi için{" "}
+              <h2 className="text-2xl font-semibold text-slate-950">6. İlgili sayfalar</h2>
+              <div className="mt-4 flex flex-wrap gap-3">
                 <Link
                   href="/gizlilik-politikasi"
-                  className="font-semibold text-cyan-900 underline underline-offset-4"
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-cyan-300 hover:text-cyan-900"
                 >
                   Gizlilik Politikası
-                </Link>{" "}
-                sayfasını inceleyebilirsiniz.
-              </p>
+                </Link>
+                <Link
+                  href="/yasal-bilgiler"
+                  className="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-cyan-300 hover:text-cyan-900"
+                >
+                  Yasal Bilgiler
+                </Link>
+              </div>
             </section>
           </CardContent>
         </Card>

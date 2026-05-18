@@ -105,6 +105,9 @@ export function SiteFooter() {
             <Link href="/cerez-politikasi" className="hover:text-slate-300">
               Çerez Politikası
             </Link>
+            <Link href="/yasal-bilgiler" className="hover:text-slate-300">
+              Yasal Bilgiler
+            </Link>
             <Link href="/magaza-metinleri" className="hover:text-slate-300">
               Mağaza Metinleri
             </Link>
