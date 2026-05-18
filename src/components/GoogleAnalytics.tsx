@@ -4,27 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Script from "next/script";
 
-import { consentEventName, consentStorageKey, type ConsentPreferences } from "@/lib/consent";
+import { consentEventName, readConsentPreferences } from "@/lib/consent";
 
 const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
 function hasAnalyticsConsent() {
-  if (typeof window === "undefined") {
-    return false;
-  }
-
-  const stored = window.localStorage.getItem(consentStorageKey);
-
-  if (!stored) {
-    return false;
-  }
-
-  try {
-    const parsed = JSON.parse(stored) as ConsentPreferences;
-    return parsed.analytics;
-  } catch {
-    return false;
-  }
+  return readConsentPreferences()?.analytics ?? false;
 }
 
 export function GoogleAnalytics() {

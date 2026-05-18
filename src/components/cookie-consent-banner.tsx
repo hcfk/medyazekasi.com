@@ -1,54 +1,49 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   consentEventName,
-  consentStorageKey,
   createConsentPreferences,
-  type ConsentPreferences,
+  readConsentPreferences,
+  writeConsentPreferences,
 } from "@/lib/consent";
 
-function readStoredConsent() {
-  if (typeof window === "undefined") {
-    return null;
-  }
-
-  const stored = window.localStorage.getItem(consentStorageKey);
-
-  if (!stored) {
-    return null;
-  }
-
-  try {
-    return JSON.parse(stored) as ConsentPreferences;
-  } catch {
-    return null;
-  }
-}
-
 export function CookieConsentBanner() {
-  const [isVisible, setIsVisible] = useState(() => readStoredConsent() === null);
+  const [isReady, setIsReady] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
   const [showPreferences, setShowPreferences] = useState(false);
-  const [analyticsEnabled, setAnalyticsEnabled] = useState(
-    () => readStoredConsent()?.analytics ?? false,
-  );
+  const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
 
-  function saveConsent(analytics: boolean) {
-    if (typeof window === "undefined") {
-      return;
+  useEffect(() => {
+    function syncConsent() {
+      const storedConsent = readConsentPreferences();
+      setAnalyticsEnabled(storedConsent?.analytics ?? false);
+      setIsVisible(storedConsent === null);
+      setShowPreferences(false);
+      setIsReady(true);
     }
 
+    syncConsent();
+    window.addEventListener("storage", syncConsent);
+    window.addEventListener(consentEventName, syncConsent as EventListener);
+
+    return () => {
+      window.removeEventListener("storage", syncConsent);
+      window.removeEventListener(consentEventName, syncConsent as EventListener);
+    };
+  }, []);
+
+  function saveConsent(analytics: boolean) {
     const preferences = createConsentPreferences(analytics);
-    window.localStorage.setItem(consentStorageKey, JSON.stringify(preferences));
-    window.dispatchEvent(new CustomEvent(consentEventName, { detail: preferences }));
+    writeConsentPreferences(preferences);
     setAnalyticsEnabled(analytics);
     setIsVisible(false);
     setShowPreferences(false);
   }
 
-  if (!isVisible) {
+  if (!isReady || !isVisible) {
     return null;
   }
 
@@ -150,7 +145,7 @@ export function CookieConsentBanner() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 lg:col-span-2 sm:flex-row">
+            <div className="flex flex-col gap-3 sm:flex-row lg:col-span-2">
               <button
                 type="button"
                 onClick={() => saveConsent(analyticsEnabled)}
