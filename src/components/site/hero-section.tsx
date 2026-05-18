@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 const heroStats = [
   "Web + Mobil medya toplama",
-  "Transkripsiyon ve özetleme",
+  "Transkripsiyon ve deşifre",
   "Aranabilir kurumsal arşiv",
 ];
 
@@ -28,14 +28,15 @@ export function HeroSection() {
             </div>
 
             <h1 className="mt-5 max-w-4xl text-[2.65rem] font-semibold tracking-[-0.05em] text-slate-950 sm:text-5xl lg:text-7xl">
-              Yapay Zekâ Destekli Kurumsal Medya Yönetim Platformu
+              Belediyeler ve kamu kurumları için yapay zekâ destekli transkripsiyon, deşifre ve
+              kurumsal medya yönetimi
             </h1>
 
             <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg md:text-xl">
-              Medya Zekâsı; kamu kurumları, belediyeler ve basın-yayın ekipleri için
-              toplantı, konuşma, canlı yayın ve saha kayıtlarını web ve mobil üzerinden
-              tek merkezde toplar. İçerikleri metne, özete, altyazıya ve aranabilir
-              kurumsal hafızaya dönüştürür.
+              Medya Zekâsı; belediyeler, kamu kurumları ve basın-yayın ekipleri için toplantı,
+              konuşma, canlı yayın ve saha kayıtlarını web ve mobil üzerinden tek merkezde
+              toplar. Ses ve video içeriklerini transkripsiyon, deşifre, özet, altyazı ve
+              aranabilir kurumsal hafızaya dönüştürür.
             </p>
 
             <div className="mt-6 flex flex-col gap-3 sm:flex-row">
