@@ -3,6 +3,7 @@ import { IBM_Plex_Mono, Manrope } from "next/font/google";
 
 import { CookieConsentBanner } from "@/components/cookie-consent-banner";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import { MicrosoftClarity } from "@/components/MicrosoftClarity";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
@@ -89,6 +90,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-background text-foreground">
         <GoogleAnalytics />
+        <MicrosoftClarity />
         <SeoJsonLd
           data={[
             buildOrganizationJsonLd(),

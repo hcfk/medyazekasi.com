@@ -60,7 +60,7 @@ export function CookieConsentBanner() {
             </h2>
             <p className="mt-3 text-sm leading-7 text-slate-700 sm:text-base">
               Zorunlu çerezler sitenin çalışması için kullanılır. Analitik çerezler yalnızca
-              kullanım ve performans ölçümü için kullanılır. Daha fazla bilgi için{" "}
+              kullanım, performans ve etkileşim ölçümü için kullanılır. Daha fazla bilgi için{" "}
               <Link
                 href="/cerez-politikasi"
                 className="font-semibold text-cyan-900 underline underline-offset-4"
@@ -124,7 +124,8 @@ export function CookieConsentBanner() {
                 <div>
                   <h3 className="text-base font-semibold text-slate-950">Analitik Çerezler</h3>
                   <p className="mt-2 text-sm leading-7 text-slate-700">
-                    GA4 ile performans ve kullanım ölçümü için kullanılır.
+                    Google Analytics ve Microsoft Clarity ile performans, etkileşim ve
+                    kullanım ölçümü için kullanılır.
                   </p>
                 </div>
                 <button
