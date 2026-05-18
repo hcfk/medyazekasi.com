@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { getAllInsights } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -23,39 +24,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: "/mobil-izinler", changeFrequency: "monthly", priority: 0.6 },
     { path: "/yas-siniflandirmasi", changeFrequency: "monthly", priority: 0.6 },
     { path: "/insights", changeFrequency: "weekly", priority: 0.7 },
-    {
-      path: "/insights/belediye-basinyayin-otomasyon",
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    {
-      path: "/insights/kamu-kurumsal-hafiza",
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    {
-      path: "/insights/toplanti-kaydi-transkripsiyon",
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    {
-      path: "/insights/yapay-zeka-ile-ozetleme",
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    {
-      path: "/insights/kurumsal-medya-arsivi",
-      changeFrequency: "weekly",
-      priority: 0.6,
-    },
-    {
-      path: "/insights/desifre-transkripsiyon-kamu-veri-guvenligi",
-      changeFrequency: "weekly",
-      priority: 0.7,
-    },
   ];
 
-  return routes.map((route) => ({
+  const insightRoutes = getAllInsights().map((insight) => ({
+    path: `/insights/${insight.slug}`,
+    changeFrequency: "weekly" as const,
+    priority:
+      insight.slug === "desifre-transkripsiyon-kamu-veri-guvenligi" ? 0.7 : 0.6,
+  }));
+
+  return [...routes, ...insightRoutes].map((route) => ({
     url: route.path === "/" ? siteConfig.url : `${siteConfig.url}${route.path}`,
     lastModified: new Date(),
     changeFrequency: route.changeFrequency,
