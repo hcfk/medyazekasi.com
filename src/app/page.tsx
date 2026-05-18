@@ -62,6 +62,37 @@ export default function HomePage() {
       <SeoJsonLd data={buildBreadcrumbJsonLd([{ name: "Ana Sayfa", path: "/" }])} />
       <HeroSection />
 
+      <section className="mx-auto max-w-7xl px-6 pb-4 pt-8 md:px-10 md:pt-10">
+        <Reveal className="rounded-[2rem] border border-slate-200/80 bg-white/88 p-7 shadow-[0_18px_55px_rgba(20,33,61,0.06)] md:p-8">
+          <p className="font-mono text-sm uppercase tracking-[0.24em] text-cyan-900">
+            Kurumsal İçerik Yönetimi
+          </p>
+          <h2 className="mt-4 max-w-4xl text-3xl font-semibold tracking-tight text-slate-950 md:text-4xl">
+            Medya yönetim platformu, transkripsiyon, deşifre ve kurumsal arşiv ihtiyacını tek akışta birleştirin.
+          </h2>
+          <div className="mt-5 grid gap-4 lg:grid-cols-2">
+            <p className="text-base leading-8 text-slate-700 md:text-lg">
+              Medya Zekâsı; belediyeler, kamu kurumları, basın-yayın birimleri, üniversiteler ve
+              saha ekipleri için geliştirilmiş yapay zekâ destekli medya yönetim platformudur.
+              Toplantı kaydını yazıya çevirme, ses kaydını yazıya çevirme, video kaydını yazıya
+              çevirme, sesten metne, videodan metne ve konuşmacı tanıma gibi süreçleri kurumsal
+              operasyon içine taşır. Böylece yalnızca ham kayıt değil; transkripsiyon, deşifre,
+              özetleme, altyazı ve aranabilir arşiv çıktıları üretilir.
+            </p>
+            <p className="text-base leading-8 text-slate-700 md:text-lg">
+              Özellikle belediyeler için medya yönetimi ve kamu kurumları için medya yönetimi
+              ihtiyaçlarında kayıtlar farklı kaynaklardan gelir: meclis toplantıları, başkan
+              konuşmaları, canlı yayınlar, saha videoları, röportajlar, eğitim kayıtları ve basın
+              açıklamaları. Medya Zekâsı bu dağınık içeriği web paneli ve mobil uygulamalar
+              üzerinden tek merkezde toplar; transkripsiyon sistemi, yapay zekâ ile özetleme,
+              otomatik altyazı oluşturma ve kurumsal medya arşivi akışıyla yeniden kullanılabilir
+              bilgiye dönüştürür. Amaç yalnızca dosya saklamak değil, kurumsal hafızayı güçlendiren
+              denetlenebilir ve aranabilir bir bilgi yapısı kurmaktır.
+            </p>
+          </div>
+        </Reveal>
+      </section>
+
       <section className="mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-10">
         <div className="rounded-[1.8rem] border border-slate-200/80 bg-white/84 p-5 shadow-[0_16px_45px_rgba(20,33,61,0.05)]">
           <div className="flex flex-wrap gap-3">
