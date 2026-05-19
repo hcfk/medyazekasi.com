@@ -7,6 +7,7 @@ const insightSlugs = [
   "belediye-basinyayin-otomasyon",
   "belediye-meclis-tutanagi",
   "canli-yayin-transkripsiyon",
+  "dijital-cagda-kamu-iletisimi-medya-zekasi",
   "desifre-transkripsiyon-kamu-veri-guvenligi",
   "kamu-kurumsal-hafiza",
   "kamu-video-altyazi-zorunlulugu",

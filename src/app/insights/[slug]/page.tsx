@@ -29,6 +29,8 @@ const seoTitles: Record<string, string> = {
   "kamu-video-altyazi-zorunlulugu": "Kamu Kurumlarında Video Altyazısı",
   "kurumsal-medya-arsivi": "Kurumsal Medya Arşivi",
   "canli-yayin-transkripsiyon": "Canlı Yayın Transkripsiyon",
+  "dijital-cagda-kamu-iletisimi-medya-zekasi":
+    "Dijital Çağda Kamu İletişimi ve Kurumsal Hafıza",
   "toplanti-kaydi-transkripsiyon": "Toplantı Kaydı Transkripsiyon Sistemi",
 };
 
@@ -162,6 +164,33 @@ const insightFaqs: Record<string, Array<{ question: string; answer: string }>> =
         "Evet. Metinleşen yayın içeriği arama motorları tarafından indekslenebilir hale gelir ve kurumsal görünürlüğü artırabilir.",
     },
   ],
+  "dijital-cagda-kamu-iletisimi-medya-zekasi": [
+    {
+      question: "Medya Zekâsı hangi kurumlar için uygundur?",
+      answer:
+        "Belediyeler, kamu kurumları, üniversiteler, basın-yayın birimleri, kurumsal iletişim ekipleri ve düzenli ses veya video kaydı üreten saha ekipleri için uygundur.",
+    },
+    {
+      question: "Platform yalnızca kayıtları metne mi dönüştürür?",
+      answer:
+        "Hayır. Platform medya toplama, kuyruk tabanlı işleme, transkripsiyon, özetleme, altyazı üretimi, arşivleme ve yetkili erişim akışlarını birlikte ele alır.",
+    },
+    {
+      question: "Kurumsal hafıza açısından temel fayda nedir?",
+      answer:
+        "Daha önce yalnızca dosya olarak kalan konuşma, toplantı ve yayın kayıtları; aranabilir, paylaşılabilir ve yeniden kullanılabilir kurumsal bilgiye dönüşür.",
+    },
+    {
+      question: "Mobil uygulama ne sağlar?",
+      answer:
+        "Saha ekipleri Android ve iOS üzerinden ses, video veya bağlantı gönderebilir; merkez ekip ise web panelinden süreçleri takip edebilir.",
+    },
+    {
+      question: "Yapay zekâ çıktıları doğrudan yayımlanmalı mı?",
+      answer:
+        "Kurumsal iletişimde önerilen yaklaşım, yapay zekâ çıktılarının uzman ekip tarafından gözden geçirilmesi ve kurumsal dil ile doğruluk açısından son kontrolden geçirilmesidir.",
+    },
+  ],
 };
 
 export async function generateStaticParams() {
@@ -232,9 +261,7 @@ export default async function InsightPage({ params }: PageProps) {
         <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
           {meta.title}
         </h1>
-        <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-700">
-          {meta.description}
-        </p>
+        <p className="mt-4 max-w-2xl text-lg leading-8 text-slate-700">{meta.description}</p>
       </section>
 
       <article className="prose prose-slate mt-8 max-w-none rounded-[2rem] border border-slate-200/80 bg-white px-8 py-10 shadow-[0_18px_55px_rgba(20,33,61,0.06)]">

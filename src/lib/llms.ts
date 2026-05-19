@@ -93,6 +93,12 @@ const insightLinks: LlmsLink[] = [
       "Canlı yayın kayıtlarını metne, özete ve kurumsal arşive dönüştürme rehberi.",
   },
   {
+    name: "Dijital Çağda Kamu İletişimi: Medya Zekâsı ile Ham Veriden Kurumsal Hafızaya",
+    path: "/insights/dijital-cagda-kamu-iletisimi-medya-zekasi",
+    description:
+      "Kamu iletişimi, basın-yayın operasyonları ve kurumsal hafıza için Medya Zekâsı yaklaşımını açıklayan genel bakış yazısı.",
+  },
+  {
     name: "Kamu kurumları için deşifre ve transkripsiyon rehberi",
     path: "/insights/desifre-transkripsiyon-kamu-veri-guvenligi",
     description:
