@@ -33,6 +33,8 @@ const seoTitles: Record<string, string> = {
     "Dijital Çağda Kamu İletişimi ve Kurumsal Hafıza",
   "manuel-kaostan-yapay-zeka-destekli-medya-duzenine-gecis":
     "Manuel Kaostan Yapay Zekâ Destekli Medya Düzenine Geçiş",
+  "medya-zekasi-operasyonel-tuzugu":
+    "Medya Zekâsı Operasyonel Tüzüğü ve Medya Standartları",
   "toplanti-kaydi-transkripsiyon": "Toplantı Kaydı Transkripsiyon Sistemi",
 };
 
@@ -218,6 +220,33 @@ const insightFaqs: Record<string, Array<{ question: string; answer: string }>> =
       question: "Kurumsal hafıza açısından en büyük fayda nedir?",
       answer:
         "Daha önce yalnızca ses veya video olarak duran kayıtlar, metinle zenginleşerek aranabilir ve yeniden kullanılabilir kurumsal bilgiye dönüşür.",
+    },
+  ],
+  "medya-zekasi-operasyonel-tuzugu": [
+    {
+      question: "Medya Zekâsı operasyonel olarak hangi alanları standardize eder?",
+      answer:
+        "Medya alımı, kuyruk tabanlı işleme, transkripsiyon, özetleme, uzman kontrolü, rol bazlı erişim, performans takibi ve arşivleme süreçlerini daha standardize biçimde yönetmeye yardımcı olur.",
+    },
+    {
+      question: "Kuyruk tabanlı medya işleme neden önemlidir?",
+      answer:
+        "Aynı anda çok sayıda dosyanın işlendiği kurumlarda işlerin sıraya alınması, önceliklendirilmesi, gecikmelerin görülmesi ve hataların takip edilmesi için kritik bir yapıdır.",
+    },
+    {
+      question: "Human-in-the-loop yaklaşımı ne sağlar?",
+      answer:
+        "Yapay zekâ ilk taslakları hızlandırırken editörlerin ve yetkili ekiplerin son kontrolü yapmasını sağlar; böylece kurumsal dil ve doğruluk korunur.",
+    },
+    {
+      question: "Performans metrikleri hangi kararlara destek olur?",
+      answer:
+        "Kuyruk yoğunluğu, ortalama işlem süresi, hata oranı, backlog ve birim bazlı üretim verileri; kapasite planlaması ve operasyonel iyileştirme kararlarına temel sağlar.",
+    },
+    {
+      question: "Rol bazlı erişim neden gereklidir?",
+      answer:
+        "Basın-yayın ekipleri, yöneticiler, saha personeli ve standart kullanıcılar farklı yetki seviyelerine ihtiyaç duyar. Rol bazlı erişim hem güvenliği hem de iş düzenini güçlendirir.",
     },
   ],
 };

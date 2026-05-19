@@ -129,6 +129,12 @@ const insightLinks: LlmsLink[] = [
       "Dağınık medya akışından merkezi, yapay zekâ destekli medya yönetimi düzenine geçişi anlatan rehber.",
   },
   {
+    name: "Medya Zekâsı Operasyonel Tüzüğü: Veri Odaklı Medya Üretim ve Performans Standartları",
+    path: "/insights/medya-zekasi-operasyonel-tuzugu",
+    description:
+      "Merkezi kuyruk, yapay zekâ, performans metrikleri ve rol bazlı yönetişimle medya operasyon standardını açıklayan makale.",
+  },
+  {
     name: "Saha ekipleri için mobil ses kaydı ve merkeze aktarım akışı",
     path: "/insights/saha-ekipleri-mobil-ses-kaydi",
     description:

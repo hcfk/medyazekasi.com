@@ -9,6 +9,7 @@ const insightSlugs = [
   "canli-yayin-transkripsiyon",
   "dijital-cagda-kamu-iletisimi-medya-zekasi",
   "manuel-kaostan-yapay-zeka-destekli-medya-duzenine-gecis",
+  "medya-zekasi-operasyonel-tuzugu",
   "desifre-transkripsiyon-kamu-veri-guvenligi",
   "kamu-kurumsal-hafiza",
   "kamu-video-altyazi-zorunlulugu",
