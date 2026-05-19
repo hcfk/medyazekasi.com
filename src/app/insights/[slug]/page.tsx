@@ -31,6 +31,8 @@ const seoTitles: Record<string, string> = {
   "canli-yayin-transkripsiyon": "Canlı Yayın Transkripsiyon",
   "dijital-cagda-kamu-iletisimi-medya-zekasi":
     "Dijital Çağda Kamu İletişimi ve Kurumsal Hafıza",
+  "manuel-kaostan-yapay-zeka-destekli-medya-duzenine-gecis":
+    "Manuel Kaostan Yapay Zekâ Destekli Medya Düzenine Geçiş",
   "toplanti-kaydi-transkripsiyon": "Toplantı Kaydı Transkripsiyon Sistemi",
 };
 
@@ -189,6 +191,33 @@ const insightFaqs: Record<string, Array<{ question: string; answer: string }>> =
       question: "Yapay zekâ çıktıları doğrudan yayımlanmalı mı?",
       answer:
         "Kurumsal iletişimde önerilen yaklaşım, yapay zekâ çıktılarının uzman ekip tarafından gözden geçirilmesi ve kurumsal dil ile doğruluk açısından son kontrolden geçirilmesidir.",
+    },
+  ],
+  "manuel-kaostan-yapay-zeka-destekli-medya-duzenine-gecis": [
+    {
+      question: "Medya Zekâsı manuel medya yönetiminde hangi sorunu çözer?",
+      answer:
+        "Dağınık dosya akışını merkezi kuyruğa alır; transkripsiyon, özetleme, altyazı ve arşivleme süreçlerini daha düzenli ve izlenebilir hale getirir.",
+    },
+    {
+      question: "Bu yaklaşım belediyeler için neden önemlidir?",
+      answer:
+        "Meclis toplantıları, basın açıklamaları, canlı yayınlar ve saha kayıtları farklı kaynaklardan gelir. Merkezi iş akışı olmadan bu içerikler kaybolabilir veya geç işlenebilir.",
+    },
+    {
+      question: "Mobil uygulama bu düzende ne rol oynar?",
+      answer:
+        "Sahada oluşan medya içeriğinin Android ve iOS üzerinden hızla merkeze aktarılmasını sağlar ve web panelindeki operasyon akışını besler.",
+    },
+    {
+      question: "Yapay zekâ destekli medya yönetimi insan kontrolünü ortadan kaldırır mı?",
+      answer:
+        "Hayır. Yapay zekâ ilk taslakları hızlandırır; ancak kurumsal iletişimde nihai kontrolün uzman ekipte olması gerekir.",
+    },
+    {
+      question: "Kurumsal hafıza açısından en büyük fayda nedir?",
+      answer:
+        "Daha önce yalnızca ses veya video olarak duran kayıtlar, metinle zenginleşerek aranabilir ve yeniden kullanılabilir kurumsal bilgiye dönüşür.",
     },
   ],
 };

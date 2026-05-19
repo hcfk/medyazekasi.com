@@ -123,6 +123,12 @@ const insightLinks: LlmsLink[] = [
       "Arşiv, arama, sınıflandırma ve yeniden kullanım odaklı kurumsal medya arşivi yaklaşımı.",
   },
   {
+    name: "Medya Zekâsı: Manuel Kaostan Yapay Zekâ Destekli Medya Düzenine Geçiş Rehberi",
+    path: "/insights/manuel-kaostan-yapay-zeka-destekli-medya-duzenine-gecis",
+    description:
+      "Dağınık medya akışından merkezi, yapay zekâ destekli medya yönetimi düzenine geçişi anlatan rehber.",
+  },
+  {
     name: "Saha ekipleri için mobil ses kaydı ve merkeze aktarım akışı",
     path: "/insights/saha-ekipleri-mobil-ses-kaydi",
     description:
