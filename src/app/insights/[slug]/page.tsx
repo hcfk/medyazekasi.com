@@ -18,6 +18,20 @@ type PageProps = {
   }>;
 };
 
+const seoTitles: Record<string, string> = {
+  "saha-ekipleri-mobil-ses-kaydi": "Mobil Ses Kaydı ve Transkripsiyon",
+  "kamu-kurumsal-hafiza": "Kamu Kurumlarında Kurumsal Hafıza",
+  "belediye-meclis-tutanagi": "Belediye Meclis Tutanağı Rehberi",
+  "yapay-zeka-ile-ozetleme": "Yapay Zekâ ile Özetleme",
+  "universite-ders-kaydi-transkripsiyon": "Üniversitelerde Ders Kaydı ve Transkripsiyon",
+  "basin-bulteni-transkripsiyon": "Basın Bülteni ve Transkripsiyon",
+  "belediye-basinyayin-otomasyon": "Belediye Basın-Yayın Otomasyonu",
+  "kamu-video-altyazi-zorunlulugu": "Kamu Kurumlarında Video Altyazısı",
+  "kurumsal-medya-arsivi": "Kurumsal Medya Arşivi",
+  "canli-yayin-transkripsiyon": "Canlı Yayın Transkripsiyon",
+  "toplanti-kaydi-transkripsiyon": "Toplantı Kaydı Transkripsiyon Sistemi",
+};
+
 const insightFaqs: Record<string, Array<{ question: string; answer: string }>> = {
   "desifre-transkripsiyon-kamu-veri-guvenligi": [
     {
@@ -165,7 +179,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 
   return buildMetadata({
-    title: `${insight.title} | Medya Zekâsı`,
+    title: `${seoTitles[slug] || insight.seoTitle || insight.title} | Medya Zekâsı`,
     description: insight.description,
     path: `/insights/${slug}`,
     type: "article",

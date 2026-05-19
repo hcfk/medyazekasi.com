@@ -34,13 +34,14 @@ export function MicrosoftClarity() {
     }
 
     let isCancelled = false;
+    const resolvedClarityId = clarityId;
 
     async function initClarity() {
       const { default: Clarity } = await import("@microsoft/clarity");
       if (isCancelled || isInitialized.current) {
         return;
       }
-      Clarity.init(clarityId);
+      Clarity.init(resolvedClarityId);
       isInitialized.current = true;
     }
 

@@ -26,6 +26,8 @@ const ibmPlexMono = IBM_Plex_Mono({
   weight: ["400", "500"],
 });
 
+const clarityId = process.env.NEXT_PUBLIC_CLARITY_ID;
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -90,7 +92,7 @@ export default function RootLayout({
     >
       <body className="min-h-full bg-background text-foreground">
         <GoogleAnalytics />
-        <MicrosoftClarity />
+        {clarityId ? <MicrosoftClarity /> : null}
         <SeoJsonLd
           data={[
             buildOrganizationJsonLd(),

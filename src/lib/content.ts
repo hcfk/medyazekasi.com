@@ -11,6 +11,7 @@ const contentDirectory = path.join(process.cwd(), "content", "insights");
 export type InsightMeta = {
   slug: string;
   title: string;
+  seoTitle?: string;
   description: string;
   audience: string;
   readingTime: string;
@@ -19,6 +20,10 @@ export type InsightMeta = {
 };
 
 type Frontmatter = Omit<InsightMeta, "slug">;
+
+function stripLeadingH1(markdown: string) {
+  return markdown.replace(/^#\s+.+?\r?\n\r?\n/, "");
+}
 
 export function getAllInsights(): InsightMeta[] {
   const files = fs.readdirSync(contentDirectory);
@@ -34,6 +39,7 @@ export function getAllInsights(): InsightMeta[] {
       return {
         slug: file.replace(/\.mdx$/, ""),
         title: String(data.title),
+        seoTitle: typeof data.seoTitle === "string" ? data.seoTitle : undefined,
         description: String(data.description),
         audience: String(data.audience),
         readingTime: String(data.readingTime),
@@ -66,9 +72,10 @@ export async function getInsightBySlug(slug: string) {
   const source = fs.readFileSync(filePath, "utf8");
   const { content, data } = matter(source);
   const stats = fs.statSync(filePath);
+  const normalizedContent = stripLeadingH1(content);
 
   const compiled = await compileMDX<Frontmatter>({
-    source: content,
+    source: normalizedContent,
     components: getMdxComponents(),
     options: {
       parseFrontmatter: false,
@@ -79,6 +86,7 @@ export async function getInsightBySlug(slug: string) {
     meta: {
       slug,
       title: String(data.title),
+      seoTitle: typeof data.seoTitle === "string" ? data.seoTitle : undefined,
       description: String(data.description),
       audience: String(data.audience),
       readingTime: String(data.readingTime),
