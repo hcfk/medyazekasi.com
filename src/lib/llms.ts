@@ -1,4 +1,3 @@
-import { getAllInsights } from "@/lib/content";
 import { buildAbsoluteUrl } from "@/lib/seo";
 import { siteConfig } from "@/lib/site";
 
@@ -68,6 +67,81 @@ const solutionsLinks: LlmsLink[] = [
   },
 ];
 
+const insightLinks: LlmsLink[] = [
+  {
+    name: "Basın bülteni için transkripsiyon sistemi nasıl kullanılır?",
+    path: "/insights/basin-bulteni-transkripsiyon",
+    description:
+      "Basın açıklamaları ve röportaj kayıtlarından daha hızlı bülten üretimi için rehber.",
+  },
+  {
+    name: "Belediye basın-yayın ekipleri için içerik otomasyonu nasıl hız kazandırır?",
+    path: "/insights/belediye-basinyayin-otomasyon",
+    description:
+      "Belediye etkinlikleri, başkan konuşmaları ve yayın kayıtlarının içerik akışına dönüşmesi.",
+  },
+  {
+    name: "Belediye Meclis Tutanağı Nasıl Hazırlanır? Yasal Süreç ve Otomatik Transkripsiyon",
+    path: "/insights/belediye-meclis-tutanagi",
+    description:
+      "Meclis toplantı kayıtlarının yazıya dökülmesi ve otomatik transkripsiyonun kullanım alanları.",
+  },
+  {
+    name: "Canlı Yayın Transkripsiyon: Meclis ve Etkinlik Yayınlarını Metne ve Arşive Dönüştürmek",
+    path: "/insights/canli-yayin-transkripsiyon",
+    description:
+      "Canlı yayın kayıtlarını metne, özete ve kurumsal arşive dönüştürme rehberi.",
+  },
+  {
+    name: "Kamu kurumları için deşifre ve transkripsiyon rehberi",
+    path: "/insights/desifre-transkripsiyon-kamu-veri-guvenligi",
+    description:
+      "Deşifre, transkripsiyon, sesten metne, videodan metne ve konuşmacı tanıma süreçlerinin kurumsal kullanımı.",
+  },
+  {
+    name: "Kamu kurumlarında kurumsal hafıza nasıl güçlendirilir?",
+    path: "/insights/kamu-kurumsal-hafiza",
+    description:
+      "Toplantı, eğitim ve saha kayıtlarını aranabilir bilgiye dönüştürme yaklaşımı.",
+  },
+  {
+    name: "Kamu kurumlarında video içerikler için altyazı neden önemlidir?",
+    path: "/insights/kamu-video-altyazi-zorunlulugu",
+    description:
+      "Erişilebilirlik, SEO ve yeniden kullanım açısından altyazı üretiminin rolü.",
+  },
+  {
+    name: "Kurumsal medya arşivi neden yalnızca depolama değildir?",
+    path: "/insights/kurumsal-medya-arsivi",
+    description:
+      "Arşiv, arama, sınıflandırma ve yeniden kullanım odaklı kurumsal medya arşivi yaklaşımı.",
+  },
+  {
+    name: "Saha ekipleri için mobil ses kaydı ve merkeze aktarım akışı",
+    path: "/insights/saha-ekipleri-mobil-ses-kaydi",
+    description:
+      "Sahadan mobil kayıt alma, merkeze gönderme ve transkripsiyon akışını açıklar.",
+  },
+  {
+    name: "Toplantı kaydını yazıya çevirme ve transkripsiyon sistemi seçimi",
+    path: "/insights/toplanti-kaydi-transkripsiyon",
+    description:
+      "Toplantı transkripsiyonu için süreç, seçim kriterleri ve kurumsal kullanım rehberi.",
+  },
+  {
+    name: "Üniversite ders kayıtları için transkripsiyon ve erişilebilirlik",
+    path: "/insights/universite-ders-kaydi-transkripsiyon",
+    description:
+      "Ders kayıtlarını metne, altyazıya ve aranabilir eğitim içeriğine dönüştürme yaklaşımı.",
+  },
+  {
+    name: "Yapay zekâ ile özetleme kurumsal içerik akışını nasıl hızlandırır?",
+    path: "/insights/yapay-zeka-ile-ozetleme",
+    description:
+      "Uzun konuşma ve toplantı kayıtlarından yönetici özeti ve içerik taslağı üretimi.",
+  },
+];
+
 const legalLinks: LlmsLink[] = [
   {
     name: "Gizlilik Politikası",
@@ -98,24 +172,13 @@ const legalLinks: LlmsLink[] = [
 
 function renderSection(title: string, links: LlmsLink[]) {
   const items = links
-    .map(
-      (link) =>
-        `- [${link.name}](${buildAbsoluteUrl(link.path)}): ${link.description}`,
-    )
+    .map((link) => `- [${link.name}](${buildAbsoluteUrl(link.path)}): ${link.description}`)
     .join("\n");
 
   return `## ${title}\n\n${items}`;
 }
 
 export function buildLlmsText() {
-  const insights = getAllInsights();
-
-  const insightSectionLinks: LlmsLink[] = insights.map((insight) => ({
-    name: insight.title,
-    path: `/insights/${insight.slug}`,
-    description: insight.description,
-  }));
-
   return [
     `# ${siteConfig.name}`,
     "",
@@ -129,7 +192,7 @@ export function buildLlmsText() {
     "",
     renderSection("Solutions", solutionsLinks),
     "",
-    renderSection("Insights", insightSectionLinks),
+    renderSection("Insights", insightLinks),
     "",
     renderSection("Optional", legalLinks),
     "",
