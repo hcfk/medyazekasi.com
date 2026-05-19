@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, Menu } from "lucide-react";
 
@@ -10,8 +11,15 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/88 shadow-[0_10px_30px_rgba(15,23,42,0.05)] backdrop-blur-2xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 md:px-10">
         <Link href="/" className="flex min-w-0 items-center gap-3" aria-label="Ana sayfa">
-          <div className="flex size-10 shrink-0 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0f172a,#0f4c81,#10bcd4)] text-sm font-bold text-white shadow-[0_12px_30px_rgba(16,188,212,0.25)]">
-            MZ
+          <div className="flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-[0_12px_30px_rgba(16,188,212,0.16)] ring-1 ring-slate-200/80">
+            <Image
+              src={siteConfig.logoPath}
+              alt="Medya Zekâsı logosu"
+              width={40}
+              height={40}
+              className="size-full object-cover"
+              priority
+            />
           </div>
           <div className="min-w-0">
             <p className="truncate text-base font-semibold text-slate-950">{siteConfig.name}</p>

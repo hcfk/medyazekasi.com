@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 
@@ -10,8 +11,14 @@ export function SiteFooter() {
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.95fr_1fr]">
           <div className="rounded-[2rem] border border-white/10 bg-white/4 p-7 shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]">
             <div className="flex items-center gap-3">
-              <div className="flex size-11 items-center justify-center rounded-2xl bg-[linear-gradient(135deg,#0f4c81,#10bcd4)] font-bold text-white shadow-[0_16px_35px_rgba(16,188,212,0.20)]">
-                MZ
+              <div className="flex size-11 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-[0_16px_35px_rgba(16,188,212,0.14)] ring-1 ring-white/10">
+                <Image
+                  src={siteConfig.logoPath}
+                  alt="Medya Zekâsı logosu"
+                  width={44}
+                  height={44}
+                  className="size-full object-cover"
+                />
               </div>
               <div>
                 <p className="text-lg font-semibold text-white">{siteConfig.name}</p>

@@ -10,7 +10,7 @@ export const siteConfig = {
   phone: "+90 312 440 18 20",
   phoneHref: "tel:+903124401820",
   address: "Mustafa Kemal Mah 2139 Cad IBK Plaza No:2 Çankaya Ankara",
-  logoPath: "/icon.png",
+  logoPath: "/medyazekasi-logo.svg",
   ogImagePath: "/og-image.png",
   developer: {
     name: "Gokbilge",
