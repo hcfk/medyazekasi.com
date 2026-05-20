@@ -34,6 +34,23 @@ export function SiteFooter() {
             <div className="mt-6 inline-flex items-center gap-2 rounded-full bg-cyan-500/12 px-4 py-2 text-sm text-cyan-100">
               Kurum içi kontrol hedeflerine uygun yapılandırılabilir
             </div>
+            <a
+              href="https://www.producthunt.com/products/medya-zekasi?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-medya-zekasi"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Medya Zekâsı Product Hunt sayfasını aç"
+              className="mt-6 inline-flex rounded-2xl border border-white/10 bg-white p-2 shadow-[0_12px_30px_rgba(15,23,42,0.14)] transition hover:border-cyan-300/50"
+            >
+              {/* Product Hunt harici badge SVG'i embed biçiminde sunuyor. */}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1150752&theme=light&t=1779193574217"
+                alt="Medya Zekâsı - AI-powered media transcription and archive for public teams | Product Hunt"
+                width="250"
+                height="54"
+                loading="lazy"
+              />
+            </a>
           </div>
 
           <div>
