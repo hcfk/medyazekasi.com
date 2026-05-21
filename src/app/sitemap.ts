@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+import { getAllInsights } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
 const insightSlugs = [
@@ -21,37 +22,115 @@ const insightSlugs = [
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  const insights = getAllInsights();
+  const insightDateMap = new Map(
+    insights.map((insight) => [insight.slug, insight.dateModified || insight.datePublished]),
+  );
+  const defaultLastModified = "2026-05-19T00:00:00.000Z";
+
   const routes: Array<{
     path: string;
     changeFrequency: "weekly" | "monthly";
     priority: number;
+    lastModified: string;
   }> = [
-    { path: "/", changeFrequency: "weekly", priority: 1 },
-    { path: "/platform", changeFrequency: "monthly", priority: 0.9 },
-    { path: "/mobil-uygulama", changeFrequency: "monthly", priority: 0.9 },
-    { path: "/kamu-kurumlari", changeFrequency: "monthly", priority: 0.8 },
-    { path: "/belediyeler", changeFrequency: "monthly", priority: 0.8 },
-    { path: "/basin-yayin", changeFrequency: "monthly", priority: 0.8 },
-    { path: "/ozellikler", changeFrequency: "monthly", priority: 0.8 },
-    { path: "/guvenlik", changeFrequency: "monthly", priority: 0.7 },
-    { path: "/demo", changeFrequency: "monthly", priority: 0.7 },
-    { path: "/iletisim", changeFrequency: "monthly", priority: 0.7 },
-    { path: "/cerez-politikasi", changeFrequency: "monthly", priority: 0.6 },
-    { path: "/yasal-bilgiler", changeFrequency: "monthly", priority: 0.6 },
-    { path: "/mobil-izinler", changeFrequency: "monthly", priority: 0.6 },
-    { path: "/yas-siniflandirmasi", changeFrequency: "monthly", priority: 0.6 },
-    { path: "/insights", changeFrequency: "weekly", priority: 0.7 },
+    { path: "/", changeFrequency: "weekly", priority: 1, lastModified: defaultLastModified },
+    {
+      path: "/platform",
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/mobil-uygulama",
+      changeFrequency: "monthly",
+      priority: 0.9,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/kamu-kurumlari",
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/belediyeler",
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/basin-yayin",
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/ozellikler",
+      changeFrequency: "monthly",
+      priority: 0.8,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/guvenlik",
+      changeFrequency: "monthly",
+      priority: 0.7,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/demo",
+      changeFrequency: "monthly",
+      priority: 0.7,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/iletisim",
+      changeFrequency: "monthly",
+      priority: 0.7,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/cerez-politikasi",
+      changeFrequency: "monthly",
+      priority: 0.6,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/yasal-bilgiler",
+      changeFrequency: "monthly",
+      priority: 0.6,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/mobil-izinler",
+      changeFrequency: "monthly",
+      priority: 0.6,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/yas-siniflandirmasi",
+      changeFrequency: "monthly",
+      priority: 0.6,
+      lastModified: defaultLastModified,
+    },
+    {
+      path: "/insights",
+      changeFrequency: "weekly",
+      priority: 0.7,
+      lastModified: insights[0]?.dateModified || insights[0]?.datePublished || defaultLastModified,
+    },
   ];
 
   const insightRoutes = insightSlugs.map((slug) => ({
     path: `/insights/${slug}`,
     changeFrequency: "weekly" as const,
     priority: slug === "desifre-transkripsiyon-kamu-veri-guvenligi" ? 0.7 : 0.6,
+    lastModified: insightDateMap.get(slug) || defaultLastModified,
   }));
 
   return [...routes, ...insightRoutes].map((route) => ({
     url: route.path === "/" ? siteConfig.url : `${siteConfig.url}${route.path}`,
-    lastModified: new Date(),
+    lastModified: new Date(route.lastModified),
     changeFrequency: route.changeFrequency,
     priority: route.priority,
   }));
