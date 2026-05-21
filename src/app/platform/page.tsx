@@ -22,6 +22,7 @@ export default function PlatformPage() {
     "toplanti-kaydi-transkripsiyon",
     "yapay-zeka-ile-ozetleme",
   ]);
+
   return (
     <main className="mx-auto max-w-7xl px-6 py-12 md:px-10">
       <SeoJsonLd
@@ -111,6 +112,35 @@ export default function PlatformPage() {
           description="Web paneli, mobil akış, konuşmacı tanıma ve özetleme mantığını ürün sayfasından destekleyen makalelere buradan geçiş verin."
           insights={relatedInsights}
         />
+      </section>
+      <section className="mt-12 rounded-[2rem] border border-slate-200/80 bg-white/85 p-8 shadow-[0_18px_55px_rgba(20,33,61,0.06)]">
+        <h2 className="text-3xl font-semibold text-slate-950">Platform mimarisini tamamlayan içerikler</h2>
+        <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+          Platformun transkripsiyon, toplantı kaydı işleme, özetleme ve kurumsal arşiv
+          katmanlarını daha detaylı anlamak için aşağıdaki insight içeriklerine geçiş yapın.
+        </p>
+        <ul className="mt-6 grid gap-3 md:grid-cols-2">
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/desifre-transkripsiyon-kamu-veri-guvenligi">
+              Deşifre ve Transkripsiyon Rehberi
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/toplanti-kaydi-transkripsiyon">
+              Toplantı Kaydı Transkripsiyon Sistemi
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/yapay-zeka-ile-ozetleme">
+              Yapay Zekâ ile Özetleme
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
+              Kurumsal Medya Arşivi
+            </a>
+          </li>
+        </ul>
       </section>
       <section className="mt-12">
         <CTASection

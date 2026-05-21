@@ -19,6 +19,7 @@ export default function PublicInstitutionsPage() {
     "desifre-transkripsiyon-kamu-veri-guvenligi",
     "kamu-video-altyazi-zorunlulugu",
   ]);
+
   const sections = [
     "Toplantı, kurul, komisyon ve eğitim kayıtlarını metne ve özetlere dönüştürür.",
     "Kurumsal hafızayı kişilerden bağımsız, aranabilir bilgi yapısına taşır.",
@@ -56,6 +57,36 @@ export default function PublicInstitutionsPage() {
           description="Toplantı kayıtlarının yazıya dökülmesi, altyazı süreçleri ve kontrollü arşiv yaklaşımı için ilgili içeriklerden ürün sayfalarına geçiş kurun."
           insights={relatedInsights}
         />
+      </section>
+      <section className="mt-12 rounded-[2rem] border border-slate-200/80 bg-white/85 p-8 shadow-[0_18px_55px_rgba(20,33,61,0.06)]">
+        <h2 className="text-3xl font-semibold text-slate-950">Kamu kurumları için okunması gereken içerikler</h2>
+        <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+          Kurumsal hafıza, veri güvenliği, erişilebilir video içerikleri ve toplantı kayıtlarının
+          metne dönüşmesi gibi başlıklarda derinleşmek için aşağıdaki insight içeriklerini
+          inceleyin.
+        </p>
+        <ul className="mt-6 grid gap-3 md:grid-cols-2">
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/desifre-transkripsiyon-kamu-veri-guvenligi">
+              Kamu Kurumları için Deşifre ve Transkripsiyon Rehberi
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kamu-kurumsal-hafiza">
+              Kamu Kurumlarında Kurumsal Hafıza
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kamu-video-altyazi-zorunlulugu">
+              Kamu Video İçeriklerinde Altyazı ve Erişilebilirlik
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
+              Kurumsal Medya Arşivi Rehberi
+            </a>
+          </li>
+        </ul>
       </section>
       <section className="mt-12">
         <CTASection

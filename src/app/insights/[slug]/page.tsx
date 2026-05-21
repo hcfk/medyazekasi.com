@@ -18,6 +18,14 @@ type PageProps = {
   }>;
 };
 
+function formatDate(dateString: string) {
+  return new Intl.DateTimeFormat("tr-TR", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  }).format(new Date(dateString));
+}
+
 const seoTitles: Record<string, string> = {
   "saha-ekipleri-mobil-ses-kaydi": "Mobil Ses Kaydı ve Transkripsiyon",
   "kamu-kurumsal-hafiza": "Kamu Kurumlarında Kurumsal Hafıza",
@@ -283,6 +291,9 @@ export default async function InsightPage({ params }: PageProps) {
 
   const { meta, content } = await getInsightBySlug(slug);
   const faqItems = insightFaqs[slug];
+  const publishedLabel = formatDate(meta.datePublished);
+  const modifiedLabel = formatDate(meta.dateModified);
+  const showUpdated = meta.dateModified !== meta.datePublished;
 
   return (
     <main className="mx-auto max-w-5xl px-6 py-12 md:px-10">
@@ -315,6 +326,10 @@ export default async function InsightPage({ params }: PageProps) {
         <div className="flex flex-wrap gap-3">
           <Badge variant="secondary">{meta.audience}</Badge>
           <Badge variant="outline">{meta.readingTime}</Badge>
+        </div>
+        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-600">
+          <span>Yayın tarihi: {publishedLabel}</span>
+          {showUpdated ? <span>Son güncelleme: {modifiedLabel}</span> : null}
         </div>
         <h1 className="mt-6 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 md:text-5xl">
           {meta.title}

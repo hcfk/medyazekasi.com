@@ -19,6 +19,7 @@ export default function PressMediaPage() {
     "belediye-basinyayin-otomasyon",
     "canli-yayin-transkripsiyon",
   ]);
+
   const points = [
     "Konuşma ve açıklamaları daha hızlı yazıya çevirir.",
     "Uzun kayıtları haber, duyuru ve sosyal medya taslağına dönüştürmeye yardımcı olur.",
@@ -56,6 +57,35 @@ export default function PressMediaPage() {
           description="Bülten üretimi, canlı yayın tekrar kullanımı ve belediye basın operasyonu konularındaki makaleler basın-yayın çözüm sayfasını destekler."
           insights={relatedInsights}
         />
+      </section>
+      <section className="mt-12 rounded-[2rem] border border-slate-200/80 bg-white/85 p-8 shadow-[0_18px_55px_rgba(20,33,61,0.06)]">
+        <h2 className="text-3xl font-semibold text-slate-950">Basın-yayın ekipleri için ilgili rehberler</h2>
+        <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+          Basın bülteni üretimi, canlı yayın sonrası içerik çıkarma ve belediye basın operasyonu
+          gibi süreçleri aşağıdaki insight içerikleriyle daha detaylı planlayabilirsiniz.
+        </p>
+        <ul className="mt-6 grid gap-3 md:grid-cols-2">
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/basin-bulteni-transkripsiyon">
+              Basın Bülteni ve Transkripsiyon
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/belediye-basinyayin-otomasyon">
+              Belediye Basın-Yayın İçerik Otomasyonu
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/canli-yayin-transkripsiyon">
+              Canlı Yayın Transkripsiyon Rehberi
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/yapay-zeka-ile-ozetleme">
+              Yapay Zekâ ile Özetleme Rehberi
+            </a>
+          </li>
+        </ul>
       </section>
       <section className="mt-12">
         <CTASection

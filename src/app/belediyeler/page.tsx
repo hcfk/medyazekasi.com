@@ -19,6 +19,7 @@ export default function MunicipalitiesPage() {
     "belediye-meclis-tutanagi",
     "canli-yayin-transkripsiyon",
   ]);
+
   const cards = [
     {
       title: "Başkanlık ve özel kalem",
@@ -69,6 +70,36 @@ export default function MunicipalitiesPage() {
           description="Meclis toplantıları, canlı yayınlar ve basın-yayın akışlarında hangi içerik modelinin daha verimli çalıştığını ilgili makaleler üzerinden inceleyin."
           insights={relatedInsights}
         />
+      </section>
+      <section className="mt-12 rounded-[2rem] border border-slate-200/80 bg-white/85 p-8 shadow-[0_18px_55px_rgba(20,33,61,0.06)]">
+        <h2 className="text-3xl font-semibold text-slate-950">Belediye odaklı ilgili içerikler</h2>
+        <p className="mt-4 max-w-3xl leading-8 text-slate-700">
+          Belediye meclis toplantıları, canlı yayın arşivi, başkan konuşmaları ve basın-yayın
+          operasyonlarının metne dönüşmesiyle ilgili detayları aşağıdaki içeriklerde derinlemesine
+          inceleyebilirsiniz.
+        </p>
+        <ul className="mt-6 grid gap-3 md:grid-cols-2">
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/belediye-meclis-tutanagi">
+              Belediye Meclis Tutanağı Nasıl Hazırlanır?
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/canli-yayin-transkripsiyon">
+              Canlı Yayın Transkripsiyon Rehberi
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/belediye-basinyayin-otomasyon">
+              Belediye Basın-Yayın İçerik Otomasyonu
+            </a>
+          </li>
+          <li>
+            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
+              Kurumsal Medya Arşivi Neden Önemlidir?
+            </a>
+          </li>
+        </ul>
       </section>
       <section className="mt-12">
         <CTASection
