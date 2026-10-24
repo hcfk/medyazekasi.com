@@ -126,6 +126,8 @@ Hostinger Next.js hosting ile uyumludur.
 
 - Install command: `npm install`
 - Build command: `npm run build`
+- Build script uses `next build --webpack`; this avoids the Turbopack
+  PostCSS subprocess startup panic observed in the Hostinger build environment.
 - Start command: `npm run start`
 - `package.json` start script: `next start -p 3000`
 - Node sürümü: `20+`
