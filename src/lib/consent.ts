@@ -22,14 +22,12 @@ export function readConsentPreferences(): ConsentPreferences | null {
     return null;
   }
 
-  const stored = window.localStorage.getItem(consentStorageKey);
-
-  if (!stored) {
-    return null;
-  }
-
   try {
-    return JSON.parse(stored) as ConsentPreferences;
+    const stored = window.localStorage.getItem(consentStorageKey);
+    if (!stored) return null;
+    const parsed = JSON.parse(stored);
+    return parsed?.necessary === true && typeof parsed.analytics === "boolean"
+      ? parsed as ConsentPreferences : null;
   } catch {
     return null;
   }
@@ -40,6 +38,10 @@ export function writeConsentPreferences(preferences: ConsentPreferences) {
     return;
   }
 
-  window.localStorage.setItem(consentStorageKey, JSON.stringify(preferences));
+  try {
+    window.localStorage.setItem(consentStorageKey, JSON.stringify(preferences));
+  } catch {
+    // Do not load analytics when a preference cannot be read back reliably.
+  }
   window.dispatchEvent(new CustomEvent(consentEventName, { detail: preferences }));
 }
