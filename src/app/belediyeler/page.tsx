@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CTASection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { RelatedInsightsSection } from "@/components/site/related-insights-section";
@@ -80,24 +81,24 @@ export default function MunicipalitiesPage() {
         </p>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/belediye-meclis-tutanagi">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/belediye-meclis-tutanagi">
               Belediye Meclis Tutanağı Nasıl Hazırlanır?
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/canli-yayin-transkripsiyon">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/canli-yayin-transkripsiyon">
               Canlı Yayın Transkripsiyon Rehberi
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/belediye-basinyayin-otomasyon">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/belediye-basinyayin-otomasyon">
               Belediye Basın-Yayın İçerik Otomasyonu
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
               Kurumsal Medya Arşivi Neden Önemlidir?
-            </a>
+            </Link>
           </li>
         </ul>
       </section>

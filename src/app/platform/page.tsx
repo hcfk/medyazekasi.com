@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { BadgeCheck, FileOutput, LayoutDashboard, Smartphone } from "lucide-react";
 
 import { CTASection } from "@/components/site/cta-section";
@@ -121,24 +122,24 @@ export default function PlatformPage() {
         </p>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/desifre-transkripsiyon-kamu-veri-guvenligi">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/desifre-transkripsiyon-kamu-veri-guvenligi">
               Deşifre ve Transkripsiyon Rehberi
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/toplanti-kaydi-transkripsiyon">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/toplanti-kaydi-transkripsiyon">
               Toplantı Kaydı Transkripsiyon Sistemi
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/yapay-zeka-ile-ozetleme">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/yapay-zeka-ile-ozetleme">
               Yapay Zekâ ile Özetleme
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
               Kurumsal Medya Arşivi
-            </a>
+            </Link>
           </li>
         </ul>
       </section>

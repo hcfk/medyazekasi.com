@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CTASection } from "@/components/site/cta-section";
 import { PageHero } from "@/components/site/page-hero";
 import { RelatedInsightsSection } from "@/components/site/related-insights-section";
@@ -67,24 +68,24 @@ export default function PublicInstitutionsPage() {
         </p>
         <ul className="mt-6 grid gap-3 md:grid-cols-2">
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/desifre-transkripsiyon-kamu-veri-guvenligi">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/desifre-transkripsiyon-kamu-veri-guvenligi">
               Kamu Kurumları için Deşifre ve Transkripsiyon Rehberi
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kamu-kurumsal-hafiza">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kamu-kurumsal-hafiza">
               Kamu Kurumlarında Kurumsal Hafıza
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kamu-video-altyazi-zorunlulugu">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kamu-video-altyazi-zorunlulugu">
               Kamu Video İçeriklerinde Altyazı ve Erişilebilirlik
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
+            <Link className="font-semibold text-cyan-900 hover:text-cyan-700" href="/insights/kurumsal-medya-arsivi">
               Kurumsal Medya Arşivi Rehberi
-            </a>
+            </Link>
           </li>
         </ul>
       </section>

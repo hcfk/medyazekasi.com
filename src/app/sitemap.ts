@@ -3,6 +3,9 @@ import type { MetadataRoute } from "next";
 import { getAllInsights } from "@/lib/content";
 import { siteConfig } from "@/lib/site";
 
+// Read MDX during the build instead of relying on runtime content files.
+export const dynamic = "force-static";
+
 const insightSlugs = [
   "basin-bulteni-transkripsiyon",
   "belediye-basinyayin-otomasyon",

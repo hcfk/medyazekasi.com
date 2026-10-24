@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  outputFileTracingIncludes: {
+    "/sitemap.xml": ["./content/insights/**/*.mdx"],
+    "/insights": ["./content/insights/**/*.mdx"],
+    "/insights/*": ["./content/insights/**/*.mdx"],
+  },
 };
 
 export default nextConfig;
