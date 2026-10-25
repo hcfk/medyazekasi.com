@@ -171,7 +171,7 @@ function validateSitemap(result, baseUrl) {
   });
   checks.push({
     label: "home present",
-    ok: locMatches.includes(`${baseUrl}/`),
+    ok: locMatches.some((url) => new URL(url).href === new URL("/", baseUrl).href),
     detail: `${baseUrl}/`,
   });
   checks.push({
