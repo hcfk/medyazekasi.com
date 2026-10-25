@@ -2,7 +2,7 @@ import Link from "next/link";
 import { ArrowRight, ShieldCheck, Sparkles } from "lucide-react";
 
 import { MockDashboard } from "@/components/site/mock-dashboard";
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button-variants";
 import { cn } from "@/lib/utils";
 
 const heroStats = [
