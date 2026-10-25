@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { deliverDemoRequest } from "@/lib/demo-delivery";
 
 const demoRequestSchema = z.object({
   fullName: z.string().min(3),
@@ -22,14 +23,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const payload = demoRequestSchema.parse(body);
 
-    // TODO: Burada kurumsal e-posta sağlayıcısı, CRM veya webhook entegrasyonu bağlanacak.
-    // TODO: Üretimde secrets yalnızca environment variable üzerinden okunmalı.
-    void payload;
-
-    return NextResponse.json({
-      message:
-        "Talebiniz alındı. Kurumunuza uygun demo akışı için ekibimiz sizinle iletişime geçecek.",
-    });
+    return deliverDemoRequest(payload);
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(

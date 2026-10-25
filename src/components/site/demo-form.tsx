@@ -57,6 +57,7 @@ export function DemoForm() {
     setStatus("idle");
     setMessage("");
 
+    try {
     const response = await fetch("/api/demo-request", {
       method: "POST",
       headers: {
@@ -65,9 +66,9 @@ export function DemoForm() {
       body: JSON.stringify(values),
     });
 
-    const result = (await response.json()) as { message?: string };
+    const result = (await response.json()) as { message?: string; delivered?: boolean };
 
-    if (!response.ok) {
+    if (!response.ok || result.delivered !== true) {
       setStatus("error");
       setMessage(result.message ?? "Demo talebi gönderilemedi.");
       return;
@@ -79,7 +80,11 @@ export function DemoForm() {
       result.message ??
         "Talebiniz alındı. Ekibimiz sizinle en kısa sürede iletişime geçecek.",
     );
-    trackEvent("demo_request_submit", { form_location: "demo_page" });
+    trackEvent("generate_lead", { form_name: "demo", locale: "tr" });
+    } catch {
+      setStatus("error");
+      setMessage("Talebiniz iletilemedi. Lütfen doğrudan e-posta seçeneğini kullanın.");
+    }
   }
 
   return (
@@ -142,6 +147,9 @@ export function DemoForm() {
           )}
           Demo Talep Et
         </Button>
+        <a href="mailto:info@gokbilge.com?subject=Medya%20Zekasi%20Demo%20Talebi" className="text-sm font-medium text-cyan-900 underline underline-offset-4">
+          Doğrudan e-posta gönder
+        </a>
         {message ? (
           <p
             className={

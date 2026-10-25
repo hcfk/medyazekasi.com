@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { deliverDemoRequest } from "@/lib/demo-delivery";
 
 const demoSchema = z.object({
   fullName: z.string().min(3),
@@ -14,33 +15,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const payload = demoSchema.parse(body);
 
-    const webhookUrl = process.env.DEMO_WEBHOOK_URL;
-
-    if (webhookUrl) {
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ...payload,
-          createdAt: new Date().toISOString(),
-          source: "medyazekasi.com",
-        }),
-      });
-
-      if (!response.ok) {
-        return NextResponse.json(
-          { message: "Webhook servisine iletim başarısız oldu." },
-          { status: 502 },
-        );
-      }
-    }
-
-    return NextResponse.json({
-      message:
-        "Talebiniz alındı. Ekibimiz en kısa sürede sizinle iletişime geçecek.",
-    });
+    return deliverDemoRequest(payload);
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
