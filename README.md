@@ -175,6 +175,7 @@ npm run test:live -- --url=https://ornek-domain.com --delay=120
 
 Bu script şunları kontrol eder:
 
+
 - `robots.txt` erişimi ve `Allow: /`
 - `sitemap.xml` erişimi ve temel URL varlığı
 - `llms.txt` erişimi ve temel bölüm yapısı
@@ -184,3 +185,7 @@ Bu script şunları kontrol eder:
 - JSON-LD structured data varlığı
 - insight makalelerinde `Article`, `FAQPage`, `BreadcrumbList`
 - raster `img` etiketlerinde eksik `alt` olup olmadığı
+
+## Demo teslimatı
+
+Demo talebi teslimatı için Hostinger ortamında `DEMO_WEBHOOK_URL` tanımlanmalıdır. HTTPS adresi zorunludur; alıcı Bearer kimlik doğrulaması istiyorsa `DEMO_WEBHOOK_TOKEN` da tanımlanır. Bu değerler yalnızca sunucuda tutulur. Tanım yoksa demo sayfası doğrudan e-posta seçeneğini gösterir. API yalnızca alıcı başarılı yanıt verdiğinde `delivered: true` döndürür ve onaylı analitikte `generate_lead` üretilir. Başarısız talepler dönüşüm sayılmaz. `npm run test:forms` gerçek ileti göndermeden teslimat durumlarını doğrular ve production derlemesinden önce çalışır.

@@ -3,6 +3,7 @@ import { PageHero } from "@/components/site/page-hero";
 import { Reveal } from "@/components/site/reveal";
 import { SeoJsonLd } from "@/components/site/seo-json-ld";
 import { buildBreadcrumbJsonLd, buildMetadata } from "@/lib/seo";
+import { siteConfig } from "@/lib/site";
 
 export const metadata = buildMetadata({
   title: "Demo Talep Et | Medya Zekâsı",
@@ -45,7 +46,17 @@ export default function DemoPage() {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <DemoForm />
+          {process.env.DEMO_WEBHOOK_URL?.startsWith("https://") ? (
+            <DemoForm />
+          ) : (
+            <div className="space-y-5 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm">
+              <h2 className="text-2xl font-semibold text-slate-950">Demo talebinizi paylaşın</h2>
+              <p className="leading-8 text-slate-700">Kurumunuzu ve değerlendirmek istediğiniz kullanım senaryosunu e-posta ile paylaşabilirsiniz.</p>
+              <a className="inline-flex rounded-full bg-slate-950 px-6 py-3 font-medium text-white" href={`mailto:${siteConfig.email}?subject=Medya%20Zekasi%20Demo%20Talebi`}>
+                E-posta ile demo talep edin
+              </a>
+            </div>
+          )}
         </Reveal>
       </section>
     </main>
